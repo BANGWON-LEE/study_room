@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import LoginForm from './components/auth/LoginForm';
+import RegisterForm from './components/auth/RegisterForm';
+import MenuForm from './components/menu/MenuForm';
+import TimeChoiceForm from './components/menu/TimeChoiceForm';
+import ZoneForm from './components/menu/ZoneForm';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact component={LoginForm} path="/" />
+        <Route exact component={RegisterForm} path="/register" />
+        <Route exact component={MenuForm} path="/menu/:id" />
+        <Route exact component={TimeChoiceForm} path="/timeChoice/:id" />
+        <Route exact component={ZoneForm} path="/zone/:id" />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
