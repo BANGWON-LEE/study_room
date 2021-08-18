@@ -63,6 +63,7 @@ const LoginForm = ({form, onChange, onSubmit, error}) => {
                             </p><StyledPassword type="password" value={form.mem_pass} onChange={onChange} name="mem_pass" />
                         </StyledDiv2>
                         <StyledDiv2>
+                            <p>{error}</p>
                             <StyledButton1>
                                 로그인
                             </StyledButton1>

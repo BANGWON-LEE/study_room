@@ -7,12 +7,15 @@ import createRequestSaga, {
 } from "../lib/createRequestSaga";
 import * as authAPI from "../lib/api/auth";
 
-const CHANGE_FIELD = "user/CHANGE_FIELD";
-const INITIALIZE_FORM = "user/INITIALIZE_FORM";
+const CHANGE_FIELD = "users/CHANGE_FIELD";
+const INITIALIZE_FORM = "users/INITIALIZE_FORM";
 
 const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
-    "user/LOGIN",
+    "users/LOGIN",
 );
+
+
+
 
 export const changeField = createAction(
     CHANGE_FIELD,
@@ -25,14 +28,15 @@ export const changeField = createAction(
 
 export const initializeForm = createAction(INITIALIZE_FORM, (form) => form);
 
-export const login = createAction(LOGIN, ({ mem_userid, mem_pass }) => ({
+export const login = createAction(LOGIN, ({ mem_userid, mem_pass, mem_name }) => ({
     mem_userid,
     mem_pass,
+    mem_name,
 })
 );
 
 const userSaga = createRequestSaga(LOGIN, authAPI.login);
-export function*  usersSaga() {
+export function * usersSaga() {
   yield takeLatest(LOGIN, userSaga);
  // yield takeLatest(LOGIN, loginSaga);
 }
@@ -42,10 +46,11 @@ const initialState = {
     login: {
         mem_userid:"", 
         mem_pass:"", 
+        mem_name:"",
         },
 };
 
-const user = handleActions(
+const users = handleActions(
   {
     [CHANGE_FIELD]: (state, { payload: { form, key, value } }) =>
       produce(state, draft => {
@@ -59,10 +64,10 @@ const user = handleActions(
       userError: null,
     }),
     
-    [LOGIN_SUCCESS]: (state, { payload: user }) => ({
+    [LOGIN_SUCCESS]: (state, { payload: users }) => ({
         ...state,
         userError: null,
-        user,
+        users,
     }),
     [LOGIN_FAILURE]: (state, { payload: error }) => ({
         ...state,
@@ -72,4 +77,4 @@ const user = handleActions(
 initialState,
 );
 
-export default user;
+export default users;

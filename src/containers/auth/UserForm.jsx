@@ -1,26 +1,21 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { changeField, initializeForm, login } from "../../modules/user";
+import { changeField, initializeForm, login } from "../../modules/users";
 import LoginForm from '../../components/auth/LoginForm';
+// import { checkOk } from "../../modules/check";
 
-//import { check } from "../../modules/user";
 
-
-function UserForm() {
+function UserForm({history}) {
 
     const [error, setError] = useState('');
     const dispatch = useDispatch();
-    const { form, user, userError } = useSelector(({ user }) => ({
-      form: user.login,
-      user: user.user,
-      userError: user.userError,
+    const { form, users, userError } = useSelector(({ users }) => ({
+      form: users.login,
+      users: users.users,
+      userError: users.userError,
 
     }));
-
-  
-    
-    console.log(form.mem_userid);
     
     const onChange = (event) => {
       const { value, name } = event.currentTarget;
@@ -44,7 +39,7 @@ function UserForm() {
       
         return;
       }
-   
+      
 
       dispatch(login({mem_userid, mem_pass}));
     };
@@ -61,25 +56,43 @@ function UserForm() {
     
       useEffect(() => {
         if (userError) {
-            if (userError.response.status === 409) {
-            setError("이미 존재하는 계정명입니다.");
+            if (userError.response.status === 401) {
+            setError("아이디 또는 비밀번호를 확인해주세요");
             
-             return;
-           }
+            return;
+          }
           console.log(`error!`);
           console.log(userError);
-          setError("존재하지 않는 계정입니다.");
+          setError("아이디 또는 비밀번호를 확인해주세요");
           return;
         }
-        if (user) {
+        if (users) {
           console.log("성공");
-          console.log(user);
-          //dispatch(check());
+          console.log(users);
+          // dispatch(checkOk());
+          alert(`공부합시다. ${form.mem_userid}님!`);
+          history.push('/menu');
           return;
         }
-      }, [user, userError, dispatch, error]);
+      }, [users, userError, dispatch, error]);
 
-      
+      useEffect(() => {
+        if(users){  
+            try{
+                console.log("users : " + JSON.stringify(users));
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                
+            }catch(e){
+                console.log('localStorage error');
+            }
+        }
+    }, [history, users]);
+
+
+
+
+
 return (
     <LoginForm
     form={form}

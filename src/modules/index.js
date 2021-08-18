@@ -1,13 +1,15 @@
 import { combineReducers } from "redux";
 import { all } from "redux-saga/effects";
 import auth, {authSaga} from "./auth";
-import user, {usersSaga} from "./user";
+import users, {usersSaga} from "./users";
+//import check, {checksSaga} from "./check";
 
 
 
 const rootReducer = combineReducers({
     auth,
-    user,
+    users,
+    //check,
   });
   
   export function* rootSaga() {

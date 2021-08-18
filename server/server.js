@@ -8,7 +8,7 @@ const db = require('./config/db');
 
 app.use(express.json());
 router.use(express.json());
-let check = new Object();
+let check2 = new Object();
 
 app.post('/api/register',function (req, res) {
 
@@ -18,14 +18,14 @@ app.post('/api/register',function (req, res) {
       "insert into tb_mem(mem_userid, mem_pass, mem_name, mem_status, mem_hp) values(?,?,?,?,?)",params ,(err,row) => {
         
       if(row > 0) {
-        check.tf = false;  
+        check2.tf = true;  
         res.send(200)
       
       }
 
 
         if(err){
-        check.tf = false;  
+        check2.tf = false;  
      
         res.send(409);
         }
@@ -44,35 +44,59 @@ app.post('/api/register',function (req, res) {
 );
 
 
-router.get('/api/login',function (req, res) {
-
-  const params = [req.query.mem_userid, req.query.mem_pass]
-  
+app.post('/api/login', async function (req, res) {
+  console.log(req.body.mem_userid);
   db.query(
     "select * from tb_mem where mem_userid='" 
-    + req.params.mem_userid+"'and mem_pass='"+req.params.mem_pass+"'" , (err,row) => {
+    + req.body.mem_userid+"'and mem_pass='"+req.body.mem_pass+"'" , (err,row) => {
       
 
-try{
-    if (row[0] === undefined) { //중복되는게 없으면 (없으니까 못가져왓겠지)
-      check.tf = true;  //없음 사용가능
-      res.send(check);  //다시 클라이언트로 보낸다 checkid 객체를
-  }
-
-  else {
+    if (row[0] === undefined ) { //중복되는게 없으면 (없으니까 못가져왓겠지)
+           
+       
+        check2.tf = false;  //없음 사용가능
+          res.send(409);  //다시 클라이언트로 보낸다 checkid 객체를
       
-    check.tf = false; // 중복됨 사용x
-      res.send(check);
+      
+      
+      }
+    
+    else {
+        
+        check2.tf = row[0]; // 중복됨 사용x
+        res.send(check2);
+      
+      
 
-  } }catch(e){
-    res.thorws(409);
-  }
+          
+      } 
+
+     
+
+      
+
+
 
 });
   
 
 });
 
+
+
+
+
+
+
+  app.get('/api/check',  function(req, res) {
+  const { check } = req.state;
+  if (!check) {
+    res.status = 401;
+    return;
+  }
+  res.body = check;
+    
+});
 
 
 

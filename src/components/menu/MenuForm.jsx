@@ -4,7 +4,7 @@ import StyledButtonMenu from '../styled/StyledButtonMenu';
 import StyledDiv2 from '../styled/StyledDiv2';
 import StyledH1 from '../styled/StyledH1';
 
-export default function MenuForm() {
+export default function MenuForm({onSubmit}) {
 
     return (
         <div className="body">
@@ -20,9 +20,11 @@ export default function MenuForm() {
                 <StyledDiv2>
                     <StyledButtonMenu>자리이동</StyledButtonMenu>
                 </StyledDiv2>
-                <StyledDiv2>
-                    <StyledButtonMenu>퇴실</StyledButtonMenu>
-                </StyledDiv2>
+                <form onSubmit={onSubmit}>
+                    <StyledDiv2>
+                        <StyledButtonMenu>퇴실</StyledButtonMenu>
+                    </StyledDiv2>
+                </form>    
             </StyledDiv1>
         </div>
     )
