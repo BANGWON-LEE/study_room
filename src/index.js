@@ -8,6 +8,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer, { rootSaga } from './modules';
 import App from './App';
 
+
    const sagaMiddleware = createSagaMiddleware();
 
  const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
@@ -20,4 +21,5 @@ import App from './App';
       </BrowserRouter>
     </Provider>,
     document.getElementById('root')
-  );
+    );
+   

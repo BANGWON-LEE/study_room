@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import StyledDiv1 from '../styled/StyledDiv1';
 import StyledButtonMenu from '../styled/StyledButtonMenu';
 import StyledDiv2 from '../styled/StyledDiv2';
 import StyledH1 from '../styled/StyledH1';
 import StyledButton1 from '../styled/StyledButton1';
 import StyledSubmit from '../styled/StyledSubmit';
+import { Link } from 'react-router-dom';
+//import SeatPage from '../../pages/SeatPage'
+//import SeatForm from './SeatForm'
+import SeatDetail from '../../containers/menu/SeatDetail';
 
-export default function TimeChoiceForm() {
-
+const TimeChoiceForm = ({hour,onClick, threeClick, cost, handleSeat, seatForm}) => {
+    
     return (
         <div className="body">
             <StyledDiv1>
@@ -17,22 +21,26 @@ export default function TimeChoiceForm() {
                     </StyledH1>
                 </div>        
                 <StyledDiv2>
-                    <StyledButtonMenu> + 1시간 <br/>(1500원)</StyledButtonMenu>
+                    <StyledButtonMenu onClick={onClick}> + 1시간 <br/>(1500원)</StyledButtonMenu>
                 </StyledDiv2>
                 <StyledDiv2>
-                    <StyledButtonMenu>+ 3시간 <br/>(3500원)</StyledButtonMenu>
+                    <StyledButtonMenu onClick={threeClick}>+ 3시간 <br/>(3500원)</StyledButtonMenu>
                 </StyledDiv2>
-                <StyledDiv2>
-                    선택 시간
-                </StyledDiv2>
-                <StyledDiv2>
-                    납부해야 할 금액
-                </StyledDiv2>      
-                <StyledDiv2>
-                    <StyledSubmit>자리 선택</StyledSubmit>
-                </StyledDiv2>
+                
+                    <StyledDiv2>
+                        {hour} 시간
+                    </StyledDiv2>
+                    <StyledDiv2>
+                        {cost} 원
+                    </StyledDiv2>      
+                    <StyledDiv2>
+                        <StyledSubmit onClick={handleSeat}>다음</StyledSubmit>    
+                    </StyledDiv2>
             </StyledDiv1>
+          
         </div>
     )
 
 }
+
+export default TimeChoiceForm;

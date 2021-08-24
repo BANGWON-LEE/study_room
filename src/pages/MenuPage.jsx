@@ -1,10 +1,10 @@
 import React from 'react';
-import MenuDetailfrom from'../containers/menu/MenuDetailForm';
+import MenuDetailform from'../containers/menu/MenuDetailForm';
 
 function LoginPage() {
 
     return(
-        <MenuDetailfrom />
+        <MenuDetailform />
     )
 
 }

@@ -6,7 +6,9 @@ display: block;
 margin: 0 auto;
 padding-top : 50px;
 width : 62%;
-
+display: inline-block;
+width: 80px;
+height: 80px;
 
 
 

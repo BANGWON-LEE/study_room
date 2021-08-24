@@ -42,6 +42,7 @@ function UserForm({history}) {
       
 
       dispatch(login({mem_userid, mem_pass}));
+     
     };
 
 
@@ -51,7 +52,7 @@ function UserForm({history}) {
 
 
     useEffect(() => {
-        dispatch(initializeForm("login"));
+        dispatch(initializeForm("LOGIN"));
       }, [dispatch]);
     
       useEffect(() => {
@@ -70,11 +71,11 @@ function UserForm({history}) {
           console.log("성공");
           console.log(users);
           // dispatch(checkOk());
-          alert(`공부합시다. ${form.mem_userid}님!`);
+
           history.push('/menu');
           return;
         }
-      }, [users, userError, dispatch, error]);
+      }, [users, userError, error]);
 
       useEffect(() => {
         if(users){  

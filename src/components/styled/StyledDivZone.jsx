@@ -5,8 +5,8 @@ position: relative;
 display: block;
 margin: 0 auto;
 border : 2px solid gray;
-width : 60%;
-height : 400px;
+width : 70%;
+height : 600px;
 
 
 `;

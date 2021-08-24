@@ -3,8 +3,8 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import LoginForm from './pages/LoginPage';
 import RegisterForm from './pages/RegisterPage';
 import MenuForm from './pages/MenuPage';
-import TimeChoiceForm from './components/menu/TimeChoiceForm';
-import ZoneForm from './components/menu/ZoneForm';
+import TimeChoiceForm from './pages/TimeChoicePage';
+import SeatPage from './pages/SeatPage';
 
 
 function App() {
@@ -12,10 +12,11 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact component={LoginForm} path="/" />
+        <Route exact component={LoginForm} path="/login" />
         <Route exact component={RegisterForm} path="/register" />
         <Route exact component={MenuForm} path="/menu" />
-        <Route exact component={TimeChoiceForm} path="/timeChoice/:id" />
-        <Route exact component={ZoneForm} path="/zone/:id" />
+        <Route exact component={TimeChoiceForm} path="/timeChoice" />
+        <Route exact component={SeatPage} path="/seat" />
       </Switch>
     </BrowserRouter>
   );
