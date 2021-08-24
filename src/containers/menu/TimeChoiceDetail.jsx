@@ -58,10 +58,12 @@ function TimeChoiceDetail({history, location}) {
         console.log("!!:"+ st_endDate);
         console.log("!!:" + st_seatNumber);
 
+        alert('좌석을 지정하였습니다.')
+        history.push('/menu');
+
         dispatch(seats({st_mem_idx, st_endDate, st_seatNumber }));
         
-        //alert('좌석을 지정하였습니다.')
-        //history.push('/menu');
+      
           
         
       };  
@@ -113,7 +115,7 @@ function TimeChoiceDetail({history, location}) {
        if (seat) {
          console.log("성공@@#");
          console.log(seat);
-       
+    
          return;
          
        }

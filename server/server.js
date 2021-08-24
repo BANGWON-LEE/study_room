@@ -122,7 +122,7 @@ app.get("/api/zone", (req, res) => {
     } else {
       check2.tf = rows
       console.log(rows);
-      res.send(check2);
+      res.send(rows);
     }
   });
 });

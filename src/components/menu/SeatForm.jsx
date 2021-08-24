@@ -14,7 +14,7 @@ import SeatZoneForm from './SeatZoneForm'
 
 const SeatForm = ({onSubmit, zones, users, hour, onClickZone}) => {
     
-    const dispatch = useDispatch();
+   
 
 
     
@@ -45,7 +45,6 @@ const SeatForm = ({onSubmit, zones, users, hour, onClickZone}) => {
 
     return (
         <div className="body">
-            <form onSubmit={onSubmit}>
             <StyledDivZone>
             <StyledDiv1>
                 <div className="title">
@@ -57,9 +56,9 @@ const SeatForm = ({onSubmit, zones, users, hour, onClickZone}) => {
             { zones && (
                 <StyledDivZone3 style={{height : '80%'}}>
               {zones.map((zone) => ( 
-
-
-                            <SeatZoneForm zone={zone} key={zone.st_seatNumber} hour={hour}
+                  
+                  
+                  <SeatZoneForm zone={zone} key={zone.st_seatNumber} hour={hour}
                             users={users} onClickZone={onClickZone}/>
                 
                     
@@ -69,6 +68,7 @@ const SeatForm = ({onSubmit, zones, users, hour, onClickZone}) => {
             )}
                 
             </StyledDivZone>
+            <form onSubmit={onSubmit}>
                 <StyledDiv2 style={{textAlign: "center"}}>
                     <StyledSubmit>좌석 선택</StyledSubmit>
                 </StyledDiv2>
