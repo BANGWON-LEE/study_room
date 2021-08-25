@@ -47,7 +47,7 @@ function MenuDetailForm({hour}) {
     useEffect(() => {
       if (logoutError) {
          if (logoutError.response.status === 400) {
-         window.location.replace("/login");
+          window.location.replace("/login");
            return;
          }
         console.log(`error!`);
@@ -71,6 +71,7 @@ function MenuDetailForm({hour}) {
 return (
     <MenuForm
       onSubmit={onSubmit}
+      users={users}
     />
     )
 };

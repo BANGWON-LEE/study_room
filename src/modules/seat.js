@@ -16,7 +16,7 @@ const [SEAT, SEAT_SUCCESS, SEAT_FAILURE] = createRequestActionTypes(
 export const initializeForm = createAction(INITIALIZE_FORM, (form) => form);
 
 
-export const seats = createAction(SEAT,({ st_mem_idx, st_endDate, st_seatNumber}) => ({st_mem_idx, st_endDate, st_seatNumber}));
+export const seats = createAction(SEAT,({ st_mem_idx, st_endDate, st_seatNumber, mem_userid}) => ({st_mem_idx, st_endDate, st_seatNumber, mem_userid}));
 
 const seatSaga = createRequestSaga(SEAT, menuAPI.seat);
 export function* seatsSaga() {
@@ -28,7 +28,8 @@ const initialState = {
     
   st_mem_idx:"",
   st_endDate:"",
-  st_seatNumber:"", 
+  st_seatNumber:"",
+  mem_userid:"", 
   
 };
 

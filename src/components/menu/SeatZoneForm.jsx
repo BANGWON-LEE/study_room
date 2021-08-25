@@ -7,19 +7,10 @@ const SeatZoneForm = ({zone,  onSubmit, onClickZone }) => {
    
     const {st_idx ,st_seatNumber, st_seatStatus,} = zone
 
-
-  
-
-
-
-
-        console.log("@@ : " + st_seatNumber)
-
-
     return(
  
         <StyledDivZone2>
-            <StyledButtonZone onClick={onClickZone}  data-value={st_seatNumber} click>{st_seatNumber}</StyledButtonZone>            
+            {st_seatStatus === 'S' ? <StyledButtonZone onClick={onClickZone}  data-value={st_seatNumber} click style={{backgroundColor : 'red',  pointerEvents: 'none'}}>{st_seatNumber}</StyledButtonZone>  :     <StyledButtonZone onClick={onClickZone}  data-value={st_seatNumber} click >{st_seatNumber}</StyledButtonZone>}        
         </StyledDivZone2>
   
     )

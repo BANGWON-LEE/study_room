@@ -62,7 +62,7 @@ app.post('/api/login', function (req, res) {
 app.post('/api/logout',  function (req, res, {history}) {
   console.log(req.body.mem_userid);
   db.query(
-    "UPDATE tb_mem AS a JOIN tb_seat AS b ON(a.mem_idx = b.st_mem_idx) SET a.mem_status='O', b.st_seatStatus = 'E' WHERE a.mem_userid= '" + req.body.mem_userid + "'" , (err,row) => {
+    "UPDATE tb_mem AS a JOIN tb_seat AS b ON(a.mem_idx = b.st_mem_idx) SET a.mem_status='O', b.st_seatStatus = 'E', b.st_mem_idx = null WHERE a.mem_userid= '" + req.body.mem_userid + "'" , (err,row) => {
       
      
     if (row[0] === undefined ) { //중복되는게 없으면 (없으니까 못가져왓겠지)
@@ -84,6 +84,7 @@ app.post('/api/logout',  function (req, res, {history}) {
 
 
 app.post('/api/seat',  function (req, res) {
+  const userid = req.body.mem_userid
   const idx = req.body.st_mem_idx;
   const endDate = req.body.st_endDate;
   const num = req.body.st_seatNumber
@@ -95,22 +96,25 @@ app.post('/api/seat',  function (req, res) {
   console.log("server : " + date);
   console.log("server : " + date1);
   console.log("server : " + num);
+  console.log("server : " + userid);
+
+  //쿼리 수정해야 함
 
   db.query(
-    "UPDATE tb_seat SET st_mem_idx = "+idx+", st_seatStatus = 'S', st_regDate = CAST(DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s')as char(30)), st_endDate = DATE_ADD(NOW(), INTERVAL "+endDate+" HOUR) where st_seatNumber =  "+ num ,  (err,row) => {
+    "UPDATE tb_mem AS a , tb_seat AS b  SET a.mem_status='L', b.st_mem_idx = "+idx+", b.st_seatStatus = 'S', b.st_regDate = CAST(DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s')as char(30)), b.st_endDate = DATE_ADD(NOW(), INTERVAL "+endDate+" HOUR) where b.st_seatNumber =  '"+ num +"' AND a.mem_userid = '"+userid+"'" ,  (err,row) => {
       
       
       if(row > 0) {
+        check2.tf = true;  
+          res.send(200)
        
-          check2.tf = false;  
-     
-          res.send(409);
       }
 
 
         if(err){
-          check2.tf = true;  
-          res.send(200)
+          check2.tf = false;  
+     
+          res.send(err);
         }
 })
 });

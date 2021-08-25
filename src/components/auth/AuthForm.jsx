@@ -25,57 +25,7 @@ function AuthForm({ form, onChange, onSubmit, error}) {
     }
    
 
-    // const [u_id, setU_id] = useState('');
-    // const [u_pw, setU_pw] = useState('');
-    // const [u_pw_ck, sewU_pw_ck] = useState('');
-    // const [u_name, setU_name] = useState('');
-    // const [u_hp, setU_hp] = useState('');
-
-    // const onU_id = (e) => {
-    //     setU_id(e.currentTarget.value)
-    // }
-
-    // const onU_pw = (e) => {
-    //     setU_pw(e.currentTarget.value)
-    // }
-    
-    // const onU_pw_Ck =(e) => {
-    //     sewU_pw_ck(e.currentTarget.value)
-    // }
-
-    // const onU_name = (e) => {
-    //     setU_name(e.currentTarget.value)
-    // }
-
-    // const onU_hp = (e) => {
-    //     setU_hp(e.currentTarget.value)
-    // }
-
-//     const pwRef = useRef(null);
-    
-//      function u_register() {
-//             console.log(u_id)
-
-//         if(u_pw !== u_pw_ck) {
-//             alert('비밀번호가 일치하지 않습니다.');
-//             return pwRef.current.focus();
-//         } 
-
-//         axios.post('api/register', {
-//             userId : u_id,
-//             userPw : u_pw,
-//             userName : u_name,
-//             userHp : u_hp,
-//         }
-//     ).then(function(response){
-//             console.log(response);
-//         }).catch(function(error) {
-//             console.log(error);
-//         });
-
-//     history.push('/');
-//     alert('가입성공');
-// }
+  
 
     return(
         <div className="body">
