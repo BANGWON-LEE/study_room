@@ -28,7 +28,9 @@ const MenuForm = ({onSubmit, users}) => {
                         </Link>
                     </StyledDiv2>
                     <StyledDiv2>
-                        <StyledButtonMenu>자리이동</StyledButtonMenu>
+                        <Link to= '/seat'>
+                            <StyledButtonMenu>좌석확인</StyledButtonMenu>
+                        </Link>
                     </StyledDiv2>
                 <form onSubmit={onSubmit}>
                     <StyledDiv2>

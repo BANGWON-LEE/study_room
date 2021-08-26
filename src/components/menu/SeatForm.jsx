@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { seats } from '../../modules/seat';
 
 import StyledButtonZone from '../styled/StyledButtonZone';
@@ -14,34 +15,6 @@ import SeatZoneForm from './SeatZoneForm'
 
 const SeatForm = ({onSubmit, zones, users, hour, onClickZone}) => {
     
-   
-
-
-    
-
-  
-
-    
-    // const zoneRender = () => {
-    //     const result =[];
-    //         for(let i = 0; i < zones.length; i++ ){
-    //             result.push(
-    //             <StyledDivZone2>
-    //                 <StyledButtonZone>{st_seatNumber[i]}</StyledButtonZone>
-    //             </StyledDivZone2>
-    //             )
-    //         }
-    //         return result;   
-    // }
-
-
-
-
-
-
-    
-
-
 
     return (
         <div className="body">
@@ -49,7 +22,7 @@ const SeatForm = ({onSubmit, zones, users, hour, onClickZone}) => {
             <StyledDiv1>
                 <div className="title">
                     <StyledH1>
-                        좌석 선택
+                        좌석
                     </StyledH1>
                 </div>
             </StyledDiv1>
@@ -68,11 +41,19 @@ const SeatForm = ({onSubmit, zones, users, hour, onClickZone}) => {
             )}
                 
             </StyledDivZone>
+            {hour >= 1 ? 
             <form onSubmit={onSubmit}>
                 <StyledDiv2 style={{textAlign: "center"}}>
                     <StyledSubmit>좌석 선택</StyledSubmit>
                 </StyledDiv2>
-            </form>    
+            </form> 
+                :
+            <Link to='/menu'>
+               <StyledDiv2 style={{textAlign: "center"}}>
+                    <StyledSubmit>메뉴</StyledSubmit>
+                </StyledDiv2>
+           </Link>
+}
         </div>
 
 
