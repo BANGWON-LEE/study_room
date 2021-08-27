@@ -17,29 +17,29 @@ const SeatForm = ({onSubmit, zones, users, hour, onClickZone}) => {
     
 
     return (
-        <div className="body">
-            <StyledDivZone>
-            <StyledDiv1>
-                <div className="title">
-                    <StyledH1>
-                        좌석
-                    </StyledH1>
-                </div>
-            </StyledDiv1>
-            { zones && (
-                <StyledDivZone3 style={{height : '80%'}}>
-              {zones.map((zone) => ( 
-                  
-                  
-                  <SeatZoneForm zone={zone} key={zone.st_seatNumber} hour={hour}
-                            users={users} onClickZone={onClickZone}/>
-                
+        <div className="body" >
+            <StyledDivZone style={{backgroundColor : '#E7E7E7'}}>
+                <StyledDiv1>
+                    <div className="title">
+                        <StyledH1>
+                            좌석
+                        </StyledH1>
+                    </div>
+                </StyledDiv1>
+                { zones && (
+                    <StyledDivZone3 style={{height : '80%'}}>
+                {zones.map((zone) => ( 
                     
+                    
+                    <SeatZoneForm zone={zone} key={zone.st_seatNumber} hour={hour}
+                                users={users} onClickZone={onClickZone}/>
+                    
+                        
 
-               ))} 
-                </StyledDivZone3>
-            )}
-                
+                ))} 
+                    </StyledDivZone3>
+                )}
+                    
             </StyledDivZone>
             {hour >= 1 ? 
             <form onSubmit={onSubmit}>

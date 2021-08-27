@@ -4,14 +4,10 @@ const StyledButtonZone = styled.button`
     border-radius: 3px;
     background : white;
     border : 2px solid pink;        
-    width:45px;
-    height: 40px;
+    width:60px;
+    height: 43px;
 
-    :hover {
-        background-color: red;
-        border : 2px solid red;
-        
-        }
+
     :focus {
         background-color: red;
         }
