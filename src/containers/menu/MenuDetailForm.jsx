@@ -22,7 +22,7 @@ function MenuDetailForm({hour}) {
 
     
     function onSubmit(event){
-      const mem_userid = users.tf.mem_userid
+      const mem_userid = users.tf?.mem_userid
       console.log("!!:"+ mem_userid);
 
       localStorage.removeItem('users', JSON.stringify(users));
@@ -37,7 +37,7 @@ function MenuDetailForm({hour}) {
       if (logout === false) {
         console.log("성공");
         console.log(logout);
-        // dispatch(checkOk());
+       
         
         
         return;

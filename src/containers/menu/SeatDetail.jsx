@@ -38,47 +38,6 @@ function SeatDetail({history, location}) {
       dispatch(listZones({st_mem_idx, st_seatNumber,st_seatStatus,st_regDate, st_endDate}))
     },[dispatch, location.search]);
 
-  
-
-
-      const [st_seatNumber, setSt_seatNumber] = useState();
-
-    //   function onClickZone(event) {
-    //       const st_seatNumber = event.currentTarget.getAttribute('data-value');
-    //       setSt_seatNumber(st_seatNumber)
-    //   }
-  
-    //   function onSubmit(event){
-    //     event.preventDefault();  
-    //     console.log(event.currentTarget.getAttribute('data-value'))
-    //     const st_mem_idx = users.tf.mem_idx
-    //     const mem_userid = users.tf.mem_userid;
-      
-    //     //const st_endDate = date.setHours(date.getHours()+hour)
-    //     const st_endDate = hour
-       
-    //     console.log("!!:"+ st_mem_idx);
-    //     console.log("!!:"+ st_endDate);
-    //     console.log("!!:" + st_seatNumber);
-
-    //     alert('좌석을 지정하였습니다.')
-    //     dispatch(seats({st_mem_idx, st_endDate, st_seatNumber,mem_userid }));
-    //     window.location.replace("/login");
-        
-      
-          
-        
-    //   };  
-
-
-
-
-
-
-
-
-    
-
     function handleSeat() {
         handleSeatForm(true)
     }
@@ -86,10 +45,7 @@ function SeatDetail({history, location}) {
     useEffect(() => {
       dispatch(initializeForm("seat"));
       }, [dispatch]);
-
-    // const [seat1 ,seatSet1] = useState('E')
-    // const [seat2 ,seatSet2] = useState('E')  
-
+      
     useEffect(() => {
       if (seatError) {
           if (seatError.response.status === 400) {
@@ -115,7 +71,7 @@ function SeatDetail({history, location}) {
     useEffect(() => {
       if (zonesError) {
           if (zonesError.response.status === 400) {
-          //window.location.replace("/login");
+    
        return;
           }
          console.log(`error!`);

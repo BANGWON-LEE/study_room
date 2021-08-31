@@ -14,9 +14,6 @@ const [REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE] = createRequestActionTypes(
   "auth/REGISTER",
 );
 
-// const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
-//   "auth/LOGIN",
-// );
 
 export const changeField = createAction(
   CHANGE_FIELD,
@@ -35,17 +32,13 @@ export const register = createAction(REGISTER, ({ mem_userid, mem_pass,  mem_nam
   mem_name, 
   mem_hp
 }));
-// export const login = createAction(LOGIN, ({ username, password }) => ({
-//   username,
-//   password,
-// })
-//);
+
 
 const registerSaga = createRequestSaga(REGISTER, authAPI.register);
-//const loginSaga = createRequestSaga(LOGIN, authAPI.login);
+
 export function* authSaga() {
   yield takeLatest(REGISTER, registerSaga);
- // yield takeLatest(LOGIN, loginSaga);
+
 }
 
 const initialState = {
@@ -55,10 +48,6 @@ const initialState = {
     mem_name:"", 
     mem_hp:""
   },
-  // login: {
-  //   mem_userid:"", 
-  //   mem_pass:"", 
-  // },
 };
 
 const auth = handleActions(
@@ -83,15 +72,6 @@ const auth = handleActions(
       ...state,
       authError: error,
     }),
-    // [LOGIN_SUCCESS]: (state, { payload: auth }) => ({
-    //   ...state,
-    //   authError: null,
-    //   auth,
-    // }),
-    // [LOGIN_FAILURE]: (state, { payload: error }) => ({
-    //   ...state,
-    //   authError: error,
-    // }),
   },
   initialState,
 );

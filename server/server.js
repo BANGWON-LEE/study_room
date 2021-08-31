@@ -103,7 +103,8 @@ app.post('/api/seat',  function (req, res) {
   db.query(
     "UPDATE tb_mem AS a , tb_seat AS b  SET a.mem_status='L', b.st_mem_idx = "+idx+", b.st_seatStatus = 'S', b.st_regDate = CAST(DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s')as char(30)), b.st_endDate = DATE_ADD(NOW(), INTERVAL "+endDate+" HOUR) where b.st_seatNumber =  '"+ num +"' AND a.mem_userid = '"+userid+"'" ,  (err,row) => {
       
-      
+  
+
       if(row > 0) {
         check2.tf = true;  
           res.send(200)
@@ -117,6 +118,7 @@ app.post('/api/seat',  function (req, res) {
           res.send(err);
         }
 })
+
 });
 
 app.get("/api/zone", (req, res) => {

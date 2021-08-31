@@ -19,7 +19,7 @@ const MenuForm = ({onSubmit, users}) => {
                     </div>        
                     <StyledDiv2>
                         <Link to='/timeChoice'>
-                            {users.tf.mem_status === 'L' ?
+                            {users.tf?.mem_status === 'L' ?
                                 null :
                             <StyledButtonMenu>
                                 입장

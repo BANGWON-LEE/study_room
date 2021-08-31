@@ -5,12 +5,11 @@ import { withRouter } from "react-router-dom";
 import { changeField, initializeForm, register } from "../../modules/auth";
 import AuthForm from '../../components/auth/AuthForm';
 
-//import { check } from "../../modules/user";
 
 
 function RegisterForm({history}) {
 
-    const [error, setError] = useState('데이터를 입력하세요');
+    const [error, setError] = useState('정보를 입력하세요');
     const dispatch = useDispatch();
     const { form, auth, authError } = useSelector(({ auth }) => ({
       form: auth.register,
