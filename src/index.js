@@ -9,17 +9,16 @@ import rootReducer, { rootSaga } from './modules';
 import App from './App';
 
 
-   const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware();
 
- const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
- sagaMiddleware.run(rootSaga);
+  const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
+  sagaMiddleware.run(rootSaga);
 
   ReactDOM.render(
-     <Provider store={store}>
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>,
     document.getElementById('root')
     );
-   

@@ -1,6 +1,4 @@
-import axios from 'axios';
-import React, {useState} from 'react';
-
+import React from 'react';
 import { Link } from 'react-router-dom';
 import StyledButton1 from '../styled/StyledButton1';
 import StyledDiv1 from '../styled/StyledDiv1';
@@ -9,36 +7,10 @@ import StyledH1 from '../styled/StyledH1';
 import StyledPassword from '../styled/StyledPassword';
 import StyledText1 from '../styled/StyledText1';
 
+//index화면이자 로그인 기능을 하는 컴포넌트이다. 
+
+
 const LoginForm = ({form, onChange, onSubmit, error}) => {
-
-
-
-//     const [mem_userid, setMem_userid] = useState('')
-//     const [mem_pass, setMem_userpass] = useState('')
-
-
-// function u_login() {
-
-//     console.log("아이디 : " + mem_userid);
-
-//     const res =  axios.get('api/login', { params:{
-//         userId : mem_userid,
-//         userPw : mem_pass,
-        
-//     }
-    
-//     },
-    
-//     ).then(function(response){
-//         console.log(response);
-//     }).catch(function(error) {
-//         console.log(error);
-//     });
-
-        
-// }
-    
-  
 
 
     return(

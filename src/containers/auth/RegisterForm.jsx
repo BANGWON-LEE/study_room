@@ -52,7 +52,7 @@ function RegisterForm({history}) {
           changeField({ form: "register", key: "mem_passChk", value: "" }),
         );
         return;
-      }
+      } 
       dispatch(register({mem_userid, mem_pass, mem_name, mem_hp }));
     };
 
@@ -68,12 +68,12 @@ function RegisterForm({history}) {
     
       useEffect(() => {
         if (authError) {
-           if (authError.response.status === 409) {
+          if (authError.response.status === 409) {
 
-             setError("이미 존재하는 계정명입니다.");
+            setError("이미 존재하는 계정명입니다.");
             
-             return;
-           }
+            return;
+          }
           console.log(`error!`);
           console.log(authError);
 
@@ -82,6 +82,7 @@ function RegisterForm({history}) {
         if (auth) {
           console.log("성공");
           console.log(auth);
+          setError("가입성공");
         
           return;
           

@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import StyledDiv1 from '../styled/StyledDiv1';
 import StyledButtonMenu from '../styled/StyledButtonMenu';
 import StyledDiv2 from '../styled/StyledDiv2';
 import StyledH1 from '../styled/StyledH1';
-import StyledButton1 from '../styled/StyledButton1';
 import StyledSubmit from '../styled/StyledSubmit';
-import { Link } from 'react-router-dom';
-//import SeatPage from '../../pages/SeatPage'
-//import SeatForm from './SeatForm'
-import SeatDetail from '../../containers/menu/SeatDetail';
 
-const TimeChoiceForm = ({hour,onClick, threeClick, cost, handleSeat, seatForm}) => {
+// 메뉴 컴포넌트에 [입장]버튼을 클릭하면 현재 컴포넌트로 이동한다.
+// 사용할 시간을 선택하면 사용할 시간{hour}과 납부할 금액{cost}이 나타난다.
+// onClick 즉, {handleSeat}는 좌석을 선택하는 컴포넌트를 불러오는 역할을 한다. 그러면 시간 선택 부분
+// 아래에 좌석을 선택하는 화면이 나타난다.
+
+const TimeChoiceForm = ({hour,onClick, threeClick, cost, handleSeat}) => {
     
     return (
         <div className="body">

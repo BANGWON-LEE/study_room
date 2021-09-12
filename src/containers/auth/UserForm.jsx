@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { changeField, initializeForm, login } from "../../modules/users";
 import LoginForm from '../../components/auth/LoginForm';
-// import { checkOk } from "../../modules/check";
+
 
 
 function UserForm({history}) {
@@ -42,14 +42,8 @@ function UserForm({history}) {
       
 
       dispatch(login({mem_userid, mem_pass}));
-     
+    
     };
-
-
-
-
-
-
 
     useEffect(() => {
         dispatch(initializeForm("LOGIN"));

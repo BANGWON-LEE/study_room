@@ -8,11 +8,15 @@ import StyledH1 from '../styled/StyledH1';
 import StyledPassword from '../styled/StyledPassword';
 import StyledText1 from '../styled/StyledText1';
 
-
-
-
-
-
+// 회원가입 기능하는 컴포넌트이다.
+// 정보를 다 입력 한 후 [가입정보체크] 버튼을 누르면 두 가지 행동이 취해진다.
+// 1. container(auth/RegisterFrom.jsx)로 입력한 값을 넘기고 db와 연결되어 정보가 insert 된다.
+// 만약 똑같은 정보의 입력한 값(같은 정보의 계정)이 있다면 "이미 존재하는 계정명입니다. "라는  
+// 메시지가 나오고 [로그인 화면으로]라는 Link가 나온다.
+// 2. 같은 정보의 입력한 값(같은 정보의 계정)이 없다면 위에서 말했 듯 db에 insert 되고, 
+// 화면에 '가입성공'이라는 메시지와 함께 [로그인 화면으로]라는 Link가 나온다.
+// - Link가 나오는 경우는 [가입정보체크] 버튼을 누르면 number라는 상태값이 1증가한다. 
+// 삼항연산자로 number의 값이 1 이상일 경우에만 Link가 나오도록 설정해놓았다. 
 
 
 
@@ -23,7 +27,6 @@ function AuthForm({ form, onChange, onSubmit, error}) {
     const go = () => {
         setNumber(number+1);
     }
-   
 
   
 
@@ -68,10 +71,10 @@ function AuthForm({ form, onChange, onSubmit, error}) {
                             <StyledText1  value={form.mem_hp} onChange={onChange} name="mem_hp" />
                         </StyledDiv2>
                         <StyledDiv2>
-                            <p>{error}</p>
+                            <p>{error}</p> 
                             {error !== null ? <StyledButton1 onClick={go}>가입정보 체크</StyledButton1> : null}
                             <p value={number}>
-                            {number >= 1 ? <Link to="/">가입 성공</Link> : null}
+                            {number >= 1 ? <Link to="/">로그인 화면으로</Link> : null}
                             </p>
                         </StyledDiv2>
                     </StyledDiv1>

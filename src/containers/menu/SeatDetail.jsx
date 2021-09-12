@@ -2,17 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import qs from 'qs'
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { changeField, initializeForm, register } from "../../modules/auth";
-import TimeChoiceForm from '../../components/menu/TimeChoiceForm';
-import SeatPage from '../../pages/SeatPage'
+import { initializeForm } from "../../modules/auth";
 import SeatForm from '../../components/menu/SeatForm';
-import { seats } from '../../modules/seat';
 import { listZones } from '../../modules/zones';
 
 //import { check } from "../../modules/user";
 
 
-function SeatDetail({history, location}) {
+function SeatDetail({ location}) {
   const [seatForm, handleSeatForm] = useState(false);
 
     const [hour, setHour] = useState(0);
@@ -20,8 +17,8 @@ function SeatDetail({history, location}) {
     const date = new Date();
     const dispatch = useDispatch();
     
-    const {  users, seat, seatError, zones, zonesError,  } = useSelector(({ seat, users, zones,  }) => ({
-      users: users.users,
+    const {  seat, seatError, zones, zonesError,  } = useSelector(({ seat, zones  }) => ({
+      
       seat: seat.seat,
       seatError:seat.seatError,
       zones :zones.zones,
@@ -52,18 +49,18 @@ function SeatDetail({history, location}) {
             return;
           }
           console.log(`error!`);
-         console.log(seatError);
-         
-         return;
+          console.log(seatError);
+        
+          return;
         }
-       if (seat) {
-         console.log("성공@@#");
-         console.log(seat);
-         window.location.replace("/login");
-         
-         return;
-         
-       }
+        if (seat) {
+          console.log("성공@@#");
+          console.log(seat);
+          window.location.replace("/login");
+          
+          return;
+          
+        }
 
 
     }, [seat, seatError]);
@@ -72,23 +69,23 @@ function SeatDetail({history, location}) {
       if (zonesError) {
           if (zonesError.response.status === 400) {
     
-       return;
+        return;
           }
-         console.log(`error!`);
-         console.log(zonesError);
- 
-         return;
-       }
-       if (zones) {
-         console.log("성공zz")
-         console.log(zones);
-       
-         return;
-         
-       }
+          console.log(`error!`);
+          console.log(zonesError);
+
+          return;
+        }
+        if (zones) {
+          console.log("성공zz")
+          console.log(zones);
+          
+          return;
+          
+        }
 
 
-    }, []);
+    }, [zones, zonesError]);
 
 
     
@@ -98,13 +95,11 @@ function SeatDetail({history, location}) {
 return (
     
     <>
-<SeatForm onClose={handleSeat} 
+      <SeatForm 
+        onClose={handleSeat} 
         hour={hour}
         zones={zones}
-
-
-    
-    />
+      />
     </>
     )
 };

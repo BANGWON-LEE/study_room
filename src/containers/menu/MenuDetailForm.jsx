@@ -4,10 +4,10 @@ import { withRouter } from "react-router-dom";
 //import {initializeForm } from "../../modules/users";
 import MenuForm from '../../components/menu/MenuForm';
 import { logouts } from '../../modules/logout';
-import { initializeForm} from '../../modules/users'
 
 
-function MenuDetailForm({hour}) {
+
+function MenuDetailForm() {
   const dispatch = useDispatch();
   const {  logout, users, logoutError } = useSelector(({ logout, users }) => ({
     users: users.users,

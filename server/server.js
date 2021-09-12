@@ -11,26 +11,27 @@ router.use(express.json());
 let check2 = new Object();
 
 app.post('/api/register',function (req, res) {
-
+    
     const params = [req.body.mem_userid, req.body.mem_pass,req.body.mem_name,'W',req.body.mem_hp]
     
     db.query(
       "insert into tb_mem(mem_userid, mem_pass, mem_name, mem_status, mem_hp) values(?,?,?,?,?)",params ,(err,row) => {
         
-      if(row > 0) {
+      if(!err) {
         check2.tf = true;  
         res.send(200)
-      
       }
 
-
-        if(err){
+      if(err){
         check2.tf = false;  
      
         res.send(409);
-        }
+      }
     
-    // 회원가입 과정 중 res.length가 잘 안됨 조건문에 else를 주면 먹히긴 하는데 어떻게 조건을 줘야 먹힐 지 모르겠음 -> undefined에 먹히는 듯 
+    // 회원가입을 시도하고 실패하면 에러가 발생하는데, 에러가 발생하면 409번 상태코드를 보내고,
+    // 에러가 아닐 경우에는 200번 상태코드를 보낸다.
+    // mem_status는 계정의 현재 상태에 대해서 알려준다. 
+    // (W : 계정을 생성하고 대기 중, O : 로그아웃 상태이며 좌석을 사용하지 않는 상태, L : 로그인된 상태이며, 좌석으 사용 중인 상태)
   });
     
 }
@@ -88,15 +89,12 @@ app.post('/api/seat',  function (req, res) {
   const idx = req.body.st_mem_idx;
   const endDate = req.body.st_endDate;
   const num = req.body.st_seatNumber
-  console.log("server : " + idx);
+
   const date = new Date();
-  const date1 = date;
-  console.log("server : " + endDate);
+
+
   date.setHours(date.getHours()+endDate)  
-  console.log("server : " + date);
-  console.log("server : " + date1);
-  console.log("server : " + num);
-  console.log("server : " + userid);
+
 
   //쿼리 수정해야 함
 

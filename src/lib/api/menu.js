@@ -1,5 +1,5 @@
 import axios from 'axios';
-import qs from 'qs';
+
 
 console.log("@@");
 export const seat =  ({st_mem_idx, st_endDate, st_seatNumber, mem_userid}) => 
