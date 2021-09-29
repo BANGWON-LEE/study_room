@@ -5,7 +5,7 @@ import users,  {usersSaga} from "./users";
 import logout, {logoutsSaga} from "./logout";
 import seat, {seatsSaga} from "./seat";
 import zones, {zonesSaga} from "./zones";
-//import check, {checksSaga} from "./check";
+
 
 
 
@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
     logout,
     seat,
     zones,
-    //check,
+ 
   });
   
   export function* rootSaga() {

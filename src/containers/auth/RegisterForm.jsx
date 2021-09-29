@@ -37,20 +37,24 @@ function RegisterForm({history}) {
 
 
     function onSubmit(event){
-      event.preventDefault();
+       event.preventDefault(); // form태그를 통해 새로고침 되지 않도록 
+      
       const { mem_userid, mem_pass, mem_passChk, mem_name, mem_hp } = form;
+      
       if ([mem_userid, mem_pass, mem_passChk, mem_name, mem_hp].includes("")) {
         setError("빈 칸을 모두 입력하세요");
-        history.go(0);
+        alert("빈 칸을 모두 입력하세요")
+        history.go(0); 
         return;
       }
       if (mem_pass !== mem_passChk) {
         setError("비밀번호가 일치하지 않습니다.");
+        alert("비밀번호가 일치하지 않습니다.")
         history.go(0);
-        dispatch(changeField({ form: "register", key: "mem_pass", value: "" }));
-        dispatch(
-          changeField({ form: "register", key: "mem_passChk", value: "" }),
-        );
+        // dispatch(changeField({ form: "register", key: "mem_pass", value: "" }));
+        // dispatch(
+        //   changeField({ form: "register", key: "mem_passChk", value: "" }),
+        // );
         return;
       } 
       dispatch(register({mem_userid, mem_pass, mem_name, mem_hp }));
@@ -74,7 +78,7 @@ function RegisterForm({history}) {
             
             return;
           }
-          console.log(`error!`);
+          console.log('error!');
           console.log(authError);
 
           return;

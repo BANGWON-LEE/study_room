@@ -7,6 +7,7 @@ import createRequestSaga, {
 } from "../lib/createRequestSaga";
 import * as authAPI from "../lib/api/auth";
 
+//액션 타입 정의
 const CHANGE_FIELD = "auth/CHANGE_FIELD";
 const INITIALIZE_FORM = "auth/INITIALIZE_FORM";
 
@@ -24,6 +25,9 @@ export const changeField = createAction(
   }),
 );
 
+// CHANGE_FIELD는 액션 타입
+// ({ form, key, value }) => ({form, key, value,}) 어떤 파라미터를 받는지 명시하기 위해 작성해놓음 작성하지 않아도 된다.
+
 export const initializeForm = createAction(INITIALIZE_FORM, (form) => form);
 
 export const register = createAction(REGISTER, ({ mem_userid, mem_pass,  mem_name, mem_hp }) => ({
@@ -38,7 +42,6 @@ const registerSaga = createRequestSaga(REGISTER, authAPI.register);
 
 export function* authSaga() {
   yield takeLatest(REGISTER, registerSaga);
-
 }
 
 const initialState = {
@@ -77,3 +80,5 @@ const auth = handleActions(
 );
 
 export default auth;
+
+// handleActions는 switch문으로 리듀서를 구현할 경우 생기는 오류 때문에 대안으로 만들어진 것이다. 
