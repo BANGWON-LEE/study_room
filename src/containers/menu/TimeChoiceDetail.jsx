@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import qs from 'qs'
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { changeField, initializeForm, register } from "../../modules/auth";
+// import { changeField, initializeForm, register } from "../../modules/auth";
 import TimeChoiceForm from '../../components/menu/TimeChoiceForm';
 import SeatPage from '../../pages/SeatPage'
 import SeatForm from '../../components/menu/SeatForm';
@@ -87,9 +87,9 @@ function TimeChoiceDetail({history, location}) {
         handleSeatForm(true)
     }
 
-    useEffect(() => {
-      dispatch(initializeForm("seat"));
-      }, [dispatch]);
+    // useEffect(() => {
+    //   dispatch(initializeForm("seat"));
+    //   }, [dispatch]);
 
 
     useEffect(() => {

@@ -5,14 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            //"type": "chrome",
-            "type": "node",
+            
+            "name": "Chrome",
+            "type": "chrome",
             "request": "launch",
-            //"name": "Chrome debugger",
-            "name" : "Launch Program",
-            "url": "http://localhost:8000",
-           // "webRoot": "${workspaceFolder}",
-            "program": "${workspaceFolder}\\modules\\users.js"
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/src",
+
 
 
         }

@@ -52,17 +52,18 @@ const initialState = {
     mem_hp:""
   },
 };
+// 초기상태값을 빈 문자열로 선언한다.
 
 const auth = handleActions(
   {
     [CHANGE_FIELD]: (state, { payload: { form, key, value } }) =>
-      produce(state, draft => {
+      produce(state, draft => { // immer를 사용하여 state는 불변, draft는 변경가능하도록 해줌
         draft[form][key] = value;
       }),
     //첫번째 파라미터에는 수정하고 싶은 상태
     //두번째 파라미터에는 어떻게 업데이트 할 지 정의하는 함수
     [INITIALIZE_FORM]: (state, { payload: form }) => ({
-      ...state,
+      ...state, // 불면객체로 관리하기 위해 전개연산자 사용
       [form]: initialState[form],
       authError: null,
     }),

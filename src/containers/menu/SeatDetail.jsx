@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import qs from 'qs'
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { initializeForm } from "../../modules/auth";
+// import { initializeForm } from "../../modules/auth";
 import SeatForm from '../../components/menu/SeatForm';
 import { listZones } from '../../modules/zones';
 
@@ -39,9 +39,9 @@ function SeatDetail({ location}) {
         handleSeatForm(true)
     }
 
-    useEffect(() => {
-      dispatch(initializeForm("seat"));
-      }, [dispatch]);
+    // useEffect(() => {
+    //   dispatch(initializeForm("seat"));
+    //   }, [dispatch]);
       
     useEffect(() => {
       if (seatError) {

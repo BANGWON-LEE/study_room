@@ -67,8 +67,11 @@ function RegisterForm({history}) {
 
 
     useEffect(() => {
+        console.log('이니시얼');
         dispatch(initializeForm("register"));
       }, [dispatch]);
+      
+
     
       useEffect(() => {
         if (authError) {
@@ -92,7 +95,7 @@ function RegisterForm({history}) {
           
         }
 
-      }, [auth, authError, dispatch, error]);
+      }, [auth, authError, dispatch ,error]);
 
       
 return (
