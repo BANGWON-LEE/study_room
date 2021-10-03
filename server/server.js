@@ -120,7 +120,7 @@ app.post('/api/seat',  function (req, res) {
 });
 
 app.get("/api/zone", (req, res) => {
-  db.query("SELECT * FROM tb_seat", function (err, rows, fields) {
+  db.query("SELECT * FROM tb_seat", function (err, rows) {
     if (err) {
       console.log("데이터 가져오기 실패");
     } else {

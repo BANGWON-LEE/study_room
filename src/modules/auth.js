@@ -63,11 +63,13 @@ const auth = handleActions(
     //첫번째 파라미터에는 수정하고 싶은 상태
     //두번째 파라미터에는 어떻게 업데이트 할 지 정의하는 함수
     [INITIALIZE_FORM]: (state, { payload: form }) => ({
+      //위 코드는 action 객체를 비구조화 할당하고, payload 값을 auth 라고 부르겠다는 의미입니다.
       ...state, // 불면객체로 관리하기 위해 전개연산자 사용
       [form]: initialState[form],
       authError: null,
     }),
     [REGISTER_SUCCESS]: (state, { payload: auth }) => ({
+      
       ...state,
       authError: null,
       auth,

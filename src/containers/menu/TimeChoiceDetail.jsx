@@ -31,9 +31,9 @@ function TimeChoiceDetail({history, location}) {
 
     
     useEffect(() => {
-      const {st_mem_idx, st_seatNumber,st_seatStatus,st_regDate, st_endDate} = qs.parse(location.search, {
-          ignoreQueryPrefix: true
-      });
+      const {st_mem_idx, st_seatNumber,st_seatStatus,st_regDate, st_endDate} = '';
+      // 객체 선언
+
 
       dispatch(listZones({st_mem_idx, st_seatNumber,st_seatStatus,st_regDate, st_endDate}))
     },[dispatch, location.search]);

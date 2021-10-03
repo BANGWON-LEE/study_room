@@ -9,15 +9,18 @@ export const createRequestActionTypes = (type) => {
 
 export default function createRequestSaga(type, request) {
   console.log(request);
+  console.log(type);
   const SUCCESS = `${type}_SUCCESS`; 
   // 인자로 넘어온 정의된 액션 타입과 함께 선언
   const FAILURE = `${type}_FAILURE`;
 
   return function* (action) {
     yield put(startLoading(type));
-    //먼저 loading.js에서 
+    console.log(action);
+    console.log(type);
     try {
       const response = yield call(request, action.payload);
+    
       console.log( response);
       yield put({
         type: SUCCESS,

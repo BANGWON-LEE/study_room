@@ -28,8 +28,6 @@ function AuthForm({ form, onChange, onSubmit, error}) {
         setNumber(number+1);
     }
 
-  
-
     return(
         <div className="body">
             <form onSubmit={onSubmit} >       

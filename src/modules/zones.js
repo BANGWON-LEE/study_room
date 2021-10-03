@@ -27,15 +27,14 @@ export function * zonesSaga(){
 const initialState = {
     zones: null,
     error: null,
-    //lastPage: 1
+   
 }
 
 const zones = handleActions(
     {
-        [LIST_ZONES_SUCCES] : (state, { payload: zones, meta: response}) => ({
+        [LIST_ZONES_SUCCES] : (state, { payload: zones}) => ({
             ...state,
             zones,
-            // lastPage: parseInt(response.headers['last-page'], 10)
         }),
         [LIST_ZONES_FAILURE] : (state, {payload : error}) => ({
             ...state,
