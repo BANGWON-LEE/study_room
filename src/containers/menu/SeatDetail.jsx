@@ -28,12 +28,10 @@ function SeatDetail({ location}) {
 
     
     useEffect(() => {
-      const {st_mem_idx, st_seatNumber,st_seatStatus,st_regDate, st_endDate} = qs.parse(location.search, {
-          ignoreQueryPrefix: true
-      });
+      const {st_mem_idx, st_seatNumber,st_seatStatus,st_regDate, st_endDate} ='';
 
       dispatch(listZones({st_mem_idx, st_seatNumber,st_seatStatus,st_regDate, st_endDate}))
-    },[dispatch, location.search]);
+    },[dispatch]);
 
     function handleSeat() {
         handleSeatForm(true)

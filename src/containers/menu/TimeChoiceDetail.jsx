@@ -36,7 +36,7 @@ function TimeChoiceDetail({history, location}) {
 
 
       dispatch(listZones({st_mem_idx, st_seatNumber,st_seatStatus,st_regDate, st_endDate}))
-    },[dispatch, location.search]);
+    },[dispatch]);
 
   
 
