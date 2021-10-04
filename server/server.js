@@ -1,13 +1,9 @@
 
 const express = require('express');
 const app = express();
-const router = express.Router();
 const PORT = process.env.PORT || 4000;
 const db = require('./config/db');
 
-
-app.use(express.json());
-router.use(express.json());
 let check2 = new Object();
 
 app.post('/api/register',function (req, res) {
