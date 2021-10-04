@@ -63,7 +63,6 @@ const users = handleActions(
       [form]: initialState[form],
       userError: null,
     }),
-    
     [LOGIN_SUCCESS]: (state, { payload: users }) => ({
         ...state,
         userError: null,

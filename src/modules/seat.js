@@ -11,9 +11,9 @@ const [SEAT, SEAT_SUCCESS, SEAT_FAILURE] = createRequestActionTypes(
     "seat/SEAT",
 );
 
-  const INITIALIZE_FORM = "seat/INITIALIZE_FORM";
+//   const INITIALIZE_FORM = "seat/INITIALIZE_FORM";
 
-export const initializeForm = createAction(INITIALIZE_FORM, (form) => form);
+// export const initializeForm = createAction(INITIALIZE_FORM, (form) => form);
 
 
 export const seats = createAction(SEAT,({ st_mem_idx, st_endDate, st_seatNumber, mem_userid}) => ({st_mem_idx, st_endDate, st_seatNumber, mem_userid}));
@@ -24,7 +24,6 @@ export function* seatsSaga() {
 }
 
 const initialState = {
-   
     
   st_mem_idx:"",
   st_endDate:"",
@@ -35,11 +34,7 @@ const initialState = {
 
 const seat = handleActions(
   {
-    [INITIALIZE_FORM]: (state, { payload: form }) => ({
-      ...state,
-      [form]: initialState[form],
-      userError: null,
-    }),  
+
 
 
     [SEAT_SUCCESS]: (state, { payload: seat }) => ({
