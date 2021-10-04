@@ -17,7 +17,9 @@ function UserForm({history}) {
 
     }));
     
+
     const onChange = (event) => {
+      console.log(event.currentTarget);
       const { value, name } = event.currentTarget;
       dispatch(
         changeField({
@@ -42,7 +44,7 @@ function UserForm({history}) {
       
 
       dispatch(login({mem_userid, mem_pass}));
-    
+      //login 액션으로 아이디와 비밀번호가 담긴 객체를 전달한다.
     };
 
     useEffect(() => {
@@ -61,23 +63,20 @@ function UserForm({history}) {
           setError("아이디 또는 비밀번호를 확인해주세요");
           return;
         }
-        if (users) {
-          console.log("성공");
-          console.log(users);
-          // dispatch(checkOk());
-
-          history.push('/menu');
-          return;
-        }
-      }, [users, userError, error]);
+      }, [ userError, error]);
 
       useEffect(() => {
         if(users){  
             try{
                 console.log("users : " + JSON.stringify(users));
                 localStorage.setItem('users', JSON.stringify(users));
-                
-                
+                //입력된 아이디와 비밀번호가 db에 있는 데이터 정보와 일치하면 localStroage에 로그인 정보가 문자열로 된 JSON으로 저장된다.
+                console.log("성공");
+                console.log(users);
+                history.push('/menu');
+                return;
+
+
             }catch(e){
                 console.log('localStorage error');
             }

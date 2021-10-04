@@ -21,9 +21,10 @@ function RegisterForm({history}) {
   
     
     console.log(form.mem_userid);
+  
     
     const onChange = (event) => {
-      const { value, name } = event.currentTarget;
+      const { value, name } = event.currentTarget; // currentTarget는 선택 된 태그의 부모 태그까지 불러온다.
       dispatch(
         changeField({
           form: "register",

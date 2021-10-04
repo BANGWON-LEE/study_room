@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import {  useSelector, useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
-//import {initializeForm } from "../../modules/users";
 import MenuForm from '../../components/menu/MenuForm';
 import { logouts } from '../../modules/logout';
 
@@ -16,16 +15,12 @@ function MenuDetailForm() {
   
   }));
 
-  
-
-  
-
-    
     function onSubmit(event){
       const mem_userid = users.tf?.mem_userid
       console.log("!!:"+ mem_userid);
 
       localStorage.removeItem('users', JSON.stringify(users));
+      // 메뉴 컴포넌트(components/MenuForm.jsx)에서 로그아웃 버튼을 클릭하면 localStorage에 등록되있는 계정정보가 삭제된다.
       dispatch(logouts({mem_userid}));
       event.preventDefault();     
     };
@@ -33,29 +28,25 @@ function MenuDetailForm() {
     
   
     useEffect(() => {
-
       if (logout === false) {
         console.log("성공");
         console.log(logout);
-       
-        
-        
+
         return;
       }
     }, [logout]);
 
     useEffect(() => {
-      if (logoutError) {
-         if (logoutError.response.status === 400) {
+      if(logoutError) {
+          if (logoutError.response.status === 400) {
           window.location.replace("/login");
-           return;
-         }
+          return;
+          }
         console.log(`error!`);
         console.log(logoutError);
-
         return;
       }
-      if (logout) {
+      if(logout) {
         console.log("성공");
         console.log(logout);
       

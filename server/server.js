@@ -58,7 +58,7 @@ app.post('/api/login', function (req, res) {
 });
 });
 
-app.post('/api/logout',  function (req, res, {history}) {
+app.post('/api/logout',  function (req, res) {
   console.log(req.body.mem_userid);
   db.query(
     "UPDATE tb_mem AS a JOIN tb_seat AS b ON(a.mem_idx = b.st_mem_idx) SET a.mem_status='O', b.st_seatStatus = 'E', b.st_mem_idx = null WHERE a.mem_userid= '" + req.body.mem_userid + "'" , (err,row) => {
@@ -93,9 +93,6 @@ app.post('/api/seat',  function (req, res) {
 
   date.setHours(date.getHours()+endDate)  
 
-
-  //쿼리 수정해야 함
-
   db.query(
     "UPDATE tb_mem AS a , tb_seat AS b  SET a.mem_status='L', b.st_mem_idx = "+idx+", b.st_seatStatus = 'S', b.st_regDate = CAST(DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s')as char(30)), b.st_endDate = DATE_ADD(NOW(), INTERVAL "+endDate+" HOUR) where b.st_seatNumber =  '"+ num +"' AND a.mem_userid = '"+userid+"'" ,  (err,row) => {
       
@@ -104,13 +101,12 @@ app.post('/api/seat',  function (req, res) {
       if(row > 0) {
         check2.tf = true;  
           res.send(200)
-       
+        
       }
 
 
         if(err){
           check2.tf = false;  
-     
           res.send(err);
         }
 })

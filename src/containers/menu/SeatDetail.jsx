@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import qs from 'qs'
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
-// import { initializeForm } from "../../modules/auth";
 import SeatForm from '../../components/menu/SeatForm';
 import { listZones } from '../../modules/zones';
 
-//import { check } from "../../modules/user";
+
 
 
 function SeatDetail({ location}) {
   const [seatForm, handleSeatForm] = useState(false);
 
     const [hour, setHour] = useState(0);
-    const [cost, setCost] = useState(0);
-    const date = new Date();
     const dispatch = useDispatch();
     
     const {  seat, seatError, zones, zonesError,  } = useSelector(({ seat, zones  }) => ({
@@ -37,10 +33,6 @@ function SeatDetail({ location}) {
         handleSeatForm(true)
     }
 
-    // useEffect(() => {
-    //   dispatch(initializeForm("seat"));
-    //   }, [dispatch]);
-      
     useEffect(() => {
       if (seatError) {
           if (seatError.response.status === 400) {
