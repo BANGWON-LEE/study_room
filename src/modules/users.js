@@ -14,9 +14,6 @@ const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
     "users/LOGIN",
 );
 
-
-
-
 export const changeField = createAction(
     CHANGE_FIELD,
     ({ form, key, value }) => ({

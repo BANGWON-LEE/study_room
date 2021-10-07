@@ -1,5 +1,4 @@
 import { createAction, handleActions } from "redux-actions";
-//immer = state의 불변성 관리 해주는 모듈
 import produce from "immer";
 import { takeLatest } from "redux-saga/effects";
 import createRequestSaga, {

@@ -6,7 +6,6 @@ import { listZones } from '../../modules/zones';
 
 
 
-
 function SeatDetail({ location}) {
   const [seatForm, handleSeatForm] = useState(false);
 
@@ -76,11 +75,6 @@ function SeatDetail({ location}) {
 
 
     }, [zones, zonesError]);
-
-
-    
-
-
 
 return (
     

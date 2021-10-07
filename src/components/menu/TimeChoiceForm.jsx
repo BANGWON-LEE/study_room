@@ -25,19 +25,17 @@ const TimeChoiceForm = ({hour,onClick, threeClick, cost, handleSeat}) => {
                 </StyledDiv2>
                 <StyledDiv2>
                     <StyledButtonMenu onClick={threeClick}>+ 3시간 <br/>(3500원)</StyledButtonMenu>
+                </StyledDiv2>  
+                <StyledDiv2>
+                    {hour} 시간
                 </StyledDiv2>
-                
-                    <StyledDiv2>
-                        {hour} 시간
-                    </StyledDiv2>
-                    <StyledDiv2>
-                        {cost} 원
-                    </StyledDiv2>      
-                    <StyledDiv2>
-                        <StyledSubmit onClick={handleSeat}>다음</StyledSubmit>    
-                    </StyledDiv2>
-            </StyledDiv1>
-          
+                <StyledDiv2>
+                    {cost} 원
+                </StyledDiv2>      
+                <StyledDiv2>
+                    <StyledSubmit onClick={handleSeat}>다음</StyledSubmit>    
+                </StyledDiv2>
+            </StyledDiv1>  
         </div>
     )
 

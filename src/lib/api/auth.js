@@ -1,5 +1,7 @@
 
 import axios from 'axios';
+import qs from 'qs';
+
 
 export const register = ({mem_userid, mem_pass, mem_name, mem_hp}) => 
 axios.post('/api/register', {mem_userid, mem_pass, mem_name, mem_hp});
@@ -16,6 +18,10 @@ export const logout =  ({mem_userid}) =>
 axios.post('/api/logout',{
     mem_userid,
 })
+
+
+export const userInfo = ({mem_userid}) =>axios.get(`api/userInfo/${mem_userid}`)
+
 
 
 

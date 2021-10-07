@@ -33,9 +33,6 @@ function TimeChoiceDetail({history, location}) {
       dispatch(listZones({st_mem_idx, st_seatNumber,st_seatStatus,st_regDate, st_endDate}))
     },[dispatch]);
 
-  
-
-
       const [st_seatNumber, setSt_seatNumber] = useState();
 
       function onClickZone(event) {
@@ -46,7 +43,7 @@ function TimeChoiceDetail({history, location}) {
       function onSubmit(event){
         event.preventDefault();  
         console.log(event.currentTarget.getAttribute('data-value'))
-        const st_mem_idx = users.tf.mem_idx
+        const st_mem_idx = users.tf.mem_idx;
         const mem_userid = users.tf.mem_userid;
         const st_endDate = hour
        

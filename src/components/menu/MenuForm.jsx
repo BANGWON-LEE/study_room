@@ -37,6 +37,11 @@ const MenuForm = ({onSubmit, users}) => {
                             <StyledButtonMenu>좌석확인</StyledButtonMenu>
                         </Link>
                     </StyledDiv2>
+                    <StyledDiv2>
+                        <Link to= {`/userInfo/${users.tf.mem_userid}`}>
+                            <StyledButtonMenu>사용자 정보</StyledButtonMenu>
+                        </Link>
+                    </StyledDiv2>
                 <form onSubmit={onSubmit}>
                     <StyledDiv2>
                         <StyledButtonMenu>퇴실</StyledButtonMenu>

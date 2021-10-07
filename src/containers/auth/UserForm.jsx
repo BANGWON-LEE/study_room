@@ -44,6 +44,7 @@ function UserForm({history}) {
       
 
       dispatch(login({mem_userid, mem_pass}));
+      console.log("로그인 확인 : " + mem_userid)
       //login 액션으로 아이디와 비밀번호가 담긴 객체를 전달한다.
     };
 

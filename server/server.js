@@ -37,7 +37,7 @@ app.post('/api/register',function (req, res) {
 
 
 app.post('/api/login', function (req, res) {
-  console.log(req.body.mem_userid);
+  console.log("serverLogin : "+ req.body.mem_userid);
   db.query(
     "select * from tb_mem where mem_userid='" 
     + req.body.mem_userid+"'and mem_pass='"+req.body.mem_pass+"'" , (err,row) => {
@@ -123,6 +123,22 @@ app.get("/api/zone", (req, res) => {
       res.send(rows);
     }
   });
+});
+
+app.get('/userInfo/api/userInfo/:mem_userid', (req, res) => {
+  const params = req.params.mem_userid;
+  const sql = "SELECT a.mem_userid, a.mem_name, b.st_seatNumber, b.st_endDate FROM tb_mem AS a join tb_seat AS b WHERE a.mem_idx = b.st_mem_idx and a.mem_userid = '" + params +"'"; 
+  console.log("serverUser : " + params );
+  db.query(sql,  (err, data) => {
+      if(!err) {
+        check2 = data[0]
+        res.send(check2)
+      } else{
+        
+        res.send(err)
+      }
+    })
+  
 });
 
 

@@ -5,6 +5,7 @@ import RegisterForm from './pages/RegisterPage';
 import MenuForm from './pages/MenuPage';
 import TimeChoiceForm from './pages/TimeChoicePage';
 import SeatPage from './pages/SeatPage';
+import UserInfoPage from './pages/UserInfoPage';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route exact component={MenuForm} path="/menu" />
         <Route exact component={TimeChoiceForm} path="/timeChoice" />
         <Route exact component={SeatPage} path="/seat" />
+        <Route exact component={UserInfoPage} path="/userInfo/:mem_userid" />
       </Switch>
     </BrowserRouter>
   );
