@@ -1,5 +1,13 @@
 # study_room(seat for student)
-# 스터디카페(독서실) 좌석 예약 시스템
+# 스터디카페(독서실) 좌석 선택 시스템
+독서실에 가서 좌석을 선택하는 시스템을 웹을 구현하였습니다.
+
+<현재 구현한 기능>
+- 회원가입, 로그인, 좌석 및 좌석 사용할 시간 선택, 유저정보(좌석 선택 후), 퇴실(로그아웃)
+
+<앞으로 구현할 기능>
+- 자동 로그아웃
+
 ### this project is for my skill improve
 
 ## information of project
