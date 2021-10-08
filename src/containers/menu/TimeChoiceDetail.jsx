@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import TimeChoiceForm from '../../components/menu/TimeChoiceForm';
@@ -15,7 +15,7 @@ function TimeChoiceDetail({history, location}) {
     const date = new Date();
     const dispatch = useDispatch();
     
-    const {  users, seat, seatError, zones, zonesError,  } = useSelector(({ seat, users, zones,  }) => ({
+    const {  users, seat, seatError, zones, zonesError  } = useSelector(({ seat, users, zones,  }) => ({
       users: users.users,
       seat: seat.seat,
       seatError:seat.seatError,
@@ -55,17 +55,16 @@ function TimeChoiceDetail({history, location}) {
         dispatch(seats({st_mem_idx, st_endDate, st_seatNumber,mem_userid }));
         window.location.replace("/login");
         
-      
-          
-        
       };  
 
-    function onClick() {
+    const onClick = useCallback(() => {
       
-      setHour(hour + 1);
-      setCost(cost + 1500);
-      console.log(date);
-    }
+      setHour(hour+1);
+      setCost(cost+1500);
+      console.log('1331')
+    },[hour,cost])
+    // useCallback으로 구현하였는데 계속 리렌더링 되는 거 같음... 다시 확인해보자!! 
+
 
     function threeClick() {
       setHour(hour + 3);

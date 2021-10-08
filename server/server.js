@@ -125,9 +125,9 @@ app.get("/api/zone", (req, res) => {
   });
 });
 
-app.get('/userInfo/api/userInfo/:mem_userid', (req, res) => {
+app.get('/api/userInfo/:mem_userid', (req, res) => {
   const params = req.params.mem_userid;
-  const sql = "SELECT a.mem_userid, a.mem_name, b.st_seatNumber, b.st_endDate FROM tb_mem AS a join tb_seat AS b WHERE a.mem_idx = b.st_mem_idx and a.mem_userid = '" + params +"'"; 
+  const sql = "SELECT a.mem_userid, a.mem_name, b.st_seatNumber,date_format(b.st_endDate, '%Y-%m-%d %H:%i:%s') as st_endDate FROM tb_mem AS a join tb_seat AS b WHERE a.mem_idx = b.st_mem_idx and a.mem_userid = '" + params +"'"; 
   console.log("serverUser : " + params );
   db.query(sql,  (err, data) => {
       if(!err) {

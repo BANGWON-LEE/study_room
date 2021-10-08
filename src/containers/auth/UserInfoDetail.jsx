@@ -16,6 +16,7 @@ function UserInfoDetail({match}) {
       }));
       console.log("info123")
       console.log(userInfo);
+      console.log(userInfo.st_endDate);
 
       useEffect(() => {
     const mem_userid = match.params;

@@ -20,7 +20,7 @@ axios.post('/api/logout',{
 })
 
 
-export const userInfo = ({mem_userid}) =>axios.get(`api/userInfo/${mem_userid}`)
+export const userInfo = ({mem_userid}) =>axios.get(`/api/userInfo/${mem_userid}`)
 
 
 
