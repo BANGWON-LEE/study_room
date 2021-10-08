@@ -1,8 +1,6 @@
-
-# this project is for my skill improve
-
 # study_room(seat for student)
 # 스터디카페(독서실) 좌석 예약 시스템
+### this project is for my skill improve
 
 ## information of project
 this project name is study_room.
