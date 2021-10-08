@@ -43,8 +43,8 @@ function TimeChoiceDetail({history, location}) {
       function onSubmit(event){
         event.preventDefault();  
         console.log(event.currentTarget.getAttribute('data-value'))
-        const st_mem_idx = users.tf.mem_idx;
-        const mem_userid = users.tf.mem_userid;
+        const st_mem_idx = users.mem_idx;
+        const mem_userid = users.mem_userid;
         const st_endDate = hour
        
         console.log("!!:"+ st_mem_idx);

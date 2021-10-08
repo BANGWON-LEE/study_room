@@ -24,7 +24,7 @@ const MenuForm = ({onSubmit, users}) => {
                     </div>        
                     <StyledDiv2>
                         <Link to='/timeChoice'>
-                            {users.tf?.mem_status === 'L' ?
+                            {users.mem_status === 'L' ?
                                 null :
                             <StyledButtonMenu>
                                 입장
@@ -40,8 +40,8 @@ const MenuForm = ({onSubmit, users}) => {
                         </Link>
                     </StyledDiv2>
                     <StyledDiv2>
-                        <Link to= {`/userInfo/${users.tf.mem_userid}`}>
-                        {users.tf?.mem_status === 'L' ?
+                        <Link to= {`/userInfo/${users.mem_userid}`}>
+                        {users.mem_status === 'L' ?
                             <StyledButtonMenu>사용자 정보</StyledButtonMenu>
                             : null
                         }

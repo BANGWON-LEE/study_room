@@ -6,22 +6,22 @@ const db = require('./config/db');
 
 
 app.use(express.json());
-let check2 = new Object();
+
 
 app.post('/api/register',function (req, res) {
     
     const params = [req.body.mem_userid, req.body.mem_pass,req.body.mem_name,'W',req.body.mem_hp]
     
     db.query(
-      "insert into tb_mem(mem_userid, mem_pass, mem_name, mem_status, mem_hp) values(?,?,?,?,?)",params ,(err,row) => {
+      "insert into tb_mem(mem_userid, mem_pass, mem_name, mem_status, mem_hp) values(?,?,?,?,?)",params ,(err,data) => {
         
       if(!err) {
-        check2.tf = true;  
+        data = true;  
         res.send(200)
       }
 
       if(err){
-        check2.tf = false;  
+        data = false;  
      
         res.send(409);
       }
@@ -40,20 +40,15 @@ app.post('/api/login', function (req, res) {
   console.log("serverLogin : "+ req.body.mem_userid);
   db.query(
     "select * from tb_mem where mem_userid='" 
-    + req.body.mem_userid+"'and mem_pass='"+req.body.mem_pass+"'" , (err,row) => {
+    + req.body.mem_userid+"'and mem_pass='"+req.body.mem_pass+"'" , (err,data) => {
       
 
-    if (row[0] === undefined ) { //중복되는게 없으면 (없으니까 못가져왓겠지)
-           
-       
-        check2.tf = false;  //없음 사용가능
+    if (data[0] === undefined ) { //중복되는게 없으면 (없으니까 못가져왓겠지)
           res.send(409);  //다시 클라이언트로 보낸다 checkid 객체를
       }
     
     else {
-        
-        check2.tf = row[0]; // 중복됨 사용x
-        res.send(check2);
+        res.send(data[0]);
       } 
 });
 });
@@ -61,21 +56,21 @@ app.post('/api/login', function (req, res) {
 app.post('/api/logout',  function (req, res) {
   console.log(req.body.mem_userid);
   db.query(
-    "UPDATE tb_mem AS a JOIN tb_seat AS b ON(a.mem_idx = b.st_mem_idx) SET a.mem_status='O', b.st_seatStatus = 'E', b.st_mem_idx = null WHERE a.mem_userid= '" + req.body.mem_userid + "'" , (err,row) => {
+    "UPDATE tb_mem AS a JOIN tb_seat AS b ON(a.mem_idx = b.st_mem_idx) SET a.mem_status='O', b.st_seatStatus = 'E', b.st_mem_idx = null WHERE a.mem_userid= '" + req.body.mem_userid + "'" , (err,data) => {
       
      
-    if (row[0] === undefined ) { //중복되는게 없으면 (없으니까 못가져왓겠지)
+    if (data[0] === undefined ) { //중복되는게 없으면 (없으니까 못가져왓겠지)
            
        
-        check2.tf = false;  //없음 사용가능
+        // check2.tf = false;  //없음 사용가능
         res.send(400);  //다시 클라이언트로 보낸다 checkid 객체를
         
       }
     
     else {
         
-        check2.tf = row[0]; // 중복됨 사용x
-        res.send(check2);
+        // check2.tf = row[0]; // 중복됨 사용x
+        res.send(data[0]);
       } 
 });
 });
@@ -98,15 +93,13 @@ app.post('/api/seat',  function (req, res) {
       
   
 
-      if(row > 0) {
-        check2.tf = true;  
+      if(row > 0) { 
           res.send(200)
         
       }
 
 
-        if(err){
-          check2.tf = false;  
+        if(err){ 
           res.send(err);
         }
 })
@@ -114,13 +107,12 @@ app.post('/api/seat',  function (req, res) {
 });
 
 app.get("/api/zone", (req, res) => {
-  db.query("SELECT * FROM tb_seat", function (err, rows) {
+  db.query("SELECT * FROM tb_seat", function (err, data) {
     if (err) {
       console.log("데이터 가져오기 실패");
     } else {
-      check2.tf = rows
-      console.log(rows);
-      res.send(rows);
+      console.log(data);
+      res.send(data);
     }
   });
 });
@@ -131,8 +123,7 @@ app.get('/api/userInfo/:mem_userid', (req, res) => {
   console.log("serverUser : " + params );
   db.query(sql,  (err, data) => {
       if(!err) {
-        check2 = data[0]
-        res.send(check2)
+        res.send(data[0])
       } else{
         
         res.send(err)
@@ -146,3 +137,5 @@ app.get('/api/userInfo/:mem_userid', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server On : http://localhost:${PORT}/`);
 })
+
+// check = new Object 수정함. 이전에 db에서 받아오는 데이터를 tf 안에 넣었다. 왜 넣었는지 기억이 나지 않지만. 필요없기 때문에 수정하였다.
