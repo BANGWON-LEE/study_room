@@ -138,4 +138,4 @@ app.listen(PORT, () => {
     console.log(`Server On : http://localhost:${PORT}/`);
 })
 
-// check = new Object 수정함. 이전에 db에서 받아오는 데이터를 tf 안에 넣었다. 왜 넣었는지 기억이 나지 않지만. 필요없기 때문에 수정하였다.
+// check2 = new Object 수정함. 이전에 db에서 받아오는 데이터를 tf 안에 넣었다. 왜 넣었는지 기억이 나지 않지만. 필요없기 때문에 수정하였다.
