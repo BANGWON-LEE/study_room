@@ -34,12 +34,17 @@ const MenuForm = ({onSubmit, users}) => {
                     </StyledDiv2>
                     <StyledDiv2>
                         <Link to= '/seat'>
-                            <StyledButtonMenu>좌석확인</StyledButtonMenu>
+                            <StyledButtonMenu>
+                                좌석확인
+                            </StyledButtonMenu>
                         </Link>
                     </StyledDiv2>
                     <StyledDiv2>
                         <Link to= {`/userInfo/${users.tf.mem_userid}`}>
+                        {users.tf?.mem_status === 'L' ?
                             <StyledButtonMenu>사용자 정보</StyledButtonMenu>
+                            : null
+                        }
                         </Link>
                     </StyledDiv2>
                 <form onSubmit={onSubmit}>

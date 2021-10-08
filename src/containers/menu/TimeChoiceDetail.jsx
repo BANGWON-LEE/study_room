@@ -95,8 +95,6 @@ function TimeChoiceDetail({history, location}) {
           return;
          
        }
-
-
     }, [seat, seatError]);
 
     useEffect(() => {
