@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { changeField, initializeForm, register } from "../../modules/auth";
-import AuthForm from '../../components/auth/AuthForm';
+import RegisterForm from '../../components/auth/RegisterForm';
 
 
 
-function RegisterForm({history}) {
+function RegisterDetail({history}) {
 
     const [error, setError] = useState('정보를 입력하세요');
     const dispatch = useDispatch();
@@ -38,7 +37,7 @@ function RegisterForm({history}) {
 
 
     function onSubmit(event){
-       event.preventDefault(); // form태그를 통해 새로고침 되지 않도록 
+       event.preventDefault(); // form태그 안에 button 태그를 클릭하면 새로고침되지만 해당 코드를 입력하면 새로고침 되지 않는다. 
       
       const { mem_userid, mem_pass, mem_passChk, mem_name, mem_hp } = form;
       
@@ -100,7 +99,7 @@ function RegisterForm({history}) {
 
       
 return (
-    <AuthForm
+    <RegisterForm
     form={form}
     onChange={onChange}
     onSubmit={onSubmit}

@@ -7,9 +7,7 @@ import { takeLatest } from 'redux-saga/effects';
 const [
     LIST_ZONES,
     LIST_ZONES_SUCCES,
-    LIST_ZONES_FAILURE,
-  
-    
+    LIST_ZONES_FAILURE,    
 ] = createRequestActionTypes('zones/LIST_ZONES');
 
 export const listZones = createAction(
@@ -27,7 +25,7 @@ export function * zonesSaga(){
 const initialState = {
     zones: null,
     error: null,
-   
+    
 }
 
 const zones = handleActions(

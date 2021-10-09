@@ -1,12 +1,12 @@
 import React from 'react';
-import MenuDetailform from'../containers/menu/MenuDetailForm';
+import MenuDetail from'../containers/menu/MenuDetail';
 
-function LoginPage() {
+function MenuPage() {
 
     return(
-        <MenuDetailform />
+        <MenuDetail />
     )
 
 }
 
-export default LoginPage;
+export default MenuPage;

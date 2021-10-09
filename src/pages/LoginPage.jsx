@@ -1,10 +1,10 @@
 import React from 'react';
-import UserForm from '../containers/auth/UserForm';
+import UserDetail from '../containers/auth/UserDetail';
 
 function LoginPage() {
 
     return(
-        <UserForm />
+        <UserDetail />
     )
 
 }

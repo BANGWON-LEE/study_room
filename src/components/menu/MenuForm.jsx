@@ -41,10 +41,10 @@ const MenuForm = ({onSubmit, users}) => {
                     </StyledDiv2>
                     <StyledDiv2>
                         <Link to= {`/userInfo/${users.mem_userid}`}>
-                        {users.mem_status === 'L' ?
-                            <StyledButtonMenu>사용자 정보</StyledButtonMenu>
+                            {users.mem_status === 'L' ?
+                                <StyledButtonMenu>사용자 정보</StyledButtonMenu>
                             : null
-                        }
+                            }
                         </Link>
                     </StyledDiv2>
                 <form onSubmit={onSubmit}>

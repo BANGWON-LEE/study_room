@@ -1,10 +1,10 @@
 import React from 'react';
-import RegisterForm from '../containers/auth/RegisterForm';
+import RegisterDetail from '../containers/auth/RegisterDetail';
 
 function RegisterPage() {
 
     return(
-        <RegisterForm />
+        <RegisterDetail />
     )
 
 }
