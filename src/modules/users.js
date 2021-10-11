@@ -43,7 +43,6 @@ const initialState = {
   login: {
     mem_userid: "",
     mem_pass: "",
-    mem_name: "",
   },
 };
 

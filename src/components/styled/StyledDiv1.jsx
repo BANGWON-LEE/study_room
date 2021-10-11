@@ -6,11 +6,6 @@ const StyledDiv1 = styled.div`
     margin: 0 auto;
     text-align : center;
     width : 300px;
-
-    
-
-
-
 `
 
 

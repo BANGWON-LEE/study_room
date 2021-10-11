@@ -108,4 +108,4 @@ return (
     )
 };
 
-export default withRouter(RegisterForm);
+export default withRouter(RegisterDetail);

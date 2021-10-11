@@ -40,10 +40,12 @@ const LoginForm = ({form, onChange, onSubmit, error}) => {
                                 로그인
                             </StyledButton1>
                         </StyledDiv2>
-                        <StyledDiv2>
-                        </StyledDiv2>
                     </StyledDiv1>
-                <Link to="/register"><StyledButton1>회원가입</StyledButton1></Link>
+                    <Link to="/register">
+                        <StyledButton1>
+                            회원가입
+                        </StyledButton1>
+                    </Link>
                 </StyledDiv1>
             </form>
         </div>

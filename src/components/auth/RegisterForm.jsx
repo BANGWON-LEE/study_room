@@ -70,7 +70,10 @@ function AuthForm({ form, onChange, onSubmit, error}) {
                         </StyledDiv2>
                         <StyledDiv2>
                             <p>{error}</p> 
-                            {error !== null ? <StyledButton1 onClick={go}>가입정보 체크</StyledButton1> : null}
+                            {error !== null ? 
+                                <StyledButton1 onClick={go}>
+                                    가입정보 체크
+                                </StyledButton1> : null}
                             <p value={number}>
                             {number >= 1 ? <Link to="/">로그인 화면으로</Link> : null}
                             </p>
