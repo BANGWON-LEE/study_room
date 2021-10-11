@@ -2,14 +2,14 @@
 # 스터디카페(독서실) 좌석 선택 시스템
 독서실에 가서 좌석을 선택하는 시스템을 웹을 구현하였습니다.
 
-<현재 구현한 기능>
-- components폴더 파일은 뷰 역할을 담당한다.
-- containers폴더 파일은 뷰에서 입력된 정보 등을 받아 dispatch(액션)으로 modules폴더에 있는 파일에 명령을 한다.
-- modules폴더는 containers 폴더에 있는 파일의 dispatch(액션) 명령을 받아 미들웨어(redux-saga)단계에서 db데이터를 주고 받는다. 
-  그 후 reducer의 역할로 이전 상태값을 새로운 상태값으로 바꿔주어 components폴더(뷰 역할) 파일에 전달한다. 
+### <현재 구현한 기능>
+##### components폴더 파일은 뷰 역할을 담당한다.
+##### containers폴더 파일은 뷰에서 입력된 정보 등을 받아 dispatch(액션)으로 modules폴더에 있는 파일에 명령을 한다.
+##### modules폴더는 containers 폴더에 있는 파일의 dispatch(액션) 명령을 받아 미들웨어(redux-saga)단계에서 db데이터를 주고 받는다. 
+##### 그 후 reducer의 역할로 이전 상태값을 새로운 상태값으로 바꿔주어 components폴더(뷰 역할) 파일에 전달한다. 
 
-- 회원가입. 
-  RegisterForm.jsx(components폴더), RegisterDetail.jsx(containers폴더), auth.js(modules폴더)  
+- 회원가입.<br/> 
+  RegisterForm.jsx(components폴더), RegisterDetail.jsx(containers폴더), auth.js(modules폴더)<br/>
 
 - 로그인.
   UsersForm.jsx(components폴더), UserDetail.jsx(containers폴더), users.js(modules폴더)
