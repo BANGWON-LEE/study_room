@@ -11,42 +11,42 @@
 - 회원가입.<br/> 
   RegisterForm.jsx(components폴더), RegisterDetail.jsx(containers폴더), auth.js(modules폴더)<br/>
 
-- 로그인.
-  UsersForm.jsx(components폴더), UserDetail.jsx(containers폴더), users.js(modules폴더)
+- 로그인.<br/>
+  UsersForm.jsx(components폴더), UserDetail.jsx(containers폴더), users.js(modules폴더)<br/>
 
-- 메뉴.  
-  MenuForm.jsx(components폴더), MenuDetail.jsx(containers폴더) 
+- 메뉴.<br/>  
+  MenuForm.jsx(components폴더), MenuDetail.jsx(containers폴더)<br/> 
 
-- 좌석 및 좌석 사용할 시간 선택 
-  TimeChoiceForm.jsx(components폴더 / 시간과 금액 선택을 보여줌), SeatForm.jsx(components폴더/ 좌석을 보여줌) SeatZoneForm.jsx(components폴더/ 좌석을 보여줌)
-  TimeChoiceDetail.jsx(containers폴더 / 시간과 금액 선택), seatDetail.jsx(containers폴더 / 좌석 선택), seat.js(modules폴더 / 좌석 선택에 활용됨), 
-  zones.js(modules폴더 / 전체 좌석의 정보를 보여줌) 
+- 좌석 및 좌석 사용할 시간 선택<br/> 
+  TimeChoiceForm.jsx(components폴더 / 시간과 금액 선택을 보여줌), SeatForm.jsx(components폴더/ 좌석을 보여줌) SeatZoneForm.jsx(components폴더/ 좌석을 보여줌)<br/>
+  TimeChoiceDetail.jsx(containers폴더 / 시간과 금액 선택), seatDetail.jsx(containers폴더 / 좌석 선택), seat.js(modules폴더 / 좌석 선택에 활용됨),<br/> 
+  zones.js(modules폴더 / 전체 좌석의 정보를 보여줌)<br/> 
 
-- 유저정보(좌석 선택 후 사용가능).
-  UserInfoForm(components폴더 / 뷰 역할), UserInfoDetail.jsx(containers폴더), userInfo.js(modules폴더) 
+- 유저정보(좌석 선택 후 사용가능).<br/>
+  UserInfoForm(components폴더 / 뷰 역할), UserInfoDetail.jsx(containers폴더), userInfo.js(modules폴더)<br/>
 
-- 퇴실(로그아웃)
-  MenuForm.jsx(components폴더 / 메뉴 컴포넌트에 로그아웃 기능 버튼이 있음), MenuDetail.jsx(containers폴더 / 해당 파일에 로그아웃 기능  localStorage.removeItem이 있다.
-  logout.js(modules폴더)
+- 퇴실(로그아웃)<br/>
+  MenuForm.jsx(components폴더 / 메뉴 컴포넌트에 로그아웃 기능 버튼이 있음), MenuDetail.jsx(containers폴더 / 해당 파일에 로그아웃 기능  localStorage.removeItem이 있다.<br/>
+  logout.js(modules폴더)<br/>
 
-<앞으로 구현할 기능>
-- 게시판, 자동 로그아웃
-1. 게시판
+<앞으로 구현할 기능><br/>
+- 게시판, 자동 로그아웃<br/>
+1. 게시판<br/>
 : 게시판 리스트 및 글작성 styled-component까지만 구현. BoardListForm.jsx(게시판 리스트) / BoardWriteForm.jsx(글작성)
 
 ### this project is for my skill improve
 
 ## information of project
-this project name is study_room.
-student and studying person can select a seat and can check selected seat
+this project name is study_room.<br/>
+student and studying person can select a seat and can check selected seat<br/>
  
-if you select a seat then your account is loged out so if you want check booking seat 
-you must log in to study room 
-
-my next goal is automatic log out 
-
-automatic log out is if you selected a seat to study for an hour then your seat will be log out after an hour   
-
+if you select a seat then your account is loged out so if you want check booking seat<br/>
+you must log in to study room<br/> 
+<br/>
+my next goal is automatic log out <br/>
+<br/>
+automatic log out is if you selected a seat to study for an hour then your seat will be log out after an hour<br/>   
+<br/>
 thaks for reading
 
 
