@@ -23,16 +23,19 @@
   zones.js(modules폴더 / 전체 좌석의 정보를 보여줌)<br/> 
 
 - 유저정보(좌석 선택 후 사용가능).<br/>
-  UserInfoForm(components폴더 / 뷰 역할), UserInfoDetail.jsx(containers폴더), userInfo.js(modules폴더)<br/>
+  UserInfoForm(components폴더), UserInfoDetail.jsx(containers폴더), userInfo.js(modules폴더)<br/>
 
 - 퇴실(로그아웃)<br/>
   MenuForm.jsx(components폴더 / 메뉴 컴포넌트에 로그아웃 기능 버튼이 있음), MenuDetail.jsx(containers폴더 / 해당 파일에 로그아웃 기능  localStorage.removeItem이 있다.<br/>
   logout.js(modules폴더)<br/>
+  
+- 게시판 글작성<br/>
+  BoardWriteForm.jsx(components폴더), BoardWriteDetail.jsx(containers폴더), boardWrite.js(modules폴더)<br/>      
 
 <앞으로 구현할 기능><br/>
 - 게시판, 자동 로그아웃<br/>
 1. 게시판<br/>
-: 게시판 리스트 및 글작성 styled-component까지만 구현. BoardListForm.jsx(게시판 리스트) / BoardWriteForm.jsx(글작성)
+: 게시판 글작성 구현(db에 insert 되는 것까지 구현함)
 
 ### this project is for my skill improve
 
