@@ -6,6 +6,7 @@ import logout, { logoutsSaga } from "./logout";
 import seat, { seatsSaga } from "./seat";
 import zones, { zonesSaga } from "./zones";
 import userInfo, { userInfosSaga } from "./userInfo";
+import boardWrite,{boardWritesSaga} from "./boardWrite";
 
 const rootReducer = combineReducers({
   auth,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   seat,
   zones,
   userInfo,
+  boardWrite
 });
 
 export function* rootSaga() {
@@ -24,6 +26,7 @@ export function* rootSaga() {
     seatsSaga(),
     zonesSaga(),
     userInfosSaga(),
+    boardWritesSaga(),
   ]);
 }
 

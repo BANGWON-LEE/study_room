@@ -47,6 +47,11 @@ const MenuForm = ({onSubmit, users}) => {
                             }
                         </Link>
                     </StyledDiv2>
+                    <StyledDiv2>
+                        <Link to='/boardList' >
+                            <StyledButtonMenu>게시판</StyledButtonMenu>    
+                        </Link>
+                    </StyledDiv2>
                 <form onSubmit={onSubmit}>
                     <StyledDiv2>
                         <StyledButtonMenu>퇴실</StyledButtonMenu>

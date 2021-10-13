@@ -13,7 +13,7 @@ function MenuDetailForm() {
   }));
 
   function onSubmit(event) {
-    const mem_userid = users.tf?.mem_userid;
+    const mem_userid = users.mem_userid;
     console.log("!!:" + mem_userid);
 
     localStorage.removeItem("users", JSON.stringify(users));

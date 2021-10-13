@@ -132,7 +132,26 @@ app.get('/api/userInfo/:mem_userid', (req, res) => {
   
 });
 
+app.post('/api/boardWrite',function (req, res) {
+    
+  const params = [req.body.mem_idx, req.body.bd_title,req.body.bd_textarea]
+  console.log(params);
+  db.query(
+    "insert into tb_board(bd_mem_idx, bd_title, bd_cotents) values(?,?,?)",params ,(err,data) => {
+      
+    if(data) {
+      data = true;  
+      res.send(200)
+    }
 
+    if(err){
+      data = false;  
+      res.send(data);
+    }
+});
+  
+}
+);
 
 app.listen(PORT, () => {
     console.log(`Server On : http://localhost:${PORT}/`);

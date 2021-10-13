@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import StyledButton1 from '../styled/StyledButton1';
 import StyledDiv1 from '../styled/StyledDiv1';
+import StyledDiv2 from '../styled/StyledDiv2';
 import StyledH1 from '../styled/StyledH1';
 import StyledTable from '../styled/StyledTable';
 import StyledTd from '../styled/StyledTd';
@@ -16,8 +19,13 @@ function BoardListForm() {
                     </StyledH1>
                 </div>
             </StyledDiv1>
+            <div style={{width:'145px', float:'right', display:'block', marginRight:'140px'}}>
+                    <Link to='/boardWrite' >
+                        <StyledButton1>글쓰기</StyledButton1>    
+                    </Link>
+                </div>
             <div style={{width:'75%', margin:'0 auto'}}>
-                <StyledTable>
+                <StyledTable styled={{display:'inline'}}>
                     <tr style={{borderBottom:'1px solid grey'}}>
                         <StyledTh style={{width:'130px'}}>
                             번호

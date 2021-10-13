@@ -4,8 +4,6 @@ import { withRouter } from "react-router-dom";
 import { changeField, initializeForm, register } from "../../modules/auth";
 import RegisterForm from '../../components/auth/RegisterForm';
 
-
-
 function RegisterDetail({history}) {
 
     const [error, setError] = useState('정보를 입력하세요');
@@ -17,11 +15,6 @@ function RegisterDetail({history}) {
 
     }));
 
-  
-    
-    console.log(form.mem_userid);
-  
-    
     const onChange = (event) => {
       const { value, name } = event.currentTarget; // currentTarget는 선택 된 태그의 부모 태그까지 불러온다.
       dispatch(

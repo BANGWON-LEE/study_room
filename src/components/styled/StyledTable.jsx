@@ -5,8 +5,9 @@ const StyledTable = styled.table`
     font-size: 15px;
     width: 100%;
     position: relative;
-    margin-top: 120px;
+    margin-top: 80px;
     text-align : center;
+    display: grid;
     `;
 
 export default StyledTable;

@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-console.log("@@");
 export const seat =  ({st_mem_idx, st_endDate, st_seatNumber, mem_userid}) => 
 axios.post('/api/seat',{
     st_mem_idx, st_endDate, st_seatNumber, mem_userid
@@ -11,4 +9,7 @@ export const zone = ({st_idx,st_seatNumber,st_seatStatus,}) => axios.get('api/zo
     st_idx,st_seatNumber,st_seatStatus, 
     });
 
+export const boardWrite = ({ mem_idx, bd_title, bd_textarea}) => axios.post('api/boardWrite', {
+    mem_idx, bd_title, bd_textarea 
+});
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import BoardWriteForm from '../components/menu/BoardWriteForm';
+import BoardWriteDetail from '../containers/menu/BoardWriteDetail';
 
 function BoardWritePage() {
     return(
-        <BoardWriteForm/>
+        <BoardWriteDetail/>
     )
 }
 
