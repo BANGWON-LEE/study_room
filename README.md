@@ -42,7 +42,7 @@
 
 ### this project is for my skill improve
 
-## information of project
+## information about project
 this project name is study_room.<br/>
 student and studying person can select a seat and can check selected seat<br/>
  
