@@ -16,7 +16,7 @@ export const listZones = createAction(
 );
 
 const listZonesSaga = createRequestSaga(LIST_ZONES, menuAPI.zone);
-export function * zonesSaga(){
+export function* zonesSaga(){
     yield takeLatest(LIST_ZONES, listZonesSaga);
 }
 

@@ -1,7 +1,5 @@
 
 import axios from 'axios';
-import qs from 'qs';
-
 
 export const register = ({mem_userid, mem_pass, mem_name, mem_hp}) => 
 axios.post('/api/register', {mem_userid, mem_pass, mem_name, mem_hp});

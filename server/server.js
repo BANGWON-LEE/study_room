@@ -133,11 +133,11 @@ app.get('/api/userInfo/:mem_userid', (req, res) => {
 });
 
 app.post('/api/boardWrite',function (req, res) {
-    
+
   const params = [req.body.mem_idx, req.body.bd_title,req.body.bd_textarea]
   console.log(params);
   db.query(
-    "insert into tb_board(bd_mem_idx, bd_title, bd_cotents) values(?,?,?)",params ,(err,data) => {
+    "insert into tb_board(bd_mem_idx, bd_title, bd_cotents, bd_recommand) values(?,?,?,0)",params ,(err,data) => {
       
     if(data) {
       data = true;  
@@ -149,9 +149,19 @@ app.post('/api/boardWrite',function (req, res) {
       res.send(data);
     }
 });
-  
-}
-);
+});
+
+app.get("/api/boardList", (req, res) => {
+  console.log('리스트 불러오기');
+  db.query("SELECT bd_idx,  bd_title, (select mem_userid from tb_mem where mem_idx = bd_mem_idx) AS mem_userid, date_format(bd_regDate, '%Y-%m-%d %H:%i:%s') as bd_regDate , bd_recommand FROM tb_board order by bd_idx desc" , function (err, data) {
+    if (err) {
+      console.log("데이터 가져오기 실패");
+    } else {
+      console.log(data);
+      res.send(data);
+    }
+  });
+});
 
 app.listen(PORT, () => {
     console.log(`Server On : http://localhost:${PORT}/`);

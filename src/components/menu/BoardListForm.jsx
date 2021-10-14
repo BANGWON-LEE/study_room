@@ -2,14 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import StyledButton1 from '../styled/StyledButton1';
 import StyledDiv1 from '../styled/StyledDiv1';
-import StyledDiv2 from '../styled/StyledDiv2';
 import StyledH1 from '../styled/StyledH1';
 import StyledTable from '../styled/StyledTable';
-import StyledTd from '../styled/StyledTd';
 import StyledTh from '../styled/StyledTh';
+import BoardListZoneForm from './BoardListZoneForm';
 
-function BoardListForm() {
-
+function BoardListForm({boardLists}) {
     return (
         <div className="body">
             <StyledDiv1>
@@ -25,6 +23,7 @@ function BoardListForm() {
                     </Link>
                 </div>
             <div style={{width:'75%', margin:'0 auto'}}>
+                {boardLists && (
                 <StyledTable styled={{display:'inline'}}>
                     <tr style={{borderBottom:'1px solid grey'}}>
                         <StyledTh style={{width:'130px'}}>
@@ -43,24 +42,12 @@ function BoardListForm() {
                             추천수
                         </StyledTh>
                     </tr>
-                    <tr style={{borderBottom:'1px solid grey'}}>
-                        <StyledTd style={{width:'130px'}}>
-                            1
-                        </StyledTd>
-                        <StyledTd style={{width:'380px'}}>
-                            책상 청결관리 깨끗하게 부탁드려요
-                        </StyledTd>
-                        <StyledTd >
-                            이방원  
-                        </StyledTd>
-                        <StyledTd style={{width:'300px'}}>
-                            2021-10-10 20:33:45
-                        </StyledTd>
-                        <StyledTd style={{width:'130px'}}>
-                            3
-                        </StyledTd>
-                    </tr>
+                    
+                    {boardLists.map((boardList) =>(
+                        <BoardListZoneForm boardList={boardList}/>
+                    ))}
                 </StyledTable>
+                    )}
             </div>        
         </div>
 
@@ -70,3 +57,4 @@ function BoardListForm() {
 }
 
 export default BoardListForm;
+

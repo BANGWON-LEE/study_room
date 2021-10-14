@@ -12,27 +12,31 @@ const [
 
 export const list = createAction(
     LIST_BOARD,
-    ({st_mem_idx, st_seatNumber,st_seatStatus,st_regDate, st_endDate}) => ({st_mem_idx, st_seatNumber,st_seatStatus,st_regDate, st_endDate})
+    ({ bd_idx, bd_title,  mem_userid,  bd_regDate, bd_recommand }) => ({ bd_idx, bd_title,  mem_userid,  bd_regDate, bd_recommand })
 );
 
-const boardListSaga = createRequestSaga(LIST_BOARD, menuAPI.zone);
-export function * boardListsSaga(){
+const boardListSaga = createRequestSaga(LIST_BOARD, menuAPI.boardList);
+export function* boardListsSaga(){
     yield takeLatest(LIST_BOARD, boardListSaga);
 }
 
 
 
 const initialState = {
-    boardList: null,
-    error: null,
+    
+    bd_idx: 0,
+    bd_title: '',  
+    mem_userid: '',  
+    bd_regDate: '', 
+    bd_recommand: 0
     
 }
 
 const boardList = handleActions(
     {
-        [LIST_BOARD_SUCCES] : (state, { payload: listBoard}) => ({
+        [LIST_BOARD_SUCCES] : (state, { payload: boardList}) => ({
             ...state,
-            listBoard,
+            boardList,
         }),
         [LIST_BOARD_FAILURE] : (state, {payload : error}) => ({
             ...state,

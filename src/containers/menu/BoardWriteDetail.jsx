@@ -15,10 +15,7 @@ function BoardWriteDetail({history}) {
     
     const getUser = localStorage.getItem("users");
     // 다시 Object로 변환
-    const mem_userid = JSON.parse(getUser).mem_userid;
     const mem_idx = JSON.parse(getUser).mem_idx; 
-    console.log(mem_userid);
-
 
     const onChange = (event) => {
         const { value, name } = event.currentTarget; // currentTarget는 선택 된 태그의 부모 태그까지 불러온다.

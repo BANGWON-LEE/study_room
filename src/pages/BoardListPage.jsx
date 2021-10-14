@@ -1,9 +1,9 @@
 import React from 'react';
-import BoardListForm from '../components/menu/BoardListForm';
+import BoardListDetail from '../containers/menu/BoardListDetail';
 
 function BoardListPage() {
     return(
-        <BoardListForm/>
+        <BoardListDetail/>
     )
 }
 
