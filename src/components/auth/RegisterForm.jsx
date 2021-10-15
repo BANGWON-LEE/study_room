@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import StyledButton1 from '../styled/StyledButton1';
@@ -66,7 +66,7 @@ function AuthForm({ form, onChange, onSubmit, error}) {
                             <p style={{textAlign : 'left'}}>
                                 연락처 : 
                             </p>
-                            <StyledText1  value={form.mem_hp} onChange={onChange} name="mem_hp" />
+                            <StyledText1  value={form.mem_hp} onChange={onChange} name="mem_hp" placeholder="-(하이픈)은 입력하지 마세요"/>
                         </StyledDiv2>
                         <StyledDiv2>
                             <p>{error}</p> 

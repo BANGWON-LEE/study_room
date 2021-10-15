@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router';
 import BoardWriteForm from '../../components/menu/BoardWriteForm';
 import { changeField, initializeForm, write } from '../../modules/boardWrite';
 
 function BoardWriteDetail({history}) {
-    //const [error, setError] = useState('정보를 입력하세요');
+    
     const dispatch = useDispatch();
     const {form, boardWrite, boardWriteError} = useSelector(({boardWrite}) => ({
         form : boardWrite.write,
@@ -14,11 +14,13 @@ function BoardWriteDetail({history}) {
     }))
     
     const getUser = localStorage.getItem("users");
-    // 다시 Object로 변환
-    const mem_idx = JSON.parse(getUser).mem_idx; 
+    const mem_idx = JSON.parse(getUser).mem_idx; //JSON.parse를 사용하여 객체로 생성.
+    
 
-    const onChange = (event) => {
-        const { value, name } = event.currentTarget; // currentTarget는 선택 된 태그의 부모 태그까지 불러온다.
+    //useCallback을 사용하여 최적화를 시킴 이전 코드보다 최적화 된 것을 Profiler(개발자 도구의  redux-devtools)로 확인함    
+    const onChange = useCallback((e) => {
+        const {value, name} = e.currentTarget;
+        console.log("게시판");
         dispatch(
             changeField({
             form: "write",
@@ -26,7 +28,7 @@ function BoardWriteDetail({history}) {
             value,
             }),
             );
-        };
+    }, [dispatch])
 
     function onSubmit(event){
         
@@ -34,7 +36,6 @@ function BoardWriteDetail({history}) {
         
         if ([bd_title, bd_textarea].includes("")) {
             alert("빈 칸을 모두 입력하세요")
-            
             return;
         }
         dispatch(write({bd_title, bd_textarea,mem_idx }));
@@ -49,20 +50,20 @@ function BoardWriteDetail({history}) {
 
         useEffect(() => {
             if (boardWriteError) {
-              console.log('error!');
-              console.log(boardWriteError);
+                console.log('error!');
+                console.log(boardWriteError);
     
-              return;
+                return;
             }
             if (boardWrite) {
-              console.log("성공");
-              console.log(boardWrite);
-              
-              return;
-              
+                console.log("성공");
+                console.log(boardWrite);
+                
+                return;
+                
             }
     
-          }, [boardWrite, boardWriteError, dispatch ]);
+            }, [boardWrite, boardWriteError, dispatch ]);
     
 
         return(
