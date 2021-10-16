@@ -163,6 +163,19 @@ app.get("/api/boardList", (req, res) => {
   });
 });
 
+app.get("/api/boardContents/:bd_idx", (req,res) => {
+  const bd_idx = req.params.bd_idx;
+  console.log('게시판 내용 불러오기');
+  db.query("SELECT bd_idx, bd_title, bd_cotents, (select mem_userid from tb_mem where mem_idx = bd_mem_idx) AS mem_userid, date_format(bd_regDate, '%Y-%m-%d %H:%i:%s') as bd_regDate, bd_recommand FROM tb_board where bd_idx='"+bd_idx+"'", function (err, data) {
+    if(err) {
+      console.log("게시판 내용 불러오기 실패");
+    } else {
+      console.log(data[0]) 
+      res.send(data[0]);
+    }
+  })
+})
+
 app.listen(PORT, () => {
     console.log(`Server On : http://localhost:${PORT}/`);
 })

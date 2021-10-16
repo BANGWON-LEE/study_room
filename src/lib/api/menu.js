@@ -20,3 +20,7 @@ export const boardList =({bd_idx, bd_title, mem_userid, bd_regDate, bd_recomand 
     bd_idx, bd_title,  mem_userid, bd_regDate, bd_recomand
 })
 
+export const boardContents = ({bd_idx, bd_title, bd_cotents, mem_userid, bd_regDate}) => 
+    axios.get(`/api/boardContents/${bd_idx}`, {
+        bd_idx, bd_title, bd_cotents, mem_userid, bd_regDate
+    })

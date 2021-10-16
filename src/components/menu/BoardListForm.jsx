@@ -30,7 +30,7 @@ function BoardListForm({boardLists}) {
                             번호
                         </StyledTh>
                         <StyledTh style={{width:'380px'}}>
-                            제목
+                            글제목
                         </StyledTh>
                         <StyledTh>
                             글쓴이

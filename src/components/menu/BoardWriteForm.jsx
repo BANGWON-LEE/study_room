@@ -10,32 +10,32 @@ import StyledTextarea from '../styled/StyledTextarea';
 function BoardWriteForm({form, onChange, onSubmit}) {
     return(
         <div className="body">
+            <StyledDiv1>
+                <div className="title">
+                    <StyledH1>
+                        글쓰기
+                    </StyledH1>
+                </div>
+            </StyledDiv1>
+            <form onSubmit={onSubmit}>
                 <StyledDiv1>
-                    <div className="title">
-                        <StyledH1>
-                            글쓰기
-                        </StyledH1>
-                    </div>
+                    <StyledDiv2>
+                        <p style={{textAlign : 'left'}}>
+                            제목 : 
+                        </p>
+                        <StyledText1 value={form.bd_title} onChange={onChange} name="bd_title"/>
+                    </StyledDiv2>
+                    <StyledDiv2>
+                        <p style={{textAlign : 'left'}}>
+                            내용 : 
+                        </p>
+                        <StyledTextarea value={form.bd_textarea} onChange={onChange} name="bd_textarea"/>
+                    </StyledDiv2>
+                        <StyledButton1>
+                            글등록
+                        </StyledButton1>
                 </StyledDiv1>
-                <form onSubmit={onSubmit}>
-                    <StyledDiv1>
-                        <StyledDiv2>
-                            <p style={{textAlign : 'left'}}>
-                                제목 : 
-                            </p>
-                            <StyledText1 value={form.bd_title} onChange={onChange} name="bd_title"/>
-                        </StyledDiv2>
-                        <StyledDiv2>
-                            <p style={{textAlign : 'left'}}>
-                                내용 : 
-                            </p>
-                            <StyledTextarea value={form.bd_textarea} onChange={onChange} name="bd_textarea"/>
-                        </StyledDiv2>
-                            <StyledButton1>
-                                글등록
-                            </StyledButton1>
-                    </StyledDiv1>
-                </form>
+            </form>
         </div>
     )
 }
