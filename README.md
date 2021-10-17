@@ -34,11 +34,14 @@
   
 - 게시판 리스트<br/>
   BoardListForm.jsx(components폴더), BoardListZoneForm.jsx(components폴더), BoardListDetail.js(containers폴더), boardList.js(modules폴더)<br/>
+  
+- 게시판 글내용<br/>
+  BoardCommentForm.jsx(components폴더), BoardContentsDetail.jsx(containers폴더), boardContents.js(modules폴더)<br/>  
 
 <앞으로 구현할 기능><br/>
 - 게시판, 자동 로그아웃<br/>
 1. 게시판<br/>
-: 게시판 리스트(글 목록들) 보이는 것까지 구현, 세부내용을 보도록 하는 것을 구현할 예정입니다.
+: 게시판 글내용 댓글 구현 구현할 예정, css도 새로 손봐야 함
 
 ### this project is for my skill improve
 
