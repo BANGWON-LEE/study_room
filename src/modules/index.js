@@ -9,6 +9,8 @@ import userInfo, { userInfosSaga } from "./userInfo";
 import boardWrite,{boardWritesSaga} from "./boardWrite";
 import boardList, {boardListsSaga} from "./boardList";
 import boardContents, {boardContentSaga} from "./boardContents";
+import boardComments, {commentsSaga} from "./boardComments";
+import boardComment, {boardCommentsSaga} from "./boardComment";
 
 const rootReducer = combineReducers({
   auth,
@@ -20,6 +22,8 @@ const rootReducer = combineReducers({
   boardWrite,
   boardList,
   boardContents,
+  boardComments,
+  boardComment,
 });
 
 export function* rootSaga() {
@@ -33,6 +37,8 @@ export function* rootSaga() {
     boardWritesSaga(),
     boardListsSaga(),
     boardContentSaga(),
+    commentsSaga(),
+    boardCommentsSaga(),
   ]);
 }
 

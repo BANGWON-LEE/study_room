@@ -21,7 +21,7 @@ function BoardContentsDetail({ match }) {
 
   useEffect(() => {
     if (boardContents) {
-      console.log("성공Info");
+      console.log("성공contents");
       console.log(boardContents);
     }
 

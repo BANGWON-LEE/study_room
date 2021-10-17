@@ -11,8 +11,9 @@ import { Link } from 'react-router-dom';
 // [좌석확인] 버튼, 현재 좌석들의 상태를 보여준다.
 // [퇴실]버튼은 좌석을 사용하지 않는 상태로 바뀌는 동시에, 계정이 로그아웃 된다.
 
-const MenuForm = ({onSubmit, users}) => {
+const MenuForm = ({onSubmit, member}) => {
 
+    const {mem_status, mem_userid} = member;
 
     return (
         <div className="body">
@@ -24,7 +25,7 @@ const MenuForm = ({onSubmit, users}) => {
                     </div>        
                     <StyledDiv2>
                         <Link to='/timeChoice'>
-                            {users.mem_status === 'L' ?
+                            {mem_status === 'L' ?
                                 null :
                             <StyledButtonMenu>
                                 입장
@@ -40,8 +41,8 @@ const MenuForm = ({onSubmit, users}) => {
                         </Link>
                     </StyledDiv2>
                     <StyledDiv2>
-                        <Link to= {`/userInfo/${users.mem_userid}`}>
-                            {users.mem_status === 'L' ?
+                        <Link to= {`/userInfo/${mem_userid}`}>
+                            {mem_status === 'L' ?
                                 <StyledButtonMenu>사용자 정보</StyledButtonMenu>
                             : null
                             }

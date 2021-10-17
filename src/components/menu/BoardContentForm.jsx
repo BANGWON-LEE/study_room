@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BoardCommentDetail from '../../containers/menu/BoardCommentDetail';
 import StyledButton1 from '../styled/StyledButton1';
 import StyledDiv1 from '../styled/StyledDiv1';
 import StyledDiv2 from '../styled/StyledDiv2';
 import StyledDiv3 from '../styled/StyledDiv3';
 import StyledH1 from '../styled/StyledH1';
-import BoardCommentForm from './BoardCommentForm';
 
 
 function BoardContent({boardContents}) {
@@ -59,7 +59,7 @@ function BoardContent({boardContents}) {
                         </Link>
                 </StyledDiv2>
             </StyledDiv3>
-            <BoardCommentForm/>
+            <BoardCommentDetail/>
         </div>
     )
 }

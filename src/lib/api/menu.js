@@ -24,3 +24,13 @@ export const boardContents = ({bd_idx, bd_title, bd_cotents, mem_userid, bd_regD
     axios.get(`/api/boardContents/${bd_idx}`, {
         bd_idx, bd_title, bd_cotents, mem_userid, bd_regDate
     })
+
+export const boardComment = ({cm_bd_idx, cm_content, cm_mem_idx }) => 
+    axios.post('/api/boardComment' , {
+        cm_bd_idx, cm_content, cm_mem_idx 
+    })
+
+export const boardComments = ({cm_bd_idx}) => 
+    axios.get('/api/boardComments' , {
+        cm_bd_idx
+    })

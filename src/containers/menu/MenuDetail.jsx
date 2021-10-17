@@ -49,7 +49,14 @@ function MenuDetailForm() {
     }
   }, [logout, logoutError]);
 
-  return <MenuForm onSubmit={onSubmit} users={users} />;
+  const getUser = localStorage.getItem("users");
+  const member = JSON.parse(getUser);
+  // 이전에는 users값을 Reducer로 변화된 값을 받아왔지만, 리로드 되면 users가 undefined된다. 그래서, localStorage에 있는 값을 받아왔다.
+
+
+  return ( 
+    <MenuForm onSubmit={onSubmit} member={member}/>
+  );
 }
 
 export default withRouter(MenuDetailForm);

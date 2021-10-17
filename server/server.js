@@ -176,6 +176,41 @@ app.get("/api/boardContents/:bd_idx", (req,res) => {
   })
 })
 
+app.post('/api/boardComment',function (req, res) {
+  console.log('게시판 댓글 쓰기'); 
+  const params = [req.body.cm_bd_idx, req.body.cm_content,req.body.cm_mem_idx]
+  console.log(params);
+  db.query(
+    "insert into tb_comment(cm_bd_idx, cm_content, cm_mem_idx) values(?,?,?)",params ,(err,data) => {
+      
+    if(data) {
+      data = true;  
+      res.send(data)
+    }
+
+    if(err){
+      data = false;  
+      res.send(err);
+    }
+});
+});
+
+app.get("/api/boardContents", (req,res) => {
+  const cm_bd_idx = req.query.cm_bd_idx
+
+
+  console.log('게시판 댓글 불러오기');
+  console.log(cm_bd_idx);
+  db.query("SELECT (SELECT mem_userid FROM tb_mem WHERE mem_idx = cm_mem_idx) AS mem_userid, cm_content FROM tb_comment WHERE cm_bd_idx = '"+cm_bd_idx+"' ORDER BY cm_idx desc", function (err, data) {
+    if(err) {
+      console.log("게시판 내용 불러오기 실패");
+    } else {
+      console.log(data[0]) 
+      res.send(data[0]);
+    }
+  })
+})
+
 app.listen(PORT, () => {
     console.log(`Server On : http://localhost:${PORT}/`);
 })

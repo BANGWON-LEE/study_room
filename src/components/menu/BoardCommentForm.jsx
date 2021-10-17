@@ -4,13 +4,15 @@ import StyledDiv2 from "../styled/StyledDiv2";
 import StyledDiv3 from "../styled/StyledDiv3";
 import StyledTextarea2 from "../styled/StyledTextarea2";
 
-function BoardCommentForm() {
+function BoardCommentForm({form, boardComments, onChange, onSubmit}) {
+  
     return(
         <div className="body" style={{height:'90%'}}>
             <StyledDiv3 style={{backgroundColor:'gray', paddingTop:'10px', height:'85%'}}>
-                <form>
+                <form onSubmit={onSubmit}>
                     <StyledDiv2 style={{paddingLeft:'7px'}}>
-                        <StyledTextarea2 name="cm_content" style={{display:'inline-table', marginRight:'0px', paddingRight:'0px', borderRightWidth: '0px'}} />
+                        <StyledTextarea2 value={form.cm_content} onChange={onChange} name="cm_content"
+                        style={{display:'inline-table', marginRight:'0px', paddingRight:'0px', borderRightWidth: '0px'}} />
                         <StyledButton1 style={{hegiht:'18px' , fontSize:'11.5px', marginLeft:'0px'}}>
                             등록
                         </StyledButton1>
@@ -18,10 +20,10 @@ function BoardCommentForm() {
                 </form>
                 <StyledDiv2 style={{paddingLeft:'18px'}}>
                     <div style={{float : 'left', display:'inline-block'}}>
-                        저자: 
+                        {boardComments.mem_userid}: 
                     </div>
                     <div style={{display:'inline-block', paddingRight:'45px'}}>
-                        인정 인정 인정
+                        {boardComments.cm_content}
                     </div>   
                 </StyledDiv2>
             </StyledDiv3 >
