@@ -195,18 +195,16 @@ app.post('/api/boardComment',function (req, res) {
 });
 });
 
-app.get("/api/boardContents", (req,res) => {
-  const cm_bd_idx = req.query.cm_bd_idx
-
-
+app.get("/api/boardComments/:bd_idx", (req,res) => {
+  const cm_bd_idx = req.params.bd_idx
   console.log('게시판 댓글 불러오기');
-  console.log(cm_bd_idx);
+  console.log('게댓 : ' +cm_bd_idx);
   db.query("SELECT (SELECT mem_userid FROM tb_mem WHERE mem_idx = cm_mem_idx) AS mem_userid, cm_content FROM tb_comment WHERE cm_bd_idx = '"+cm_bd_idx+"' ORDER BY cm_idx desc", function (err, data) {
     if(err) {
       console.log("게시판 내용 불러오기 실패");
     } else {
-      console.log(data[0]) 
-      res.send(data[0]);
+      console.log(data) 
+      res.send(data);
     }
   })
 })

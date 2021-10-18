@@ -5,40 +5,38 @@ import { takeLatest } from 'redux-saga/effects';
 
 
 const [
-    BOARDCOMENTS,
-    BOARDCOMENTS_SUCCES,
-    BOARDCOMENTS_FAILURE,    
-] = createRequestActionTypes('comments/BOARDCOMMENTS');
+    BOARD_COMENTS,
+    BOARD_COMENTS_SUCCES,
+    BOARD_COMENTS_FAILURE,    
+] = createRequestActionTypes('comments/BOARD_COMMENTS');
 
 export const comments = createAction(
-    BOARDCOMENTS,
-    ({cm_bd_idx}) => ({cm_bd_idx})
+    BOARD_COMENTS,
+    ({bd_idx}) => ({bd_idx})
 );
 
-const boardCommentsSaga = createRequestSaga(BOARDCOMENTS, menuAPI.boardComments);
+const boardCommentsSaga = createRequestSaga(BOARD_COMENTS, menuAPI.boardComments);
 export function* commentsSaga(){
-    yield takeLatest(BOARDCOMENTS, boardCommentsSaga);
+    yield takeLatest(BOARD_COMENTS, boardCommentsSaga);
 }
-
-
 
 const initialState = {
     
-    comments:{
+  
         mem_userid: '',
         cm_content: '',
-        cm_bd_idx: 0
-    }
+        bd_idx: 0
+
     
 }
 
 const boardComments = handleActions(
     {
-        [BOARDCOMENTS_SUCCES] : (state, { payload: boardComments}) => ({
+        [BOARD_COMENTS_SUCCES] : (state, { payload: boardComments}) => ({
             ...state,
             boardComments,
         }),
-        [BOARDCOMENTS_FAILURE] : (state, {payload : error}) => ({
+        [BOARD_COMENTS_FAILURE] : (state, {payload : error}) => ({
             ...state,
             error
         }),

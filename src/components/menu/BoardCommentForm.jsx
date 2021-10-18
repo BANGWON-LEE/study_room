@@ -3,9 +3,10 @@ import StyledButton1 from "../styled/StyledButton1";
 import StyledDiv2 from "../styled/StyledDiv2";
 import StyledDiv3 from "../styled/StyledDiv3";
 import StyledTextarea2 from "../styled/StyledTextarea2";
+import BoardCommentsForm from "./BoardCommentsForm";
 
 function BoardCommentForm({form, boardComments, onChange, onSubmit}) {
-  
+
     return(
         <div className="body" style={{height:'90%'}}>
             <StyledDiv3 style={{backgroundColor:'gray', paddingTop:'10px', height:'85%'}}>
@@ -18,14 +19,13 @@ function BoardCommentForm({form, boardComments, onChange, onSubmit}) {
                         </StyledButton1>
                     </StyledDiv2>
                 </form>
-                <StyledDiv2 style={{paddingLeft:'18px'}}>
-                    <div style={{float : 'left', display:'inline-block'}}>
-                        {boardComments.mem_userid}: 
-                    </div>
-                    <div style={{display:'inline-block', paddingRight:'45px'}}>
-                        {boardComments.cm_content}
-                    </div>   
-                </StyledDiv2>
+                {boardComments && (
+                <div>   
+                {boardComments.map((boardComment) =>(
+                    <BoardCommentsForm boardComment={boardComment}/>
+                ))}
+                </div>
+            )}
             </StyledDiv3 >
         </div>
     )

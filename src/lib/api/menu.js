@@ -25,12 +25,14 @@ export const boardContents = ({bd_idx, bd_title, bd_cotents, mem_userid, bd_regD
         bd_idx, bd_title, bd_cotents, mem_userid, bd_regDate
     })
 
-export const boardComment = ({cm_bd_idx, cm_content, cm_mem_idx }) => 
+export const boardComment = ({cm_bd_idx, cm_content, cm_mem_idx })=> 
     axios.post('/api/boardComment' , {
         cm_bd_idx, cm_content, cm_mem_idx 
     })
 
-export const boardComments = ({cm_bd_idx}) => 
-    axios.get('/api/boardComments' , {
-        cm_bd_idx
+export const boardComments = ({bd_idx}) => 
+    axios.get(`/api/boardComments/${bd_idx}` , {
+        bd_idx
+        
     })
+    

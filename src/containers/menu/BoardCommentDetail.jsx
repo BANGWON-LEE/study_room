@@ -12,8 +12,10 @@ function BoardCommentDetail({match}) {
         boardComment : boardComment.boardComment,
         boardCommentError : boardComment.error,
         boardContents: boardContents.boardContents,
-        boardComments : boardComments.comments,
+        boardComments : boardComments.boardComments
+        
     }));
+
 
     console.log('댓글 data 확인하기');
     console.log(boardComments);
@@ -25,25 +27,30 @@ function BoardCommentDetail({match}) {
     console.log("댓글 게시판 번호");
     console.log(cm_bd_idx);
 
+    
     useEffect(() => {
-        const cm_bd_idx = match.params;
-        console.log('댓글 방 번호 ')
-        console.log(cm_bd_idx);
-        dispatch(comments(cm_bd_idx));
-      }, [dispatch]);
+        const bd_idx = match.params.bd_idx;
+        console.log('댓글 방 번호 ');
+        console.log(bd_idx);
+        dispatch(
+            comments({
+                bd_idx, 
+            })
+        );
+    }, []);
 
 
     const onChange = (event) => {
         const { value, name } = event.currentTarget; // currentTarget는 선택 된 태그의 부모 태그까지 불러온다.
         dispatch(
-          changeField({
+            changeField({
             form: "comment",
             key: name,
             value,
-          }),
-          );
+        }),
+        );
         };
-  
+
 
 
     function onSubmit(event){
@@ -57,30 +64,32 @@ function BoardCommentDetail({match}) {
         dispatch(comment({cm_bd_idx, cm_content, cm_mem_idx}));
         };   
 
-     
+
         
     
-        useEffect(() => {
-            console.log('댓글 이니시얼');
-            dispatch(initializeForm("comment"));
-        }, [dispatch]);    
+    useEffect(() => {
+        console.log('댓글 이니시얼');
+        dispatch(initializeForm("comment"));
+    }, [dispatch]);    
 
-        useEffect(() => {
-            if (boardCommentError) {
-                console.log('error!');
-                console.log(boardCommentError);
-    
-                return;
-            }
-            if (boardComment) {
-                console.log("성공");
-                console.log(boardComment);
-                
-                return;
-                
-            }
-    
-            }, [boardComment, boardCommentError, dispatch ]);
+
+
+    useEffect(() => {
+        if (boardCommentError) {
+            console.log('error!');
+            console.log(boardCommentError);
+
+            return;
+        }
+        if (boardComment) {
+            console.log("성공");
+            console.log(boardComment);
+            
+            return;
+            
+        }
+
+        }, [boardComment, boardCommentError, dispatch ]);
 
 
 
