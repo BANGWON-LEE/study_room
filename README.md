@@ -36,12 +36,17 @@
   BoardListForm.jsx(components폴더), BoardListZoneForm.jsx(components폴더), BoardListDetail.js(containers폴더), boardList.js(modules폴더)<br/>
   
 - 게시판 글내용<br/>
-  BoardCommentForm.jsx(components폴더), BoardContentsDetail.jsx(containers폴더), boardContents.js(modules폴더)<br/>  
+  BoardContentForm.jsx(components폴더), BoardContentsDetail.jsx(containers폴더), boardContents.js(modules폴더)<br/>  
+
+- 게시판 댓글 글작성 및 보기<br/>
+  BoardCommentForm.jsx(components폴더 / 글작성) BoardCommentDetail.jsx(containers폴더 / 글작성), boardComment(modules폴더 / 글작성)<br/>
+  BoardCommenstForm.jsx(components폴더 / 글내용) BoardCommentsDetail.jsx(containers폴더 / 글내용), boardComments(modules폴더 / 글내용)<br/>
+  
 
 <앞으로 구현할 기능><br/>
 - 게시판, 자동 로그아웃<br/>
 1. 게시판<br/>
-: 게시판 글내용 댓글 구현 구현할 예정, css도 새로 손봐야 함
+: 게시판 글수정 구현할 예정, css도 새로 손봐야 함
 
 ### this project is for my skill improve
 
