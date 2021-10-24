@@ -1,4 +1,4 @@
-import React, {  useEffect } from "react";
+import React, {  useState, useEffect, useCallback, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import BoardCommentForm from "../../components/menu/BoardCommentForm";
@@ -16,16 +16,11 @@ function BoardCommentDetail({match}) {
         
     }));
 
-
-    console.log('댓글 data 확인하기');
-    console.log(boardComments);
-
     const getUser = localStorage.getItem("users");
     const cm_mem_idx = JSON.parse(getUser).mem_idx; //JSON.parse를 사용하여 객체로 생성.
-    
+    const get_mem_userid = JSON.parse(getUser).mem_userid
+
     const cm_bd_idx = boardContents.bd_idx;
-    console.log("댓글 게시판 번호");
-    console.log(cm_bd_idx);
 
     
     useEffect(() => {
@@ -38,10 +33,19 @@ function BoardCommentDetail({match}) {
             })
         );
     }, []);
+    
+
+
+    const [commentList, setCommentList] = useState([])
+
+
+    console.log('댓글 찾아보기')
+    console.log(commentList);
 
 
     const onChange = (event) => {
         const { value, name } = event.currentTarget; // currentTarget는 선택 된 태그의 부모 태그까지 불러온다.
+
         dispatch(
             changeField({
             form: "comment",
@@ -50,21 +54,39 @@ function BoardCommentDetail({match}) {
         }),
         );
         };
+ 
+    const checkComment = form.cm_content;
 
-
-
-    function onSubmit(event){
-        event.preventDefault();
+    const onSubmit = useCallback(() => {
         const { cm_content } = form;
+
+        const resultComment = {
+
+            name :get_mem_userid,
+            content: cm_content
+        }
+
+        setCommentList(
+            commentList => commentList.concat(resultComment)
+        )
         
+        //nextId.current +=1;
+
         if ([cm_content].includes("")) {
             alert("빈 칸을 모두 입력하세요")
             return;
         }
+        
+        
         dispatch(comment({cm_bd_idx, cm_content, cm_mem_idx}));
-        };   
-
-
+    },[checkComment]);
+    
+    function onKeyPress(e) {
+        if(e.key === "Enter") {
+            onSubmit();
+            e.currentTarget='';
+        }
+    };
         
     
     useEffect(() => {
@@ -99,6 +121,9 @@ function BoardCommentDetail({match}) {
             onChange={onChange}
             onSubmit={onSubmit}
             boardComments={boardComments}
+            onKeyPress={onKeyPress}
+            commentList={commentList}
+            
         />
     );
 
