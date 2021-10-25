@@ -19,7 +19,6 @@ function MenuDetailForm() {
   function onSubmit(event) {
     event.preventDefault();
     const mem_userid = member.mem_userid;
-    console.log("!!:" + mem_userid);
 
     localStorage.removeItem("users", JSON.stringify(users));
     // 메뉴 컴포넌트(components/MenuForm.jsx)에서 로그아웃 버튼을 클릭하면 localStorage에 등록되있는 계정정보가 삭제된다.
@@ -37,7 +36,7 @@ function MenuDetailForm() {
 
   useEffect(() => {
     if (logoutError) {
-      if (logoutError.response.status === 400 || users.mem_userid === undefined) {
+      if (logoutError.response.status === 400) {
         window.location.replace("/login");
         return;
       } 

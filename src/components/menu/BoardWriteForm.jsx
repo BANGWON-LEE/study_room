@@ -34,6 +34,9 @@ function BoardWriteForm({form, onChange, onSubmit}) {
                         <StyledButton1>
                             글등록
                         </StyledButton1>
+                        <Link to='/boardList' >
+                            <StyledButton1>메뉴</StyledButton1>    
+                        </Link>
                 </StyledDiv1>
             </form>
         </div>

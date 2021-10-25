@@ -12,7 +12,6 @@ function BoardCommentForm({
     onSubmit,
     onKeyPress,
     commentList,
-    commentText
 }) {
     const commentDetail = commentList;
 
@@ -28,7 +27,7 @@ function BoardCommentForm({
                     onChange={onChange}
                     onKeyPress={onKeyPress}
                     name="cm_content"
-                    useRef={commentText}
+                    
                     style={{
                     display: "inline-table",
                     marginRight: "0px",
