@@ -40,6 +40,8 @@ function TimeChoiceDetail({ history, location }) {
   }, [dispatch]);
 
   const [st_seatNumber, setSt_seatNumber] = useState();
+  const getUser = localStorage.getItem("users");
+  const member = JSON.parse(getUser);
 
   function onClickZone(event) {
     const st_seatNumber = event.currentTarget.getAttribute("data-value");
@@ -49,8 +51,8 @@ function TimeChoiceDetail({ history, location }) {
   function onSubmit(event) {
     event.preventDefault();
     console.log(event.currentTarget.getAttribute("data-value"));
-    const st_mem_idx = users.mem_idx;
-    const mem_userid = users.mem_userid;
+    const st_mem_idx = member.mem_idx;
+    const mem_userid = member.mem_userid;
     const st_endDate = hour;
 
     console.log("!!:" + st_mem_idx);

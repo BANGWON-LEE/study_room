@@ -11,15 +11,19 @@ function MenuDetailForm() {
     logout: logout.logout,
     logoutError: logout.logoutError,
   }));
+  
+    const getUser = localStorage.getItem("users");
+    const member = JSON.parse(getUser);
+    // 이전에는 users값을 Reducer로 변화된 값을 받아왔지만, 리로드 되면 users가 undefined된다. 그래서, localStorage에 있는 값을 받아왔다.
 
   function onSubmit(event) {
-    const mem_userid = users.mem_userid;
+    event.preventDefault();
+    const mem_userid = member.mem_userid;
     console.log("!!:" + mem_userid);
 
     localStorage.removeItem("users", JSON.stringify(users));
     // 메뉴 컴포넌트(components/MenuForm.jsx)에서 로그아웃 버튼을 클릭하면 localStorage에 등록되있는 계정정보가 삭제된다.
     dispatch(logouts({ mem_userid }));
-    event.preventDefault();
   }
 
   useEffect(() => {
@@ -33,10 +37,10 @@ function MenuDetailForm() {
 
   useEffect(() => {
     if (logoutError) {
-      if (logoutError.response.status === 400) {
+      if (logoutError.response.status === 400 || users.mem_userid === undefined) {
         window.location.replace("/login");
         return;
-      }
+      } 
       console.log(`error!`);
       console.log(logoutError);
       return;
@@ -48,10 +52,6 @@ function MenuDetailForm() {
       return;
     }
   }, [logout, logoutError]);
-
-  const getUser = localStorage.getItem("users");
-  const member = JSON.parse(getUser);
-  // 이전에는 users값을 Reducer로 변화된 값을 받아왔지만, 리로드 되면 users가 undefined된다. 그래서, localStorage에 있는 값을 받아왔다.
 
 
   return ( 

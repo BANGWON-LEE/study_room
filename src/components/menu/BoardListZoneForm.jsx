@@ -16,10 +16,10 @@ function BoardListZoneForm(boardList){
             </StyledTd>
                 <StyledTd style={{width:'380px'}}>
             <Link to={`/boardContents/${bd_idx}`} style={{textDecoration:'none', color:"grey"}}>
-                    {bd_title}
+                {bd_title}
             </Link>
                 </StyledTd>
-            <StyledTd >
+            <StyledTd style={{width:'220px'}}>
                 {mem_userid} 
             </StyledTd>
             <StyledTd style={{width:'300px'}}>

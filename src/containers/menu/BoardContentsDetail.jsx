@@ -19,6 +19,10 @@ function BoardContentsDetail({ match }) {
   }, []);
   // 메뉴에서 [사용자 정보] 버튼을 클릭하면 [사용자 정보] 컴포넌트로 이동한다. 그때 첫 렌더링 하면서 mem_userid값으로 액션을 보낸다. mem_userid는 match.params 즉, URL을 통해 넘어오는 값을 받아온다.
 
+  function onBack(){
+    window.location.replace("/boardList");
+  }
+
   useEffect(() => {
     if (boardContents) {
       console.log("성공contents");
@@ -36,7 +40,7 @@ function BoardContentsDetail({ match }) {
     }
   }, [boardContents, boardContentsError]);
 
-  return <BoardContentsForm boardContents={boardContents} />;
+  return <BoardContentsForm boardContents={boardContents} onBack={onBack} />;
 }
 
 export default withRouter(BoardContentsDetail);

@@ -17,11 +17,16 @@ function BoardListForm({boardLists}) {
                     </StyledH1>
                 </div>
             </StyledDiv1>
-            <div style={{width:'145px', float:'right', display:'block', marginRight:'140px'}}>
-                    <Link to='/boardWrite' >
-                        <StyledButton1>글쓰기</StyledButton1>    
-                    </Link>
-                </div>
+            <div style={{width:'145px', float:'left', display:'block', marginLeft:'190px'}}>
+                <Link to='/menu' >
+                    <StyledButton1>메뉴</StyledButton1>    
+                </Link>
+            </div>
+            <div style={{width:'145px', float:'right', display:'block', marginRight:'190px'}}>
+                <Link to='/boardWrite' >
+                    <StyledButton1>글쓰기</StyledButton1>    
+                </Link>
+            </div>
             <div style={{width:'75%', margin:'0 auto'}}>
                 {boardLists && (
                 <StyledTable styled={{display:'inline'}}>

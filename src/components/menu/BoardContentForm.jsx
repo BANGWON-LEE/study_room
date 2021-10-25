@@ -8,7 +8,7 @@ import StyledDiv3 from '../styled/StyledDiv3';
 import StyledH1 from '../styled/StyledH1';
 
 
-function BoardContent({boardContents}) {
+function BoardContent({boardContents, onBack}) {
     return(
         <div className="body">
             <StyledDiv1>
@@ -52,11 +52,9 @@ function BoardContent({boardContents}) {
                     </div>
                 </StyledDiv2>
                 <StyledDiv2>
-                        <Link to="/boardList" >
-                    <StyledButton1>
+                    <StyledButton1 onClick={onBack}>
                             뒤로가기
                     </StyledButton1>
-                        </Link>
                 </StyledDiv2>
             </StyledDiv3>
             <BoardCommentDetail/>

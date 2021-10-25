@@ -13,7 +13,8 @@ import { Link } from 'react-router-dom';
 
 const MenuForm = ({onSubmit, member}) => {
 
-    const {mem_status, mem_userid} = member;
+    const mem_status = member?.mem_status;
+    const mem_userid = member?.mem_userid;
 
     return (
         <div className="body">

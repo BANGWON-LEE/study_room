@@ -69,8 +69,6 @@ function BoardCommentDetail({match}) {
         setCommentList(
             commentList => commentList.concat(resultComment)
         )
-        
-        //nextId.current +=1;
 
         if ([cm_content].includes("")) {
             alert("빈 칸을 모두 입력하세요")
