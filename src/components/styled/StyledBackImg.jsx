@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
-const StyledDiv1 = styled.div`
+const StyledBackImg = styled.img`
     position: relative;
     display: block;
     margin: 0 auto;
     text-align : center;
-    width : 1000px;
-    height : 740px;
+    width : 900px;
+    height : 360px
 `
 
-export default StyledDiv1;
+
+
+export default StyledBackImg;

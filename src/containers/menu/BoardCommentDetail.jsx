@@ -1,5 +1,5 @@
 import e from "cors";
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import BoardCommentForm from "../../components/menu/BoardCommentForm";
@@ -80,7 +80,7 @@ function BoardCommentDetail({ match }) {
     function onKeyPress(e) {
         if (e.key === "Enter") {
         onSubmit();
-        e.currentTarget = "";
+        
         }
     }
 

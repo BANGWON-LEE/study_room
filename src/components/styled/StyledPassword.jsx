@@ -6,7 +6,7 @@ border-radius : 3px;
 border : 2px solid grey;
 color : black;
 font-size: 15px;
-width : 100%;
+width : 30%;
 height : 30px;
 text-align:center;
 

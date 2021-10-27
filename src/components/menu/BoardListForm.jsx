@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import StyledButton1 from '../styled/StyledButton1';
-import StyledDiv1 from '../styled/StyledDiv1';
+import StyledDiv4 from '../styled/StyledDiv4';
 import StyledH1 from '../styled/StyledH1';
 import StyledTable from '../styled/StyledTable';
 import StyledTh from '../styled/StyledTh';
@@ -10,13 +10,13 @@ import BoardListZoneForm from './BoardListZoneForm';
 function BoardListForm({boardLists}) {
     return (
         <div className="body">
-            <StyledDiv1>
+            <StyledDiv4>
                 <div className="title">
                     <StyledH1>
-                        WONY Study Club 게시판
+                        WONY Study Room 게시판
                     </StyledH1>
                 </div>
-            </StyledDiv1>
+            </StyledDiv4>
             <div style={{width:'145px', float:'left', display:'block', marginLeft:'190px'}}>
                 <Link to='/menu' >
                     <StyledButton1>메뉴</StyledButton1>    
@@ -37,14 +37,11 @@ function BoardListForm({boardLists}) {
                         <StyledTh style={{width:'380px'}}>
                             글제목
                         </StyledTh>
-                        <StyledTh>
+                        <StyledTh style={{width:'320px'}}>
                             글쓴이
                         </StyledTh>
-                        <StyledTh style={{width:'300px'}}>
+                        <StyledTh style={{width:'400px'}}>
                             날짜
-                        </StyledTh>
-                        <StyledTh style={{width:'130px'}}>
-                            추천수
                         </StyledTh>
                     </tr>
                     

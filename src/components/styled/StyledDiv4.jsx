@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-const StyledDiv1 = styled.div`
+const StyledDiv4 = styled.div`
     position: relative;
     display: block;
     margin: 0 auto;
     text-align : center;
-    width : 1000px;
-    height : 740px;
-`
+    width : 100%;
+    `
 
-export default StyledDiv1;
+
+
+export default StyledDiv4;

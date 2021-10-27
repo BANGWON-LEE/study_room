@@ -17,11 +17,11 @@ const MenuForm = ({onSubmit, member}) => {
     const mem_userid = member?.mem_userid;
 
     return (
-        <div className="body">
-            <StyledDiv1>
+        <div className="body" style={{height:'730px'}}>
+            <StyledDiv1 style={{backgroundImage:'url(img/lampBack.png)'}}>
                     <div className="title">
                         <StyledH1>
-                            WONY Study Club
+                            WONY Study Room
                         </StyledH1>
                     </div>        
                     <StyledDiv2>

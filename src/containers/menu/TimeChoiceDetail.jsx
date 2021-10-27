@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import TimeChoiceForm from "../../components/menu/TimeChoiceForm";
@@ -6,11 +6,8 @@ import SeatForm from "../../components/menu/SeatForm";
 import { seats } from "../../modules/seat";
 import { listZones } from "../../modules/zones";
 
-function TimeChoiceDetail({ history, location }) {
-  const [seatForm, handleSeatForm] = useState(false);
+function TimeChoiceDetail() {
 
-  const [hour, setHour] = useState(0);
-  const [cost, setCost] = useState(0);
   const date = new Date();
   const dispatch = useDispatch();
 
@@ -48,6 +45,23 @@ function TimeChoiceDetail({ history, location }) {
     setSt_seatNumber(st_seatNumber);
   }
 
+  const [hour, setHour] = useState(0);
+  const [cost, setCost] = useState(0);
+
+
+  function oneClick(){
+    setHour(hour + 1);
+    setCost(cost + 1500);
+  };
+
+
+  function threeClick() {
+    setHour(hour + 3);
+    setCost(cost + 3000);
+
+    console.log(date);
+  }
+
   function onSubmit(event) {
     event.preventDefault();
     console.log(event.currentTarget.getAttribute("data-value"));
@@ -64,18 +78,7 @@ function TimeChoiceDetail({ history, location }) {
     window.location.replace("/login");
   }
 
-  const onClick = useCallback(() => {
-    setHour(hour + 1);
-    setCost(cost + 1500);
-  }, [hour, cost]);
-  // useCallback으로 구현하였는데 계속 리렌더링 되는 거 같음... 다시 확인해보자!!
-
-  function threeClick() {
-    setHour(hour + 3);
-    setCost(cost + 3000);
-
-    console.log(date);
-  }
+  const [seatForm, handleSeatForm] = useState(false);
 
   function handleSeat() {
     handleSeatForm(true);
@@ -121,7 +124,7 @@ function TimeChoiceDetail({ history, location }) {
   return (
     <>
       <TimeChoiceForm
-        onClick={onClick}
+        oneClick={oneClick}
         threeClick={threeClick}
         cost={cost}
         hour={hour}
@@ -129,16 +132,15 @@ function TimeChoiceDetail({ history, location }) {
         seatForm={seatForm}
       />
       <div>
-        {seatForm && (
+        {seatForm === true ? (
           <SeatForm
-            onClose={handleSeat}
             hour={hour}
             users={users}
             zones={zones}
             onClickZone={onClickZone}
             onSubmit={onSubmit}
           />
-        )}
+        ) : null }
       </div>
     </>
   );

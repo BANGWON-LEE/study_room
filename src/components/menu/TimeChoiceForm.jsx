@@ -10,7 +10,7 @@ import StyledSubmit from '../styled/StyledSubmit';
 // onClick 즉, {handleSeat}는 좌석을 선택하는 컴포넌트를 불러오는 역할을 한다. 그러면 시간 선택 부분
 // 아래에 좌석을 선택하는 화면이 나타난다.
 
-const TimeChoiceForm = ({hour,onClick, threeClick, cost, handleSeat}) => {
+const TimeChoiceForm = ({hour,oneClick, threeClick, cost, handleSeat}) => {
     
     return (
         <div className="body">
@@ -21,7 +21,7 @@ const TimeChoiceForm = ({hour,onClick, threeClick, cost, handleSeat}) => {
                     </StyledH1>
                 </div>        
                 <StyledDiv2>
-                    <StyledButtonMenu onClick={onClick}> + 1시간 <br/>(1500원)</StyledButtonMenu>
+                    <StyledButtonMenu onClick={oneClick}> + 1시간 <br/>(1500원)</StyledButtonMenu>
                 </StyledDiv2>
                 <StyledDiv2>
                     <StyledButtonMenu onClick={threeClick}>+ 3시간 <br/>(3500원)</StyledButtonMenu>
@@ -33,7 +33,9 @@ const TimeChoiceForm = ({hour,onClick, threeClick, cost, handleSeat}) => {
                     {cost} 원
                 </StyledDiv2>      
                 <StyledDiv2>
-                    <StyledSubmit onClick={handleSeat}>다음</StyledSubmit>    
+                    <StyledSubmit onClick={handleSeat}>
+                        다음
+                    </StyledSubmit>    
                 </StyledDiv2>
             </StyledDiv1>  
         </div>

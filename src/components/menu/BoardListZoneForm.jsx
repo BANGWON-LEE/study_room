@@ -19,14 +19,11 @@ function BoardListZoneForm(boardList){
                 {bd_title}
             </Link>
                 </StyledTd>
-            <StyledTd style={{width:'220px'}}>
+            <StyledTd style={{width:'320px'}}>
                 {mem_userid} 
             </StyledTd>
-            <StyledTd style={{width:'300px'}}>
+            <StyledTd style={{width:'400px'}}>
                 {bd_regDate}
-            </StyledTd>
-            <StyledTd style={{width:'130px'}}>
-                {bd_recommand}
             </StyledTd>
         </tr>
     )
