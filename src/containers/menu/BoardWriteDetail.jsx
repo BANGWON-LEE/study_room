@@ -39,7 +39,7 @@ function BoardWriteDetail({history}) {
             return;
         }
         dispatch(write({bd_title, bd_textarea,mem_idx }));
-        history.push("/boardList");
+        history.push("/menu");
         };   
         
     

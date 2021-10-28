@@ -11,11 +11,12 @@ import { Link } from 'react-router-dom';
 // [좌석확인] 버튼, 현재 좌석들의 상태를 보여준다.
 // [퇴실]버튼은 좌석을 사용하지 않는 상태로 바뀌는 동시에, 계정이 로그아웃 된다.
 
-const MenuForm = ({onSubmit, member}) => {
+const MenuForm = ({onSubmit, member, zones}) => {
 
     const mem_status = member?.mem_status;
     const mem_userid = member?.mem_userid;
-
+    console.log('멤버 상태');
+    console.log(mem_status);
     return (
         <div className="body" style={{height:'730px'}}>
             <StyledDiv1 style={{backgroundImage:'url(img/lampBack.png)'}}>

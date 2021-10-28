@@ -74,7 +74,7 @@ app.post('/api/logout',  function (req, res) {
 });
 
 
-app.post('/api/seat', function (req, res) {
+app.patch('/api/seat', function (req, res) {
   const userid = req.body.mem_userid
   const idx = req.body.st_mem_idx;
   const endDate = req.body.st_endDate;
@@ -85,9 +85,9 @@ app.post('/api/seat', function (req, res) {
   date.setHours(date.getHours()+endDate)  
 
   db.query(
-    "UPDATE tb_mem AS a , tb_seat AS b  SET a.mem_status='L', b.st_mem_idx = "+idx+", b.st_seatStatus = 'S', b.st_regDate = CAST(DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s')as char(30)), b.st_endDate = DATE_ADD(NOW(), INTERVAL "+endDate+" HOUR) where b.st_seatNumber =  '"+ num +"' AND a.mem_userid = '"+userid+"'" , async (err, data) => {
+    "UPDATE tb_mem AS a , tb_seat AS b  SET a.mem_status='L', b.st_mem_idx = "+idx+", b.st_seatStatus = 'S', b.st_regDate = CAST(DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s')as char(30)), b.st_endDate = DATE_ADD(NOW(), INTERVAL "+endDate+" HOUR) where b.st_seatNumber =  '"+ num +"' AND a.mem_userid = '"+userid+"'" ,  (err, data) => {
 
-      const file = await data[0]
+      const file =  data[0]
 
       if(data > 0) { 
         res.send(file)
@@ -103,9 +103,9 @@ app.post('/api/seat', function (req, res) {
 });
 
 app.get("/api/zone", function  (req, res)  {
-  db.query("SELECT * FROM tb_seat",  async (err, data) => {
+  db.query("SELECT * FROM tb_seat",   (err, data) => {
 
-    const file = await data;
+    const file =  data;
 
     if (err) {
       console.log("데이터 가져오기 실패");
@@ -120,9 +120,9 @@ app.get('/api/userInfo/:mem_userid', (req, res) => {
   const params = req.params.mem_userid;
   const sql = "SELECT a.mem_userid, a.mem_name, b.st_seatNumber,date_format(b.st_endDate, '%Y-%m-%d %H:%i:%s') as st_endDate FROM tb_mem AS a join tb_seat AS b WHERE a.mem_idx = b.st_mem_idx and a.mem_userid = '" + params +"'"; 
   console.log("serverUser : " + params );
-  db.query(sql,  async (err, data) => {
+  db.query(sql,   (err, data) => {
 
-    const file = await data[0]
+    const file =  data[0]
 
       if(!err) {
         res.send(file)
@@ -139,9 +139,9 @@ app.post('/api/boardWrite',function (req, res) {
   const params = [req.body.mem_idx, req.body.bd_title,req.body.bd_textarea]
   console.log(params);
   db.query(
-    "insert into tb_board(bd_mem_idx, bd_title, bd_cotents, bd_recommand) values(?,?,?,0)",params , async (err,data) => {
+    "insert into tb_board(bd_mem_idx, bd_title, bd_cotents, bd_recommand) values(?,?,?,0)",params , (err,data) => {
     
-    const file = await data
+    const file =  data
 
     if(data) {
       data = true;  
@@ -157,9 +157,9 @@ app.post('/api/boardWrite',function (req, res) {
 
 app.get("/api/boardList", function(req, res) {
   console.log('리스트 불러오기');
-  db.query("SELECT bd_idx,  bd_title, (select mem_userid from tb_mem where mem_idx = bd_mem_idx) AS mem_userid, date_format(bd_regDate, '%Y-%m-%d %H:%i:%s') as bd_regDate , bd_recommand FROM tb_board order by bd_idx desc" , async (err, data) => {
+  db.query("SELECT bd_idx,  bd_title, (select mem_userid from tb_mem where mem_idx = bd_mem_idx) AS mem_userid, date_format(bd_regDate, '%Y-%m-%d %H:%i:%s') as bd_regDate , bd_recommand FROM tb_board order by bd_idx desc" ,  (err, data) => {
     
-    const file = await data
+    const file =  data
 
     if (err) {
       console.log("데이터 가져오기 실패");
@@ -173,9 +173,9 @@ app.get("/api/boardList", function(req, res) {
 app.get("/api/boardContents/:bd_idx", function(req,res) {
   const bd_idx = req.params.bd_idx;
   console.log('게시판 내용 불러오기');
-  db.query("SELECT bd_idx, bd_title, bd_cotents, (select mem_userid from tb_mem where mem_idx = bd_mem_idx) AS mem_userid, date_format(bd_regDate, '%Y-%m-%d %H:%i:%s') as bd_regDate, bd_recommand FROM tb_board where bd_idx='"+bd_idx+"'", async (err, data) => {
+  db.query("SELECT bd_idx, bd_title, bd_cotents, (select mem_userid from tb_mem where mem_idx = bd_mem_idx) AS mem_userid, date_format(bd_regDate, '%Y-%m-%d %H:%i:%s') as bd_regDate, bd_recommand FROM tb_board where bd_idx='"+bd_idx+"'",  (err, data) => {
     
-    const file = await data[0];
+    const file =  data[0];
 
     if(err) {
       console.log("게시판 내용 불러오기 실패");
@@ -191,9 +191,9 @@ app.post('/api/boardComment',function (req, res) {
   const params = [req.body.cm_bd_idx, req.body.cm_content,req.body.cm_mem_idx]
   console.log(params);
   db.query(
-    "insert into tb_comment(cm_bd_idx, cm_content, cm_mem_idx) values(?,?,?)",params, async (err,data) => {
+    "insert into tb_comment(cm_bd_idx, cm_content, cm_mem_idx) values(?,?,?)",params,  (err,data) => {
     
-    const file = await data
+    const file =  data
 
     if(data) {
       data = true;  
@@ -211,9 +211,9 @@ app.get("/api/boardComments/:bd_idx", function(req,res)  {
   const cm_bd_idx = req.params.bd_idx
   console.log('게시판 댓글 불러오기');
   console.log('게댓 : ' +cm_bd_idx);
-  db.query("SELECT (SELECT mem_userid FROM tb_mem WHERE mem_idx = cm_mem_idx) AS mem_userid, cm_content FROM tb_comment WHERE cm_bd_idx = '"+cm_bd_idx+"'",  async (err, data) => {
+  db.query("SELECT (SELECT mem_userid FROM tb_mem WHERE mem_idx = cm_mem_idx) AS mem_userid, cm_content FROM tb_comment WHERE cm_bd_idx = '"+cm_bd_idx+"'",  (err, data) => {
 
-    const file = await data
+    const file = data
 
     if(err) {
       console.log("게시판 내용 불러오기 실패");

@@ -10,6 +10,7 @@ function MenuDetailForm() {
     users: users.users,
     logout: logout.logout,
     logoutError: logout.logoutError,
+    
   }));
   
     const getUser = localStorage.getItem("users");
@@ -51,6 +52,7 @@ function MenuDetailForm() {
       return;
     }
   }, [logout, logoutError]);
+
 
 
   return ( 

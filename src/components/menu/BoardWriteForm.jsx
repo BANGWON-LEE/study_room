@@ -33,11 +33,13 @@ function BoardWriteForm({form, onChange, onSubmit}) {
                             </p>
                             <StyledTextarea value={form.bd_textarea} onChange={onChange} name="bd_textarea"/>
                         </StyledDiv2>
-                        <StyledButton1>
-                            글등록
-                        </StyledButton1>
+                    
+                            <StyledButton1 onClick={onSubmit}>
+                                글등록
+                            </StyledButton1>
+                   
                         <div>
-                            <Link to='/boardList' >
+                            <Link to='/boardList'>
                                 <StyledButton1 style={{marginTop:"20px"}}>
                                     메뉴
                                 </StyledButton1>    

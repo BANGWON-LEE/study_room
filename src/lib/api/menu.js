@@ -1,37 +1,37 @@
 import axios from 'axios';
 
-export const seat =  ({st_mem_idx, st_endDate, st_seatNumber, mem_userid}) => 
-    axios.post('/api/seat',{
+export const seat = async ({st_mem_idx, st_endDate, st_seatNumber, mem_userid}) => 
+    await axios.patch('/api/seat',{
     st_mem_idx, st_endDate, st_seatNumber, mem_userid
 })
 
-export const zone = ({st_idx,st_seatNumber,st_seatStatus,}) => 
-    axios.get('/api/zone',{
+export const zone = async ({st_idx,st_seatNumber,st_seatStatus,}) => 
+    await axios.get('/api/zone',{
     st_idx,st_seatNumber,st_seatStatus, 
     });
 
-export const boardWrite = ({ mem_idx, bd_title, bd_textarea}) => 
-    axios.post('/api/boardWrite', {
+export const boardWrite = async ({ mem_idx, bd_title, bd_textarea}) => 
+    await axios.post('/api/boardWrite', {
     mem_idx, bd_title, bd_textarea 
 });
 
-export const boardList =({bd_idx, bd_title, mem_userid, bd_regDate, bd_recomand }) => 
-    axios.get('/api/boardList', {
+export const boardList = async ({bd_idx, bd_title, mem_userid, bd_regDate, bd_recomand }) => 
+    await axios.get('/api/boardList', {
     bd_idx, bd_title,  mem_userid, bd_regDate, bd_recomand
 })
 
-export const boardContents = ({bd_idx, bd_title, bd_cotents, mem_userid, bd_regDate}) => 
-    axios.get(`/api/boardContents/${bd_idx}`, {
+export const boardContents = async ({bd_idx, bd_title, bd_cotents, mem_userid, bd_regDate}) => 
+    await axios.get(`/api/boardContents/${bd_idx}`, {
         bd_idx, bd_title, bd_cotents, mem_userid, bd_regDate
     })
 
-export const boardComment = ({cm_bd_idx, cm_content, cm_mem_idx })=> 
-    axios.post('/api/boardComment' , {
+export const boardComment = async ({cm_bd_idx, cm_content, cm_mem_idx })=> 
+    await axios.post('/api/boardComment' , {
         cm_bd_idx, cm_content, cm_mem_idx 
     })
 
-export const boardComments = ({bd_idx}) => 
-    axios.get(`/api/boardComments/${bd_idx}` , {
+export const boardComments = async ({bd_idx}) => 
+    await axios.get(`/api/boardComments/${bd_idx}` , {
         bd_idx
         
     })

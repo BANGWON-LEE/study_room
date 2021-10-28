@@ -35,6 +35,7 @@ function UserDetail({ history }) {
     }
 
     dispatch(login({ mem_userid, mem_pass }));
+    
     console.log("로그인 확인 : " + mem_userid);
     //login 액션으로 아이디와 비밀번호가 담긴 객체를 전달한다.
   }
@@ -64,8 +65,10 @@ function UserDetail({ history }) {
         localStorage.setItem("users", JSON.stringify(users));
         //입력된 아이디와 비밀번호가 db에 있는 데이터 정보와 일치하면 localStroage에 로그인 정보가 문자열로 된 JSON으로 저장된다.
         console.log("성공");
-        console.log(users);
         history.push("/menu");
+        console.log(users);
+        
+
         return;
       } catch (e) {
         console.log("localStorage error");

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import StyledDiv1 from "../styled/StyledDiv1";
+import StyledDiv4 from "../styled/StyledDiv4";
 import StyledDiv2 from "../styled/StyledDiv2";
 import StyledDivZone from "../styled/StyledDivZone";
 import StyledDivZone3 from "../styled/StyledDivZone3";
@@ -20,12 +20,13 @@ import SeatZoneForm from "./SeatZoneForm";
 const SeatForm = ({ onSubmit, zones, hour, onClickZone }) => {
     return (
         <div className="body">
+        
         <StyledDivZone style={{ backgroundColor: "#E7E7E7" }}>
-            <StyledDiv1>
+            <StyledDiv4>
             <div className="title">
                 <StyledH1>좌석</StyledH1>
             </div>
-            </StyledDiv1>
+            </StyledDiv4>
             {zones && (
             <StyledDivZone3 style={{ height: "80%" }}>
                 {zones.map((zone) => (
@@ -39,11 +40,13 @@ const SeatForm = ({ onSubmit, zones, hour, onClickZone }) => {
             )}
         </StyledDivZone>
         {hour >= 1 ? (
-            <form onSubmit={onSubmit}>
-            <StyledDiv2 style={{ textAlign: "center" }}>
-                <StyledSubmit>좌석 선택</StyledSubmit>
-            </StyledDiv2>
-            </form>
+                <StyledDiv2 style={{ textAlign: "center" }}>
+                    
+                        <StyledSubmit onClick={onSubmit}>
+                            좌석 선택
+                        </StyledSubmit>
+                    
+                </StyledDiv2>
         ) : (
             <Link to="/menu">
             <StyledDiv2 style={{ textAlign: "center" }}>
@@ -51,6 +54,7 @@ const SeatForm = ({ onSubmit, zones, hour, onClickZone }) => {
             </StyledDiv2>
             </Link>
         )}
+            
         </div>
     );
 };

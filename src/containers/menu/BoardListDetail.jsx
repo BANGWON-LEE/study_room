@@ -39,7 +39,7 @@ function BoardListDetail() {
 
     return (
         <BoardListForm
-        boardLists={boardLists}
+            boardLists={boardLists}
         />
     )
 
