@@ -3,7 +3,7 @@ import BoardCommentDetail from '../../containers/menu/BoardCommentDetail';
 import StyledButton1 from '../styled/StyledButton1';
 import StyledDiv2 from '../styled/StyledDiv2';
 import StyledDiv3 from '../styled/StyledDiv3';
-import StyledDiv4 from '../styled/StyledDiv4';
+
 import StyledDiv5 from '../styled/StyledDiv5';
 import StyledH1 from '../styled/StyledH1';
 

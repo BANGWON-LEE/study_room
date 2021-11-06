@@ -7,7 +7,7 @@ const StyledBackImg = styled.img`
     text-align : center;
     width : 900px;
     height : 360px
-`
+    `
 
 
 
