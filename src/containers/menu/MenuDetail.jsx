@@ -15,7 +15,7 @@ function MenuDetailForm() {
   
     const getUser = localStorage.getItem("users");
     const member = JSON.parse(getUser);
-    // 이전에는 users값을 Reducer로 변화된 값을 받아왔지만, 리로드 되면 users가 undefined된다. 그래서, localStorage에 있는 값을 받아왔다.
+    // 이전에는 users값을 useSelector로 변화된 값을 받아왔지만, 리로드 되면 users가 undefined된다. 그래서, localStorage에 있는 값을 받아왔다.
 
   function onSubmit(event) {
     event.preventDefault();

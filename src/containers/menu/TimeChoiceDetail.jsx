@@ -56,14 +56,14 @@ function TimeChoiceDetail() {
   function oneClick(){
     setHour(hour + 1);
     setCost(cost + 1500);
-    setAutoTime(autoTime + 360);
+    setAutoTime(autoTime + 3600);
   };
 
 
   function threeClick() {
     setHour(hour + 3);
     setCost(cost + 3000);
-    setAutoTime(autoTime + 1080);
+    setAutoTime(autoTime + 10800);
     console.log(date);
   }
 
@@ -71,7 +71,7 @@ function TimeChoiceDetail() {
     return new Promise((resolve, reject)=>{
       setTimeout(() => {
         resolve(localStorage.removeItem("users", JSON.stringify(users)));
-      }, 160000 * 1000);
+      }, autoTime * 1000);
     });
   }
 
@@ -80,10 +80,14 @@ function TimeChoiceDetail() {
 
       return dispatch(logouts({ mem_userid }));
     });
-    console.log('10초 후')
-    console.log(result)
+    
   }
-
+  // by 이방원
+  // autoLogout 함수는 자동로그아웃 기능이다.
+  // 좌석을 선택하는 페이지에서 [좌석선택] 버튼을 클릭하면
+  // 선택한 시간 만큼 좌석을 사용할 수 있다.
+  // 시간 소모는 비동기 방식을 이용해 구현하였다.
+  // 2021-11-06  
 
   
   function onSubmit() {
