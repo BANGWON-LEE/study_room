@@ -21,6 +21,7 @@ const initialState = {
         bd_idx: 0,
         bd_title: '', 
         bd_cotents: '', 
+        bd_mem_idx: 0,
         mem_userid: '',  
         bd_regDate: '', 
         bd_recommand: 0

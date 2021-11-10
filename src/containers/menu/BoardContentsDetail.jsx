@@ -10,14 +10,20 @@ function BoardContentsDetail({ match, history }) {
     boardContents: boardContents.boardContents,
     boardContentsError: boardContents.error 
   }));
+  
+  const getUser = localStorage.getItem("users");
+  const cm_mem_idx = JSON.parse(getUser).mem_idx;
+  //by 이방원
+  // localStorage를 통하여 접속해 있는 계정의 고유번호(mem_idx)를 가져온다.
+  // 게시글을 만든 게시자의 고유 번호와 비교하기 위해서 가져왔다.
+  // 2021-11-10
 
-  console.log(boardContents.mem_userid);
 
   useEffect(() => {
     const bd_idx = match.params;
     dispatch(contents(bd_idx));
   }, []);
-  // 메뉴에서 [사용자 정보] 버튼을 클릭하면 [사용자 정보] 컴포넌트로 이동한다. 그때 첫 렌더링 하면서 mem_userid값으로 액션을 보낸다. mem_userid는 match.params 즉, URL을 통해 넘어오는 값을 받아온다.
+ 
 
   function onBack(){
     history.push("/boardList");
@@ -39,8 +45,9 @@ function BoardContentsDetail({ match, history }) {
       return;
     }
   }, [boardContents, boardContentsError]);
+  
 
-  return <BoardContentsForm boardContents={boardContents} onBack={onBack} />;
+  return <BoardContentsForm boardContents={boardContents} onBack={onBack} cm_mem_idx={cm_mem_idx} />;
 }
 
 export default withRouter(BoardContentsDetail);

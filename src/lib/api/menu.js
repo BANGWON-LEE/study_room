@@ -15,14 +15,14 @@ export const boardWrite = async ({ mem_idx, bd_title, bd_textarea}) =>
     mem_idx, bd_title, bd_textarea 
 });
 
-export const boardList = async ({bd_idx, bd_title, mem_userid, bd_regDate, bd_recomand }) => 
+export const boardList = async ({bd_idx, bd_title, mem_userid, bd_regDate }) => 
     await axios.get('/api/boardList', {
-    bd_idx, bd_title,  mem_userid, bd_regDate, bd_recomand
+    bd_idx, bd_title,  mem_userid, bd_regDate
 })
 
-export const boardContents = async ({bd_idx, bd_title, bd_cotents, mem_userid, bd_regDate}) => 
+export const boardContents = async ({bd_idx, bd_title, bd_cotents, bd_mem_idx, mem_userid, bd_regDate}) => 
     await axios.get(`/api/boardContents/${bd_idx}`, {
-        bd_idx, bd_title, bd_cotents, mem_userid, bd_regDate
+        bd_idx, bd_title, bd_cotents, bd_mem_idx, mem_userid, bd_regDate
     })
 
 export const boardComment = async ({cm_bd_idx, cm_content, cm_mem_idx })=> 
@@ -36,3 +36,7 @@ export const boardComments = async ({bd_idx}) =>
         
     })
     
+export const boardEdit = async ({  bd_title, bd_textarea, mem_idx, bd_idx}) => 
+    await axios.patch('/api/boardEdit', {
+     bd_title, bd_textarea, mem_idx, bd_idx
+})

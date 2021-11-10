@@ -14,10 +14,10 @@ function BoardListDetail() {
     }));    
 
     useEffect(() => {
-        const {bd_idx, bd_title, mem_userid,  bd_regDate, bd_recommand } = "";
+        const {bd_idx, bd_title, mem_userid,  bd_regDate } = "";
         dispatch(
             list({
-                bd_idx, bd_title,  mem_userid,  bd_regDate, bd_recommand
+                bd_idx, bd_title,  mem_userid,  bd_regDate
             })
         );
     }, [dispatch]);

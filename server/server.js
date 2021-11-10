@@ -22,7 +22,7 @@ app.post('/api/register', function(req, res) {
 
       if(err){
         data = false;  
-     
+        
         res.send(409);
       }
     
@@ -139,7 +139,7 @@ app.post('/api/boardWrite',function (req, res) {
   const params = [req.body.mem_idx, req.body.bd_title,req.body.bd_textarea]
   console.log(params);
   db.query(
-    "insert into tb_board(bd_mem_idx, bd_title, bd_cotents, bd_recommand) values(?,?,?,0)",params , (err,data) => {
+    "insert into tb_board(bd_mem_idx, bd_title, bd_cotents) values(?,?,?)",params , (err,data) => {
     
     const file =  data
 
@@ -157,7 +157,7 @@ app.post('/api/boardWrite',function (req, res) {
 
 app.get("/api/boardList", function(req, res) {
   console.log('리스트 불러오기');
-  db.query("SELECT bd_idx,  bd_title, (select mem_userid from tb_mem where mem_idx = bd_mem_idx) AS mem_userid, date_format(bd_regDate, '%Y-%m-%d %H:%i:%s') as bd_regDate , bd_recommand FROM tb_board order by bd_idx desc" ,  (err, data) => {
+  db.query("SELECT bd_idx,  bd_title, (select mem_userid from tb_mem where mem_idx = bd_mem_idx) AS mem_userid, date_format(bd_regDate, '%Y-%m-%d %H:%i:%s') as bd_regDate FROM tb_board order by bd_idx desc" ,  (err, data) => {
     
     const file =  data
 
@@ -173,7 +173,7 @@ app.get("/api/boardList", function(req, res) {
 app.get("/api/boardContents/:bd_idx", function(req,res) {
   const bd_idx = req.params.bd_idx;
   console.log('게시판 내용 불러오기');
-  db.query("SELECT bd_idx, bd_title, bd_cotents, (select mem_userid from tb_mem where mem_idx = bd_mem_idx) AS mem_userid, date_format(bd_regDate, '%Y-%m-%d %H:%i:%s') as bd_regDate, bd_recommand FROM tb_board where bd_idx='"+bd_idx+"'",  (err, data) => {
+  db.query("SELECT bd_idx, bd_title, bd_cotents, bd_mem_idx, (select mem_userid from tb_mem where mem_idx = bd_mem_idx) AS mem_userid, date_format(bd_regDate, '%Y-%m-%d %H:%i:%s') as bd_regDate FROM tb_board where bd_idx='"+bd_idx+"'",  (err, data) => {
     
     const file =  data[0];
 
@@ -209,8 +209,6 @@ app.post('/api/boardComment',function (req, res) {
 
 app.get("/api/boardComments/:bd_idx", function(req,res)  {
   const cm_bd_idx = req.params.bd_idx
-  console.log('게시판 댓글 불러오기');
-  console.log('게댓 : ' +cm_bd_idx);
   db.query("SELECT (SELECT mem_userid FROM tb_mem WHERE mem_idx = cm_mem_idx) AS mem_userid, cm_content FROM tb_comment WHERE cm_bd_idx = '"+cm_bd_idx+"'",  (err, data) => {
 
     const file = data
@@ -223,6 +221,37 @@ app.get("/api/boardComments/:bd_idx", function(req,res)  {
     }
   })
 })
+
+app.patch('/api/boardEdit',function (req, res) {
+
+  const mem_idx = req.body.mem_idx;
+  const bd_title = req.body.bd_title;
+  const bd_textarea = req.body.bd_textarea;
+  const bd_idx = req.body.bd_idx.bd_idx;
+
+  console.log('bd_title', bd_title);
+  console.log('bd_textarea', bd_textarea);
+  console.log('mem_idx', mem_idx);
+  console.log('bd_idx', bd_idx);
+
+
+  db.query(
+    "UPDATE tb_board set bd_title = '"+bd_title+"', bd_cotents = '"+bd_textarea+"', bd_regDate = CAST(DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s')as char(30)) WHERE bd_mem_idx = '"+mem_idx+"' AND bd_idx = '"+bd_idx+"'" ,  (err,data) => {
+    
+    const file =  data
+
+    if(data) {
+      data = true;  
+      res.send(200)
+    }
+
+    if(err){
+      data = false;  
+      res.send(file);
+    }
+});
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server On : http://localhost:${PORT}/`);

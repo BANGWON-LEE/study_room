@@ -9,6 +9,7 @@ import BoardWritePage from './pages/BoardWritePage';
 import BoardContentPage from './pages/BoardContentPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import BoardEditPage from './pages/BoardEditPage';
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
         <Route exact component={UserInfoPage} path="/userInfo/:mem_userid" />
         <Route exact component={BoardListPage} path="/BoardList"/>
         <Route exact component={BoardWritePage} path="/BoardWrite"/>
-        <Route exact component={BoardContentPage} path="/BoardContents/:bd_idx" />
+        <Route exact component={BoardContentPage} path="/BoardContents/:bd_idx"/>
+        <Route exact component={BoardEditPage} path="/BoardEdit/:bd_idx"/>
       </Switch>
     </BrowserRouter>
   );

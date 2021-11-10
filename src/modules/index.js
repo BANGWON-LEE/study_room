@@ -11,6 +11,7 @@ import boardList, {boardListsSaga} from "./boardList";
 import boardContents, {boardContentSaga} from "./boardContents";
 import boardComments, {commentsSaga} from "./boardComments";
 import boardComment, {boardCommentsSaga} from "./boardComment";
+import boardEdit,{boardEditsSaga} from "./boardEdit";
 
 const rootReducer = combineReducers({
   auth,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   boardContents,
   boardComments,
   boardComment,
+  boardEdit
 });
 
 export function* rootSaga() {
@@ -39,6 +41,7 @@ export function* rootSaga() {
     boardContentSaga(),
     commentsSaga(),
     boardCommentsSaga(),
+    boardEditsSaga(),
   ]);
 }
 
