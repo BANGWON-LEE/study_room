@@ -42,12 +42,18 @@
   BoardCommentForm.jsx(components폴더 / 글작성) BoardCommentDetail.jsx(containers폴더 / 글작성), boardComment(modules폴더 / 글작성)<br/>
   BoardCommenstForm.jsx(components폴더 / 글내용) BoardCommentsDetail.jsx(containers폴더 / 글내용), boardComments(modules폴더 / 글내용)<br/>
   
+- 게시판 글수정<br/> 
+  BoardEditForm.jsx(components폴더), BoardEditDetail.jsx(Containers폴더), BoardEdit(modules폴더)<br/>
+  : 게시글 작성자와 접속 중인 아이디의 고유번호가 일치하면 게시글에서 글수정이라는 버튼이 보이도록 삼항연산자로 구현하였다.<br/>
+    글수정 버튼을 클릭하면, 제목과 글내용을 수정할 수 있도록 하였고, 글이 수정되면 수정된 날짜로 글등록 날짜가 수정된다.<br/>
+    
+- 자동 로그아웃<br/>
+  : TimeChoiceDetail.jsx에 코드를 입력했다. 사용할 시간과 좌석을 선택하면 버튼을 누른 후 바로 시간이 흐르도록 하였다.<br/>
+    시간이 측정되는 것은 비동기 방식으로 setTimeOut메서드를 사용하였다. ms(밀리세컨드)를 사용하여 설정된 시간이 다 소모되면, 로그아웃이 되도록 하였다.
+    로그아웃은 즉, 퇴실과 같은 기능이다.
 
 <앞으로 구현할 기능><br/>
-- 게시판, 자동 로그아웃<br/>
-1. 게시판<br/>
-: 게시판 글수정 구현할 예정, css도 새로 손봐야 함
-
+- 독서실 이용자 랭킹 순위를 구현하려고 한다. (누가 얼마나 많은 시간을 이용하였는지 순위를 보여줄 예정)
 ### this project is for my skill improve
 
 ## information about project
