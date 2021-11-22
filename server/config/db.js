@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 const db = mysql.createPool({
-    host : 'localhost',
-    user : 'root',
-    password : '1234',
-    database : 'toy'
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'ba92112f17ff1d',
+    password : 'b0edeba0',
+    database : 'heroku_7a8ef1fa16a5340'
 });
 
 

@@ -31,6 +31,7 @@
     "web-vitals": "^1.0.1",
     "webpack-node-externals": "^3.0.0"
   },
+ 
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -54,6 +55,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+    
+  },
+  "engines": { 
+    "node": "14.17.6",
+    "npm" : "6.14.15"  
   },
   "proxy": "http://localhost:4000/"
 }
