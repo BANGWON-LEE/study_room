@@ -32,10 +32,13 @@
     "webpack-node-externals": "^3.0.0"
   },
   "scripts": {
-    "start": "react-scripts start && node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm start",
+    "dev:client": "cd client && npm start"
   },
   "eslintConfig": {
     "extends": [
