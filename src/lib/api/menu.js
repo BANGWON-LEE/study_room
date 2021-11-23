@@ -38,5 +38,5 @@ export const boardComments = async ({bd_idx}) =>
     
 export const boardEdit = async ({  bd_title, bd_textarea, mem_idx, bd_idx}) => 
     await axios.patch('https://study-room-server.herokuapp.com/api/boardEdit', {
-     bd_title, bd_textarea, mem_idx, bd_idx
+    bd_title, bd_textarea, mem_idx, bd_idx
 })
