@@ -37,6 +37,6 @@ export const boardEdit = async ({  bd_title, bd_textarea, mem_idx, bd_idx}) =>
 })
 
 export const seat = async ({st_mem_idx, st_endDate, st_seatNumber, mem_userid}) => 
-    await axios.patch('https://study-room-server.herokuapp.com/api/seat',{
+    await axios.put('https://study-room-server.herokuapp.com/api/seat',{
     st_mem_idx, st_endDate, st_seatNumber, mem_userid
 })
