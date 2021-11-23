@@ -1,4 +1,3 @@
-//lib
 import axios from 'axios';
 
 export const register = async ({mem_userid, mem_pass, mem_name, mem_hp}) =>
