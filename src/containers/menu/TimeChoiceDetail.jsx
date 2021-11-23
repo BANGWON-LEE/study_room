@@ -67,21 +67,21 @@ function TimeChoiceDetail() {
     console.log(date);
   }
 
-  // function delayTime(autoTime){
-  //   return new Promise((resolve, reject)=>{
-  //     setTimeout(() => {
-  //       resolve(localStorage.removeItem("users", JSON.stringify(users)));
-  //     }, autoTime * 1000);
-  //   });
-  // }
+  function delayTime(autoTime){
+    return new Promise((resolve, reject)=>{
+      setTimeout(() => {
+        resolve(localStorage.removeItem("users", JSON.stringify(users)));
+      }, autoTime * 1000);
+    });
+  }
 
-  // async function autoLogout(){
-  //   const result = await delayTime(autoTime).then(() => {
+  async function autoLogout(){
+    const result = await delayTime(autoTime).then(() => {
 
-  //     return dispatch(logouts({ mem_userid }));
-  //   });
+      return dispatch(logouts({ mem_userid }));
+    });
     
-  // }
+  }
   // by 이방원
   // autoLogout 함수는 자동로그아웃 기능이다.
   // 좌석을 선택하는 페이지에서 [좌석선택] 버튼을 클릭하면
@@ -111,7 +111,7 @@ function TimeChoiceDetail() {
 
     dispatch(seats({ st_mem_idx, st_endDate, st_seatNumber, mem_userid }));
     history.push('/menu')
-    //autoLogout()
+    autoLogout()
   }
 
 
