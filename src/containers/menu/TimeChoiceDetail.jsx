@@ -56,10 +56,10 @@ function TimeChoiceDetail() {
   function oneClick(){
     setHour(hour + 1);
     setCost(cost + 1500);
-    setAutoTime(autoTime + 3600);
+    setAutoTime(autoTime + 360);
   };
 
-
+// 1시간 3600
   function threeClick() {
     setHour(hour + 3);
     setCost(cost + 3000);

@@ -1,17 +1,17 @@
 import axios from 'axios';
 
 export const zone = async ({st_idx,st_seatNumber,st_seatStatus,}) => 
-    await axios.get('3.36.66.15:5000/api/zone',{
+    await axios.get('http://3.36.66.15:5000/api/zone',{
     st_idx,st_seatNumber,st_seatStatus, 
     });
 
 export const boardWrite = async ({ mem_idx, bd_title, bd_textarea}) => 
-    await axios.post('3.36.66.15:5000/api/boardWrite', {
+    await axios.post('http://3.36.66.15:5000/api/boardWrite', {
     mem_idx, bd_title, bd_textarea 
 });
 
 export const boardList = async ({bd_idx, bd_title, mem_userid, bd_regDate }) => 
-    await axios.get('3.36.66.15:5000/api/boardList', {
+    await axios.get('http://3.36.66.15:5000/api/boardList', {
     bd_idx, bd_title,  mem_userid, bd_regDate
 })
 
@@ -37,6 +37,6 @@ export const boardEdit = async ({  bd_title, bd_textarea, mem_idx, bd_idx}) =>
 })
 
 export const seat = async ({st_mem_idx, st_endDate, st_seatNumber, mem_userid}) => 
-    await axios.put('http://3.36.66.15:5000/api/api/seat',{
+    await axios.put('http://3.36.66.15:5000/api/seat',{
     st_mem_idx, st_endDate, st_seatNumber, mem_userid
 })

@@ -57,7 +57,7 @@ const MenuForm = ({onSubmit, member, zones}) => {
                     </StyledDiv2>
                 <form onSubmit={onSubmit}>
                     <StyledDiv2>
-                        <StyledButtonMenu>퇴실</StyledButtonMenu>
+                        <StyledButtonMenu>퇴실<br/>/ 로그아웃</StyledButtonMenu>
                     </StyledDiv2>
                 </form>    
             </StyledDiv1>
