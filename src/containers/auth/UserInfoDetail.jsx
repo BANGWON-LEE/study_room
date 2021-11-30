@@ -19,16 +19,16 @@ function UserInfoDetail({ match }) {
 
   useEffect(() => {
     if (userInfo) {
-      console.log("성공Info");
-      console.log(userInfo);
+      //console.log("성공Info");
+      //console.log(userInfo);
     }
 
     if (userInfoError) {
       if (userInfoError.response.status === 400) {
         return;
       }
-      console.log(`infoError!`);
-      console.log(userInfoError);
+      //console.log(`infoError!`);
+      //console.log(userInfoError);
 
       return;
     }

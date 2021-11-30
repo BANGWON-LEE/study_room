@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, HashRouter} from 'react-router-dom';
 import MenuForm from './pages/MenuPage';
 import TimeChoiceForm from './pages/TimeChoicePage';
 import SeatPage from './pages/SeatPage';
@@ -14,7 +14,7 @@ import BoardEditPage from './pages/BoardEditPage';
 
 function App() {
   return (
-    <BrowserRouter>
+ 
       <Switch>
         <Route exact component={LoginPage} path="/" />
         <Route exact component={LoginPage} path="/login" />
@@ -28,7 +28,6 @@ function App() {
         <Route exact component={BoardContentPage} path="/BoardContents/:bd_idx"/>
         <Route exact component={BoardEditPage} path="/BoardEdit/:bd_idx"/>
       </Switch>
-    </BrowserRouter>
   );
 }
 

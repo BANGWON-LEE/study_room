@@ -60,7 +60,7 @@ function RegisterDetail({history}) {
     };
 
     useEffect(() => {
-        console.log('이니시얼');
+        //console.log('이니시얼');
         dispatch(initializeForm("register"));
       }, [dispatch]);
       
@@ -74,15 +74,16 @@ function RegisterDetail({history}) {
             
             return;
           }
-          console.log('error!');
-          console.log(authError);
+          //console.log('error!');
+          //console.log(authError);
 
           return;
         }
         if (auth) {
-          console.log("성공");
-          console.log(auth);
-          setError("가입성공");
+          //console.log("성공");
+          //console.log(auth);
+          setError("가입성공"); //setError라는 문자열 상태값을 통해 가입성공이라는 메시지를 보여준다.
+          
         
           return;
           

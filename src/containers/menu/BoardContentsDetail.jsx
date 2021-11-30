@@ -31,16 +31,16 @@ function BoardContentsDetail({ match, history }) {
 
   useEffect(() => {
     if (boardContents) {
-      console.log("성공contents");
-      console.log(boardContents);
+      //console.log("성공contents");
+      //console.log(boardContents);
     }
 
     if (boardContentsError) {
       if (boardContentsError.response.status === 400) {
         return;
       }
-      console.log(`BoardContentsError!`);
-      console.log(boardContentsError);
+      //console.log(`BoardContentsError!`);
+      //console.log(boardContentsError);
 
       return;
     }

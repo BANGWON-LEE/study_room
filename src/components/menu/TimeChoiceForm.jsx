@@ -27,7 +27,7 @@ const TimeChoiceForm = ({hour, oneClick, threeClick, cost, handleSeat}) => {
                     <StyledButtonMenu onClick={threeClick}>+ 3시간 <br/>(3500원)</StyledButtonMenu>
                 </StyledDiv2>  
                 <StyledDiv2>
-                    {hour} 시간 <br/> (+1 시간 버튼은 테스트 관계로 실제로 추가되는 시간은 6분)
+                    {hour} 시간 <br/> (+1 시간 버튼은 테스트 관계로 실제로 추가되는 시간은 + 1분)
                 </StyledDiv2>
                 <StyledDiv2>
                     {cost} 원

@@ -56,7 +56,7 @@ function TimeChoiceDetail() {
   function oneClick(){
     setHour(hour + 1);
     setCost(cost + 1500);
-    setAutoTime(autoTime + 360);
+    setAutoTime(autoTime + 60);
   };
 
 // 1시간 3600
@@ -77,10 +77,10 @@ function TimeChoiceDetail() {
 
   async function autoLogout(){
     const result = await delayTime(autoTime).then(() => {
-
+      
       return dispatch(logouts({ mem_userid }));
     });
-    
+    alert('이용시간이 만료되었습니다. 로그인 화면으로 이동하겠습니다.')
   }
   // by 이방원
   // autoLogout 함수는 자동로그아웃 기능이다.

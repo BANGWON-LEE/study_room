@@ -42,14 +42,14 @@ function SeatDetail({ location }) {
       if (seatError.response.status === 400) {
         return;
       }
-      console.log(`error!`);
-      console.log(seatError);
+      //console.log(`error!`);
+      //console.log(seatError);
 
       return;
     }
     if (seat) {
-      console.log("성공@@#");
-      console.log(seat);
+      //console.log("성공@@#");
+      //console.log(seat);
       window.location.replace("/login");
 
       return;
@@ -61,14 +61,14 @@ function SeatDetail({ location }) {
       if (zonesError.response.status === 400) {
         return;
       }
-      console.log(`error!`);
-      console.log(zonesError);
+      //console.log(`error!`);
+      //console.log(zonesError);
 
       return;
     }
     if (zones) {
-      console.log("성공zz");
-      console.log(zones);
+      //console.log("성공zz");
+      //console.log(zones);
 
       return;
     }

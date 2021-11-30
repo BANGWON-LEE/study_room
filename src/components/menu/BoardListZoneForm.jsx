@@ -5,9 +5,7 @@ import StyledTd from '../styled/StyledTd';
 function BoardListZoneForm(boardList){
 
     const {bd_idx, bd_title, mem_userid, bd_regDate, bd_recommand} = boardList.boardList
-    console.log('마지막 form');
-    console.log(boardList);
-    console.log(boardList.boardList.bd_title);
+
 
     return(
         <tr style={{borderBottom:'1px solid grey'}}>

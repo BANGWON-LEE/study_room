@@ -28,8 +28,8 @@ function MenuDetailForm() {
 
   useEffect(() => {
     if (logout === false) {
-      console.log("성공");
-      console.log(logout);
+      //console.log("성공");
+      //console.log(logout);
 
       return;
     }
@@ -41,13 +41,13 @@ function MenuDetailForm() {
         window.location.replace("/login");
         return;
       } 
-      console.log(`error!`);
-      console.log(logoutError);
+      //console.log(`error!`);
+      //console.log(logoutError);
       return;
     }
     if (logout) {
-      console.log("성공");
-      console.log(logout);
+      //console.log("성공");
+      //console.log(logout);
 
       return;
     }

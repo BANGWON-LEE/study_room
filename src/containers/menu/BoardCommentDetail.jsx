@@ -29,8 +29,8 @@ function BoardCommentDetail({ match }) {
 
     useEffect(() => {
         const bd_idx = match.params.bd_idx;
-        console.log("댓글 방 번호 ");
-        console.log(bd_idx);
+        //.log("댓글 방 번호 ");
+        //console.log(bd_idx);
         dispatch(
         comments({
             bd_idx,
@@ -98,14 +98,14 @@ function BoardCommentDetail({ match }) {
 
     useEffect(() => {
         if (boardCommentError) {
-        console.log("error!");
-        console.log(boardCommentError);
+        //console.log("error!");
+        //console.log(boardCommentError);
 
         return;
         }
         if (boardComment) {
-        console.log("성공");
-        console.log(boardComment);
+        //console.log("성공");
+        //console.log(boardComment);
 
         return;
         }

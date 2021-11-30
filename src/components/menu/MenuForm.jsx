@@ -15,8 +15,7 @@ const MenuForm = ({onSubmit, member, zones}) => {
 
     const mem_status = member?.mem_status;
     const mem_userid = member?.mem_userid;
-    console.log('멤버 상태');
-    console.log(mem_status);
+   
     return (
         <div className="body" style={{height:'730px'}}>
             <StyledDiv1 style={{backgroundImage:'url(img/lampBack.png)'}}>

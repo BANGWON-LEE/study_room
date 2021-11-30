@@ -11,11 +11,8 @@ import StyledH1 from '../styled/StyledH1';
 
 function BoardContent({boardContents, onBack, cm_mem_idx}) {
 
-    console.log('현재 계정의 고유번호' , cm_mem_idx);
-    console.log('선택한 글의 작성자 고유 번호', boardContents.bd_mem_idx);
-
     const bd_idx = boardContents.bd_idx;
-    console.log('현재 게시물 번호 확인', bd_idx)
+  
 
     return(
         <div className="body">

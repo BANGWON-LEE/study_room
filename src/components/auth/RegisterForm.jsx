@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import StyledButton1 from '../styled/StyledButton1';
 import StyledDiv1 from '../styled/StyledDiv1';
 import StyledDiv2 from '../styled/StyledDiv2';
+import StyledDiv5 from '../styled/StyledDiv5';
 import StyledH1 from '../styled/StyledH1';
 import StyledPassword from '../styled/StyledPassword';
 import StyledText1 from '../styled/StyledText1';
@@ -31,39 +32,39 @@ function AuthForm({ form, onChange, onSubmit, error}) {
     return(
         <div className="body">
             <form onSubmit={onSubmit} >       
-                <StyledDiv1>
+                <StyledDiv5>
                     <div className="title">
                         <StyledH1>
                             회원가입
                         </StyledH1>
                     </div>
-                    <StyledDiv1 className="register_text">
+                    <StyledDiv5 className="register_text">
                         <StyledDiv2 className="register_id">
-                            <p style={{textAlign : 'left'}}>
+                            <p style={{textAlign : 'left', width:'30%', margin:'0 auto', marginBottom:'20px'}}>
                                 아이디 : 
                             </p>
                             <StyledText1 value={form.mem_userid} onChange={onChange} name="mem_userid"/>
                         </StyledDiv2>
                         <StyledDiv2 className="register_pw">
-                            <p style={{textAlign : 'left'}}>
+                            <p style={{textAlign : 'left',width:'30%', margin:'0 auto', marginBottom:'20px' }}>
                                 비밀번호 : 
                             </p>
                             <StyledPassword  value={form.mem_pass} type={'password'}  onChange={onChange} name="mem_pass"/>
                         </StyledDiv2>
                         <StyledDiv2 className="register_pw_check">
-                            <p style={{textAlign : 'left'}}>
+                            <p style={{textAlign : 'left',width:'30%', margin:'0 auto', marginBottom:'20px' }}>
                                 비밀번호 확인: 
                             </p>
                             <StyledPassword  type={'password'} onChange={onChange} name="mem_passChk"/>
                         </StyledDiv2>
                         <StyledDiv2 className="register_name">
-                            <p style={{textAlign : 'left'}}>
+                            <p style={{textAlign : 'left',width:'30%', margin:'0 auto', marginBottom:'20px' }}>
                                 이름 : 
                             </p>
                             <StyledText1 value={form.mem_name} onChange={onChange} name="mem_name" />
                         </StyledDiv2>
                         <StyledDiv2 className="register_hp">
-                            <p style={{textAlign : 'left'}}>
+                            <p style={{textAlign : 'left',width:'30%', margin:'0 auto', marginBottom:'20px' }}>
                                 연락처 : 
                             </p>
                             <StyledText1  value={form.mem_hp} onChange={onChange} name="mem_hp" placeholder="-(하이픈)은 입력하지 마세요"/>
@@ -78,8 +79,8 @@ function AuthForm({ form, onChange, onSubmit, error}) {
                             {number >= 1 ? <Link to="/">로그인 화면으로</Link> : null}
                             </p>
                         </StyledDiv2>
-                    </StyledDiv1>
-                </StyledDiv1>
+                    </StyledDiv5>
+                </StyledDiv5>
             </form>     
         </div>
     )

@@ -20,7 +20,7 @@ function BoardWriteDetail({history}) {
     //useCallback을 사용하여 최적화를 시킴 이전 코드보다 최적화 된 것을 Profiler(개발자 도구의  redux-devtools)로 확인함    
     const onChange = useCallback((e) => {
         const {value, name} = e.currentTarget;
-        console.log("게시판");
+        //console.log("게시판");
         dispatch(
             changeField({
             form: "write",
@@ -44,20 +44,20 @@ function BoardWriteDetail({history}) {
         
     
         useEffect(() => {
-            console.log('이니시얼');
+            //console.log('이니시얼');
             dispatch(initializeForm("write"));
         }, [dispatch]);    
 
         useEffect(() => {
             if (boardWriteError) {
-                console.log('error!');
-                console.log(boardWriteError);
+                //console.log('error!');
+                //console.log(boardWriteError);
     
                 return;
             }
             if (boardWrite) {
-                console.log("성공");
-                console.log(boardWrite);
+                //console.log("성공");
+                //console.log(boardWrite);
                 
                 return;
                 
