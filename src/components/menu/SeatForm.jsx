@@ -7,6 +7,7 @@ import StyledDivZone3 from "../styled/StyledDivZone3";
 import StyledH1 from "../styled/StyledH1";
 import StyledSubmit from "../styled/StyledSubmit";
 import SeatZoneForm from "./SeatZoneForm";
+import FooterDiv from "../FooterDiv";
 
 // 선택할 좌석을 보여주는 컴포넌트이다.
 // 데이터베이스에 등록된 전체 좌석의 수와 상태를 전부 보여준다.
@@ -21,9 +22,9 @@ const SeatForm = ({ onSubmit, zones, hour, onClickZone }) => {
     return (
         <div className="body">
         
-        <StyledDivZone style={{ backgroundColor: "#E7E7E7" }}>
+        <StyledDivZone style={{ backgroundColor: "#E7E7E7", marginTop:"40px" }}>
             <StyledDiv4>
-            <div className="title">
+            <div className="title" style={{marginBottom:"40px", paddingTop:"40px"}}>
                 <StyledH1>좌석</StyledH1>
             </div>
             </StyledDiv4>
@@ -54,7 +55,7 @@ const SeatForm = ({ onSubmit, zones, hour, onClickZone }) => {
             </StyledDiv2>
             </Link>
         )}
-            
+         <FooterDiv/>   
         </div>
     );
 };

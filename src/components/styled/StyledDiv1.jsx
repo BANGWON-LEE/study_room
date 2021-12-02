@@ -6,7 +6,7 @@ const StyledDiv1 = styled.div`
     margin: 0 auto;
     text-align : center;
     width : 1000px;
-    height : 740px;
+    height : 878px;
 `
 
 export default StyledDiv1;

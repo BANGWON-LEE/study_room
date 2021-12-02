@@ -9,7 +9,6 @@ import { logouts } from "../../modules/logout";
 
 function TimeChoiceDetail() {
 
-  const date = new Date();
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -38,9 +37,10 @@ function TimeChoiceDetail() {
     );
   }, [dispatch]);
 
-  const [st_seatNumber, setSt_seatNumber] = useState();
-  const getUser = localStorage.getItem("users");
-  const member = JSON.parse(getUser);
+  const [st_seatNumber, setSt_seatNumber] = useState(); // by 이방원 : 좌석 번호를 담은 상태값 (20211130)
+  const getUser = localStorage.getItem("users"); // by 이방원 : localStorage에 들어있는 계정의 정보.(20211130)
+  const member = JSON.parse(getUser); 
+  // by 이방원 : containers/auth/UserDetail.jsx에서 로그인에 성공하면 계정의 정보가 stringfy메서드를 통해 문자열로 저장된다. JSON.parse는 localStorage에 있는 정보를 다시 불러올 때 해당 정보를 JSON 형식으로 바꾸어 가져오는 것이다.   
 
   function onClickZone(event) {
     const st_seatNumber = event.currentTarget.getAttribute("data-value");
@@ -64,7 +64,6 @@ function TimeChoiceDetail() {
     setHour(hour + 3);
     setCost(cost + 3000);
     setAutoTime(autoTime + 10800);
-    console.log(date);
   }
 
   function delayTime(autoTime){
@@ -97,9 +96,9 @@ function TimeChoiceDetail() {
     const mem_userid = member.mem_userid;
     const st_endDate = hour;
 
-    console.log("!!:" + st_mem_idx);
-    console.log("!!:" + st_endDate);
-    console.log("!!:" + st_seatNumber);
+    // console.log("!!:" + st_mem_idx);
+    // console.log("!!:" + st_endDate);
+    // console.log("!!:" + st_seatNumber);
 
     alert("좌석을 지정하였습니다.");
 
@@ -107,7 +106,7 @@ function TimeChoiceDetail() {
     
     member.mem_status = 'L';
     localStorage.setItem('users', JSON.stringify(member))
-    //by 이방원 / 좌석 선택 후, mem_status, 계정 상태 값이 바뀌지 않는다. db에는 바뀌었지만 localStorage는 바뀌지 않아 직접 수정하였다. / 20211028
+    //by 이방원 : 좌석 선택 후, mem_status, 계정 상태 값이 바뀌지 않는다. db에는 바뀌었지만 localStorage는 바뀌지 않아 직접 수정하였다. / 20211028
 
     dispatch(seats({ st_mem_idx, st_endDate, st_seatNumber, mem_userid }));
     history.push('/menu')
@@ -116,7 +115,10 @@ function TimeChoiceDetail() {
 
 
 
-  const [seatForm, handleSeatForm] = useState(false);
+  const [seatForm, handleSeatForm] = useState(false); 
+  // by 이방원 : 
+  //좌석을 이용할 시간과 금액을 선택하고 [다음] 버튼을 클릭하면 좌석을 선택할 수 있는 화면이 보이도록 도와준다. seatForm이 false일 때는 보이지 않고 true일 때 보이게 된다.
+  // 20211130
 
   function handleSeat() {
     handleSeatForm(true);

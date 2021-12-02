@@ -1,13 +1,15 @@
+import { Footer } from 'antd/lib/layout/layout';
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import StyledBodyDiv from '../styled/StyledBodyDiv';
 import StyledButton1 from '../styled/StyledButton1';
-import StyledDiv1 from '../styled/StyledDiv1';
 import StyledDiv2 from '../styled/StyledDiv2';
 import StyledDiv5 from '../styled/StyledDiv5';
 import StyledH1 from '../styled/StyledH1';
 import StyledPassword from '../styled/StyledPassword';
 import StyledText1 from '../styled/StyledText1';
+import FooterDiv from '../FooterDiv'
 
 // 회원가입 기능하는 컴포넌트이다.
 // 정보를 다 입력 한 후 [가입정보체크] 버튼을 누르면 두 가지 행동이 취해진다.
@@ -30,9 +32,9 @@ function AuthForm({ form, onChange, onSubmit, error}) {
     }
 
     return(
-        <div className="body">
+        <StyledBodyDiv>
             <form onSubmit={onSubmit} >       
-                <StyledDiv5>
+                <StyledDiv5 style={{marginBottom:"40px", paddingTop:"40px"}}>
                     <div className="title">
                         <StyledH1>
                             회원가입
@@ -81,8 +83,9 @@ function AuthForm({ form, onChange, onSubmit, error}) {
                         </StyledDiv2>
                     </StyledDiv5>
                 </StyledDiv5>
-            </form>     
-        </div>
+            </form>
+            <FooterDiv/>
+        </StyledBodyDiv>
     )
     
 

@@ -14,7 +14,7 @@ function BoardEditDetail({history, match}) {
     }))
     
     const getUser = localStorage.getItem("users");
-    const mem_idx = JSON.parse(getUser).mem_idx; //JSON.parse를 사용하여 객체로 생성.
+    const mem_idx = JSON.parse(getUser).mem_idx; //JSON.parse를 사용하여 JSON 객체로 생성.
     const bd_idx = match.params.bd_idx;
 
     //useCallback을 사용하여 최적화를 시킴 이전 코드보다 최적화 된 것을 Profiler(개발자 도구의  redux-devtools)로 확인함    

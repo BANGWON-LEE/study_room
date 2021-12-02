@@ -29,7 +29,7 @@ function BoardListDetail() {
 
         } else if(boardListError) {
             //console.log('게시판 리스트 오류');
-            //console.log(boardListError);
+            console.log(boardListError);
         }
     }, [boardLists, boardListError])
 

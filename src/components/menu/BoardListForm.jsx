@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FooterDiv from '../FooterDiv';
 import StyledButton1 from '../styled/StyledButton1';
 import StyledDiv4 from '../styled/StyledDiv4';
 import StyledH1 from '../styled/StyledH1';
@@ -11,7 +12,7 @@ function BoardListForm({boardLists}) {
     return (
         <div className="body">
             <StyledDiv4>
-                <div className="title">
+                <div className="title" style={{marginBottom:"40px", paddingTop:"40px"}} >
                     <StyledH1>
                         WONY Study Room 게시판
                     </StyledH1>
@@ -19,15 +20,17 @@ function BoardListForm({boardLists}) {
             </StyledDiv4>
             <div style={{width:'145px', float:'left', display:'block', marginLeft:'190px'}}>
                 <Link to='/menu' >
-                    <StyledButton1>메뉴</StyledButton1>    
+                    <StyledButton1 style={{width:'90px', height:'40px'}} >
+                        메뉴
+                    </StyledButton1>    
                 </Link>
             </div>
-            <div style={{width:'145px', float:'right', display:'block', marginRight:'190px'}}>
-                <Link to='/boardWrite' >
-                    <StyledButton1>글쓰기</StyledButton1>    
+            <div style={{width:'145px', float:'right', display:'block', marginRight:'195px'}}>
+                <Link to='/boardWrite'  >
+                    <StyledButton1 style={{width:'110px', height:'40px'}} >글쓰기</StyledButton1>    
                 </Link>
             </div>
-            <div style={{width:'75%', margin:'0 auto'}}>
+            <div style={{width:'75%', margin:'0 auto', marginTop:'120px'}}>
                 {boardLists && (
                 <StyledTable styled={{display:'inline'}}>
                     <tr style={{borderBottom:'1px solid grey'}}>
@@ -50,7 +53,8 @@ function BoardListForm({boardLists}) {
                     ))}
                 </StyledTable>
                     )}
-            </div>        
+            </div>   
+             
         </div>
 
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FooterDiv from '../FooterDiv';
 import StyledBackImg from '../styled/StyledBackImg';
 import StyledButton1 from '../styled/StyledButton1';
-import StyledDiv1 from '../styled/StyledDiv1';
 import StyledDiv2 from '../styled/StyledDiv2';
 import StyledDiv5 from '../styled/StyledDiv5';
 import StyledH1 from '../styled/StyledH1';
@@ -18,7 +18,7 @@ const LoginForm = ({form, onChange, onSubmit, error}) => {
         <div className="body">
             <form onSubmit={onSubmit}>        
                 <StyledDiv5>
-                    <div className="title">
+                    <div className="title"  style={{marginBottom:"40px", paddingTop:"40px"}}>
                         <StyledH1>
                             WONY Study Room
                         </StyledH1>
@@ -54,6 +54,7 @@ const LoginForm = ({form, onChange, onSubmit, error}) => {
                     </StyledDiv5>
                 </StyledDiv5>
             </form>
+            <FooterDiv/>
         </div>
     )
 }

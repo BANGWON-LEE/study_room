@@ -15,7 +15,7 @@ const TimeChoiceForm = ({hour, oneClick, threeClick, cost, handleSeat}) => {
     return (
         <div className="body">
             <StyledDiv4>
-                <div className="title">
+                <div className="title" style={{marginBottom:"40px", paddingTop:"40px"}}>
                     <StyledH1>
                         WONY Study Club
                     </StyledH1>

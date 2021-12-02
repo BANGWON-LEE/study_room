@@ -8,11 +8,12 @@ import StyledH1 from '../styled/StyledH1';
 import StyledText2 from '../styled/StyledText2';
 import StyledTextarea from '../styled/StyledTextarea';
 
+
 function BoardWriteForm({form, onChange, onSubmit}) {
     return(
         <div className="body">
             <StyledDiv4>
-                <div className="title">
+                <div className="title" style={{marginBottom:"40px", paddingTop:"40px"}}>
                     <StyledH1>
                         글쓰기
                     </StyledH1>
@@ -38,7 +39,7 @@ function BoardWriteForm({form, onChange, onSubmit}) {
                                 글등록
                             </StyledButton1>
                    
-                        <div>
+                        <div style={{marginBottom:'40px'}}>
                             <Link to='/boardList'>
                                 <StyledButton1 style={{marginTop:"20px"}}>
                                     메뉴

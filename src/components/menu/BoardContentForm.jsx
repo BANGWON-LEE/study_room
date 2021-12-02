@@ -62,7 +62,7 @@ function BoardContent({boardContents, onBack, cm_mem_idx}) {
                     </StyledButton1>
                 </StyledDiv2>
                 {cm_mem_idx === boardContents.bd_mem_idx?
-                <StyledDiv2>
+                <StyledDiv2 style={{marginTop:'15px'}}>
                     <Link to={`/boardEdit/${bd_idx}`}>
                         <StyledButton1 >
                                 글수정하기
