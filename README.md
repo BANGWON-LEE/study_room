@@ -7,7 +7,7 @@
 http://study-room-service.s3-website.ap-northeast-2.amazonaws.com/
 - 사이트 방문 시 로그인 계정<br/>
   아이디: visiter<br/>
-  비밃번호 : 12345<br/>
+  비번호 : 12345<br/>
   <br/>
 
   
