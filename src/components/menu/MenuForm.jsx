@@ -19,8 +19,8 @@ const MenuForm = ({onSubmit, member, zones}) => {
     const mem_userid = member?.mem_userid;
    
     return (
-        <StyledBodyDiv style={{backgroundImage:'url(img/lampBack.png)', backgroundRepeat: 'no-repeat'}}>
-            <StyledDiv1 >
+        <StyledBodyDiv >
+            <StyledDiv1 style={{backgroundImage:'url(img/lampBack.png)', backgroundRepeat: 'no-repeat'}}>
                     <div className="title" style={{marginBottom:"40px", paddingTop:"40px"}}>
                         <StyledH1>
                             WONY Study Room

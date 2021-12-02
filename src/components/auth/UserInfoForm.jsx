@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FooterDiv from '../FooterDiv';
 import StyledButton1 from '../styled/StyledButton1';
 import StyledDiv1 from '../styled/StyledDiv1';
 import StyledDiv2 from '../styled/StyledDiv2';
@@ -14,8 +15,8 @@ const UserInfoForm = ({userInfo}) => {
 
     return(
         <div className="body">       
-            <StyledDiv5>
-                <div className="title">
+            <StyledDiv5 style={{marginBottom:'355px'}} >
+                <div className="title" style={{marginBottom:"40px", paddingTop:"40px"}}>
                     <StyledH1>
                         WONY Study Club
                     </StyledH1>
@@ -63,6 +64,7 @@ const UserInfoForm = ({userInfo}) => {
                     </StyledButton1>
                 </Link>
             </StyledDiv5>
+            <FooterDiv/>
         </div>
     )
 }

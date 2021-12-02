@@ -12,12 +12,12 @@ export default function FooterDiv() {
                 <StyledFooterDiv1>
                     <StyledFooterContentP>
                         <StyledFooterGitA href="https://github.com/BANGWON-LEE">
-                            <StyledFooterGitImg src="img/git_hub.png" />
+                            <StyledFooterGitImg src="/img/git_hub.png" />
                             GitHub
                         </StyledFooterGitA>
                         <br/>
                         <StyledFooterGitA href="mailto:qkddnjs31@gmail.com" > 
-                            <StyledFooterGitImg src="img/mail.png" />
+                            <StyledFooterGitImg src="/img/mail.png" />
                             qkddnjs31@gmail.com
                         </StyledFooterGitA>
                         <br/>
@@ -25,7 +25,5 @@ export default function FooterDiv() {
                     </StyledFooterContentP>
                 </StyledFooterDiv1>
             </StyledFooter>
-
-
     );
 }

@@ -84,7 +84,7 @@ function AuthForm({ form, onChange, onSubmit, error}) {
                     </StyledDiv5>
                 </StyledDiv5>
             </form>
-            <FooterDiv/>
+           <FooterDiv/>
         </StyledBodyDiv>
     )
     
