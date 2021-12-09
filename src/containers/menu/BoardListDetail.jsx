@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import BoardListForm from "../../components/menu/BoardListForm";
+import Paging from "../../components/Paging";
 import { list } from "../../modules/boardList";
 
 function BoardListDetail() {
@@ -12,16 +13,6 @@ function BoardListDetail() {
         boardLists: boardList.boardList,
         boardListError : boardList.error
     }));    
-
-    useEffect(() => {
-        const {bd_idx, bd_title, mem_userid,  bd_regDate } = "";
-        dispatch(
-            list({
-                bd_idx, bd_title,  mem_userid,  bd_regDate
-            })
-        );
-    }, [dispatch]);
-
 
     useEffect(() =>{
         if(boardLists) {
@@ -33,12 +24,34 @@ function BoardListDetail() {
         }
     }, [boardLists, boardListError])
 
+    const [page, setPage] = useState(0);
+
+    const handlePageChange = (page) => {
+        setPage(page);
+        console.log(page);
+    }
+
+    useEffect(() => {
+        const {bd_idx, bd_title, mem_userid,  bd_regDate } = "";
+        dispatch(
+            list({
+                bd_idx, bd_title,  mem_userid,  bd_regDate, page
+            })
+        );
+    }, [dispatch, page]);
+
 
 
     return (
-        <BoardListForm
-            boardLists={boardLists}
-        />
+        <>
+            <BoardListForm
+                boardLists={boardLists}
+            />
+            <Paging
+                page={page}
+                handlePageChange={handlePageChange}
+            />
+        </>
     )
 
 

@@ -12,7 +12,7 @@ const [
 
 export const list = createAction(
     LIST_BOARD,
-    ({ bd_idx, bd_title,  mem_userid,  bd_regDate, bd_recommand }) => ({ bd_idx, bd_title,  mem_userid,  bd_regDate, bd_recommand })
+    ({ bd_idx, bd_title,  mem_userid,  bd_regDate, bd_recommand, page }) => ({ bd_idx, bd_title,  mem_userid,  bd_regDate, bd_recommand, page })
 );
 
 const boardListSaga = createRequestSaga(LIST_BOARD, menuAPI.boardList);
@@ -29,6 +29,7 @@ const initialState = {
     mem_userid: '',  
     bd_regDate: '', 
     bd_recommand: 0
+    
     
 }
 

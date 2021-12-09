@@ -14,7 +14,7 @@ import BoardEditPage from './pages/BoardEditPage';
 
 function App() {
   return (
- 
+    <BrowserRouter>
       <Switch>
         <Route exact component={LoginPage} path="/" />
         <Route exact component={LoginPage} path="/login" />
@@ -23,11 +23,12 @@ function App() {
         <Route exact component={TimeChoiceForm} path="/timeChoice" />
         <Route exact component={SeatPage} path="/seat" />
         <Route exact component={UserInfoPage} path="/userInfo/:mem_userid" />
-        <Route exact component={BoardListPage} path="/BoardList"/>
+        <Route exact component={BoardListPage} path="/BoardList/:page"/>
         <Route exact component={BoardWritePage} path="/BoardWrite"/>
         <Route exact component={BoardContentPage} path="/BoardContents/:bd_idx"/>
         <Route exact component={BoardEditPage} path="/BoardEdit/:bd_idx"/>
       </Switch>
+      </BrowserRouter> 
   );
 }
 

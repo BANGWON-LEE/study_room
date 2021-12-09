@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FooterDiv from '../FooterDiv';
 import StyledButton1 from '../styled/StyledButton1';
 import StyledDiv4 from '../styled/StyledDiv4';
 import StyledH1 from '../styled/StyledH1';
@@ -43,7 +42,7 @@ function BoardListForm({boardLists}) {
                         <StyledTh style={{width:'320px'}}>
                             글쓴이
                         </StyledTh>
-                        <StyledTh style={{width:'400px'}}>
+                        <StyledTh style={{width:'430px'}}>
                             날짜
                         </StyledTh>
                     </tr>
@@ -53,8 +52,7 @@ function BoardListForm({boardLists}) {
                     ))}
                 </StyledTable>
                     )}
-            </div>   
-             
+            </div>  
         </div>
 
 

@@ -52,7 +52,7 @@ const MenuForm = ({onSubmit, member, zones}) => {
                         </Link>
                     </StyledDiv2>
                     <StyledDiv2>
-                        <Link to='/boardList' >
+                        <Link to='/boardList/0' >
                             <StyledButtonMenu>게시판</StyledButtonMenu>    
                         </Link>
                     </StyledDiv2>
