@@ -12,7 +12,7 @@ const [
 
 export const list = createAction(
     LIST_BOARD,
-    ({ bd_idx, bd_title,  mem_userid,  bd_regDate, bd_recommand, page }) => ({ bd_idx, bd_title,  mem_userid,  bd_regDate, bd_recommand, page })
+    ({ bd_idx, bd_title,  mem_userid,  bd_regDate, bd_recommand, bd_page }) => ({ bd_idx, bd_title,  mem_userid,  bd_regDate, bd_recommand, bd_page })
 );
 
 const boardListSaga = createRequestSaga(LIST_BOARD, menuAPI.boardList);
