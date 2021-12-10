@@ -24,21 +24,28 @@ function BoardListDetail() {
         }
     }, [boardLists, boardListError])
 
-    const [page, setPage] = useState(0);
+    const [bd_page, bdSetPage] = useState(0);
+    // by 이방원
+    // 페이징으로 불러 올 현제 페이지를 알려주는 상태값
+    // 2021-12-10
 
-    const handlePageChange = (page) => {
-        setPage(page);
-        console.log(page);
+    const handlePageChange = (bd_page) => {
+        bdSetPage(bd_page);
+        console.log(bd_page);
     }
+
+    // by 이방원
+    // 페이지 번호를 클릭할 때마다 bd_page의 상태값이 바뀌도록 도와준다.
+    // 2021-12-10    
 
     useEffect(() => {
         const {bd_idx, bd_title, mem_userid,  bd_regDate } = "";
         dispatch(
             list({
-                bd_idx, bd_title,  mem_userid,  bd_regDate, page
+                bd_idx, bd_title,  mem_userid,  bd_regDate, bd_page
             })
         );
-    }, [dispatch, page]);
+    }, [dispatch, bd_page]);
 
 
 
@@ -48,7 +55,7 @@ function BoardListDetail() {
                 boardLists={boardLists}
             />
             <Paging
-                page={page}
+                bd_page={bd_page}
                 handlePageChange={handlePageChange}
             />
         </>
