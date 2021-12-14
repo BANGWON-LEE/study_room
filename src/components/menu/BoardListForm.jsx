@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import StyledButton1 from '../styled/StyledButton1';
+import StyledBoardBtnDiv from '../styled/StyledBoardBtnDiv';
+import StyledBoardButton from '../styled/StyledBoardButton';
 import StyledDiv4 from '../styled/StyledDiv4';
 import StyledH1 from '../styled/StyledH1';
 import StyledTable from '../styled/StyledTable';
@@ -17,29 +18,33 @@ function BoardListForm({boardLists}) {
                     </StyledH1>
                 </div>
             </StyledDiv4>
-            <div style={{width:'145px', float:'left', display:'block', marginLeft:'190px'}}>
-                <Link to='/menu' >
-                    <StyledButton1 style={{width:'90px', height:'40px'}} >
+            <StyledBoardBtnDiv>
+                <div style={{display:'contents'}}>
+                <Link to='/menu' style={{marginBottom: '35px'}} >
+                    <StyledBoardButton style={{width:'110px', height:'40px', padding:'0'}} >
                         메뉴
-                    </StyledButton1>    
+                    </StyledBoardButton>    
                 </Link>
-            </div>
-            <div style={{width:'145px', float:'right', display:'block', marginRight:'195px'}}>
-                <Link to='/boardWrite'  >
-                    <StyledButton1 style={{width:'110px', height:'40px'}} >글쓰기</StyledButton1>    
+                </div>
+                <div style={{display:'inline-block', marginLeft: '14px'}}>
+                <Link to='/boardWrite' >
+                    <StyledBoardButton style={{width:'140px', height:'40px', padding:'0'}} >
+                        글쓰기
+                    </StyledBoardButton>    
                 </Link>
-            </div>
-            <div style={{width:'75%', margin:'0 auto', marginTop:'120px'}}>
+                </div>
+            </StyledBoardBtnDiv>
+            <div style={{width:'75%', margin:'0 auto',}}>
                 {boardLists && (
                 <StyledTable styled={{display:'inline'}}>
                     <tr style={{borderBottom:'1px solid grey'}}>
                         <StyledTh style={{width:'130px'}}>
                             번호
                         </StyledTh>
-                        <StyledTh style={{width:'380px'}}>
+                        <StyledTh style={{width:'370px'}}>
                             글제목
                         </StyledTh>
-                        <StyledTh style={{width:'320px'}}>
+                        <StyledTh style={{width:'370px'}}>
                             글쓴이
                         </StyledTh>
                         <StyledTh style={{width:'430px'}}>

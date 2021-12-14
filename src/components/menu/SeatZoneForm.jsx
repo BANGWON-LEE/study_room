@@ -10,7 +10,7 @@ const SeatZoneForm = ({zone, onClickZone }) => {
     const { st_seatNumber, st_seatStatus,} = zone
 
     return(
-        <StyledDivZone2>
+        <StyledDivZone2 style={{paddingTop: '0px'}}>
             {st_seatStatus === 'S' ? 
                 <StyledImg1 src='img/fullTable.png'  
                     onClick={onClickZone}  

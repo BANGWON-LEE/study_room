@@ -17,7 +17,7 @@ function BoardContent({boardContents, onBack, cm_mem_idx}) {
     return(
         <div className="body">
             <StyledDiv5>
-                <div className="title">
+                <div className="title" style={{marginTop:'30px'}}>
                     <StyledH1>
                         게시판
                     </StyledH1>
@@ -25,31 +25,31 @@ function BoardContent({boardContents, onBack, cm_mem_idx}) {
             </StyledDiv5> 
             <StyledDiv3>
                 <StyledDiv2>
-                    <div style={{float : 'left', display:'inline-block'}}>
+                    <div style={{float : 'left', display:'inline-block', fontWeight: 'bold', color:'#212529' }}>
                         제목 : 
                     </div>
-                    <div style={{display:'inline-block', paddingRight:'45px'}}>
+                    <div style={{display:'inline-block', paddingRight:'45px', fontWeight: 'bold', color:'#212529'}}>
                         {boardContents.bd_title}
                     </div>   
                 </StyledDiv2>
                 <StyledDiv2>
-                    <div style={{float : 'left', display:'inline-block'}}>
+                    <div style={{float : 'left', display:'inline-block', fontWeight: 'bold', color:'#212529'}}>
                         저자: 
                     </div>
-                    <div style={{display:'inline-block', paddingRight:'45px'}}>
+                    <div style={{display:'inline-block', paddingRight:'45px', fontWeight: 'bold', color:'#212529'}}>
                         {boardContents.mem_userid}
                     </div>   
                 </StyledDiv2>
                 <StyledDiv2>
-                    <div style={{float : 'left', display:'inline-block'}}>
+                    <div style={{float : 'left', display:'inline-block', fontWeight: 'bold', color:'#212529'}}>
                         날짜 : 
                     </div>
-                    <div style={{display:'inline-block', paddingRight:'45px'}}>
+                    <div style={{display:'inline-block', paddingRight:'45px', fontWeight: 'bold', color:'#212529'}}>
                         {boardContents.bd_regDate}
                     </div>   
                 </StyledDiv2>
                 <StyledDiv2>
-                    <p style={{textAlign : 'left'}}>
+                    <p style={{textAlign : 'left', fontWeight: 'bold', color:'#212529'}}>
                         내용 : 
                     </p>
                     <div style={{width :'100%', wordBreak:'break-all', textAlign:'left'}}>

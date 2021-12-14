@@ -60,7 +60,7 @@ function BoardCommentForm({
                     }}
                 />
                 <StyledButton1
-                    style={{ height: "25px", fontSize: "11.5px", marginLeft: "0px", width:'58px' }}
+                    style={{ height: "25px", fontSize: "11.5px", marginLeft: "0px", width:'58px', padding: '0px' }}
                     onClick={onSubmit}
                 >
                     등록

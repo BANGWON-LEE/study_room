@@ -6,9 +6,9 @@ const StyledText2 = styled.input`
     border : 2px solid grey;
     color : black;
     font-size: 15px;
-    width : 100%;
+    width : 70%;
     height : 30px;
-    text-align:center;
+    
 `
 
 export default StyledText2;

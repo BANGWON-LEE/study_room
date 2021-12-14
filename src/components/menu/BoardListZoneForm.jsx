@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import StyledBoardTd from "../styled/StyledBoardTd";
 import StyledTd from '../styled/StyledTd';
 
 function BoardListZoneForm(boardList){
 
-    const {bd_idx, bd_title, mem_userid, bd_regDate, bd_recommand} = boardList.boardList
+    const {bd_idx, bd_title, mem_userid, bd_regDate} = boardList.boardList
 
 
     return(
@@ -13,12 +14,12 @@ function BoardListZoneForm(boardList){
                 <StyledTd style={{width:'130px'}}>
                     {bd_idx}
                 </StyledTd>
-                <StyledTd style={{width:'380px'}}>
+                <StyledBoardTd >
                     {bd_title}
-                </StyledTd>
-                <StyledTd style={{width:'320px'}}>
+                </StyledBoardTd>
+                <StyledBoardTd >
                     {mem_userid} 
-                </StyledTd>
+                </StyledBoardTd>
                 <StyledTd style={{width:'430px'}}>
                     {bd_regDate}
                 </StyledTd>

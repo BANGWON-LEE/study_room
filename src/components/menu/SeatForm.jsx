@@ -28,17 +28,23 @@ const SeatForm = ({ onSubmit, zones, hour, onClickZone }) => {
                 <StyledH1>좌석</StyledH1>
             </div>
             </StyledDiv4>
-            {zones && (
-            <StyledDivZone3 style={{ height: "80%" }}>
-                {zones.map((zone) => (
-                <SeatZoneForm
-                    zone={zone}
-                    key={zone.st_seatNumber}
-                    onClickZone={onClickZone}
-                />
-                ))}
-            </StyledDivZone3>
-            )}
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7" style={{width:'939px'}}>
+                            {zones && (
+                            <StyledDivZone3 style={{ height: "80%", width:'100%' }}>
+                                {zones.map((zone) => (
+                                <SeatZoneForm
+                                    zone={zone}
+                                    key={zone.st_seatNumber}
+                                    onClickZone={onClickZone}
+                                />
+                                ))}
+                            </StyledDivZone3>
+                            )}
+                    </div>
+                </div>
+            </div>
         </StyledDivZone>
         {hour >= 1 ? (
                 <StyledDiv2 style={{ textAlign: "center" }}>
@@ -55,7 +61,6 @@ const SeatForm = ({ onSubmit, zones, hour, onClickZone }) => {
             </StyledDiv2>
             </Link>
         )}
-         <FooterDiv/>   
         </div>
     );
 };

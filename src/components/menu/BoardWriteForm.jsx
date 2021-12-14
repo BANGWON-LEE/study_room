@@ -20,34 +20,34 @@ function BoardWriteForm({form, onChange, onSubmit}) {
                 </div>
             </StyledDiv4>
             <form onSubmit={onSubmit}>
-                <StyledDiv5>
+                <StyledDiv2>
                     <div style={{width:'75%', margin:'0 auto', height:'90%'}}>
                         <StyledDiv2>
-                            <p style={{textAlign : 'left'}}>
+                            <p style={{width:'70%', textAlign:'left', margin:'0 auto', marginBottom:'20px', fontWeight: 'bold', color:'#212529'}}>
                                 제목 : 
                             </p>
                             <StyledText2 value={form.bd_title} onChange={onChange} name="bd_title"/>
                         </StyledDiv2>
                         <StyledDiv2>
-                            <p style={{textAlign : 'left'}}>
+                        <p style={{width:'70%', textAlign:'left', margin:'0 auto', marginBottom:'20px', fontWeight: 'bold', color:'#212529'}}>
                                 내용 : 
                             </p>
                             <StyledTextarea value={form.bd_textarea} onChange={onChange} name="bd_textarea"/>
                         </StyledDiv2>
-                    
+                        <div style={{textAlign:'center'}}>
                             <StyledButton1 onClick={onSubmit}>
                                 글등록
                             </StyledButton1>
-                   
-                        <div style={{marginBottom:'40px'}}>
-                            <Link to='/boardList'>
-                                <StyledButton1 style={{marginTop:"20px"}}>
-                                    메뉴
-                                </StyledButton1>    
-                            </Link>
+                            <div style={{marginBottom:'40px'}}>
+                                <Link to='/boardList/0'>
+                                    <StyledButton1 style={{marginTop:"20px"}}>
+                                        게시판 리스트
+                                    </StyledButton1>    
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </StyledDiv5>
+                </StyledDiv2>
             </form>
         </div>
     )

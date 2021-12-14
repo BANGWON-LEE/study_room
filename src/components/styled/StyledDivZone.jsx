@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import customMedia from "../customMedia";
 
 const StyledDivZone = styled.div`
 position: relative;
@@ -9,6 +10,12 @@ border-radius : 5px;
 width : 70%;
 height : 600px;
 
+    ${customMedia.lessThan('tablet')`
+    height : 500px;
+    `}
+    ${customMedia.lessThan('mobile')`
+    height : 1100px;
+    `}
 
 `;
 

@@ -5,7 +5,7 @@ const StyledTable = styled.table`
     font-size: 15px;
     width: 100%;
     position: relative;
-    margin-top: 80px;
+    margin-top: 20px;
     text-align : center;
     display: grid;
     `;

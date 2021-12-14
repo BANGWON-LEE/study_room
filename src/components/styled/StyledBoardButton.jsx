@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledButton1 = styled.button`
+const StyledBoardButton = styled.button`
     padding: 18px 32px;
     background: #343a40;
     border-radius: 8px;
@@ -10,8 +10,9 @@ const StyledButton1 = styled.button`
     color: #fff;
     width : 170px
 
-    
+
+
 `;
 
-export default StyledButton1;
+export default StyledBoardButton;
 

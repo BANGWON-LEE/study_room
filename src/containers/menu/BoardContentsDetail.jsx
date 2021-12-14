@@ -26,7 +26,7 @@ function BoardContentsDetail({ match, history }) {
  
 
   function onBack(){
-    history.push("/boardList");
+    history.push("/boardList/0");
   }
 
   useEffect(() => {

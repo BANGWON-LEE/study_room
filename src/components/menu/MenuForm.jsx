@@ -19,10 +19,13 @@ const MenuForm = ({onSubmit, member, zones}) => {
     const mem_userid = member?.mem_userid;
    
     return (
+        <div class="masthead" style={{backgroundImage: 'url(img/lampBack.png)', height: '910px', paddingTop:'calc(1rem + 57px);'}}>
         <StyledBodyDiv >
-            <StyledDiv1 style={{backgroundImage:'url(img/lampBack.png)', backgroundRepeat: 'no-repeat'}}>
-                    <div className="title" style={{marginBottom:"40px", paddingTop:"40px"}}>
-                        <StyledH1>
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div className="title" style={{marginBottom:"40px"}}>
+                        <StyledH1 style={{color:'#fff'}}>
                             WONY Study Room
                         </StyledH1>
                     </div>        
@@ -30,7 +33,7 @@ const MenuForm = ({onSubmit, member, zones}) => {
                         <Link to='/timeChoice'>
                             {mem_status === 'L' ?
                                 null :
-                            <StyledButtonMenu>
+                            <StyledButtonMenu >
                                 입장
                             </StyledButtonMenu>
                         }
@@ -38,7 +41,7 @@ const MenuForm = ({onSubmit, member, zones}) => {
                     </StyledDiv2>
                     <StyledDiv2>
                         <Link to= '/seat'>
-                            <StyledButtonMenu>
+                            <StyledButtonMenu  >
                                 좌석확인
                             </StyledButtonMenu>
                         </Link>
@@ -46,26 +49,36 @@ const MenuForm = ({onSubmit, member, zones}) => {
                     <StyledDiv2>
                         <Link to= {`/userInfo/${mem_userid}`}>
                             {mem_status === 'L' ?
-                                <StyledButtonMenu>사용자 정보</StyledButtonMenu>
+                                <StyledButtonMenu >
+                                    사용자 정보
+                                </StyledButtonMenu>
                             : null
                             }
                         </Link>
                     </StyledDiv2>
                     <StyledDiv2>
                         <Link to='/boardList/0' >
-                            <StyledButtonMenu>게시판</StyledButtonMenu>    
+                            <StyledButtonMenu >
+                                게시판
+                            </StyledButtonMenu>    
                         </Link>
                     </StyledDiv2>
                 <form onSubmit={onSubmit}>
                     <StyledDiv2>
-                        <StyledButtonMenu>퇴실<br/>/ 로그아웃</StyledButtonMenu>
+                        <StyledButtonMenu>
+                            퇴실<br/><br/>/ 로그아웃
+                        </StyledButtonMenu>
                     </StyledDiv2>
-                </form>    
-            </StyledDiv1>
-            <FooterDiv/>
+                </form> 
+                    </div>
+                </div>
+            </div>       
+            
         </StyledBodyDiv>
+        </div>
     )
 
 }
 
 export default MenuForm;
+
