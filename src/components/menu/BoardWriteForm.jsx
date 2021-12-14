@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import StyledButton1 from '../styled/StyledButton1';
-import StyledDiv5 from '../styled/StyledDiv5';
 import StyledDiv2 from '../styled/StyledDiv2';
 import StyledDiv4 from '../styled/StyledDiv4';
 import StyledH1 from '../styled/StyledH1';

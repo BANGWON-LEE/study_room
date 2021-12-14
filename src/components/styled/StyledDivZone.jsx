@@ -11,7 +11,7 @@ width : 70%;
 height : 600px;
 
     ${customMedia.lessThan('tablet')`
-    height : 500px;
+    height : 900px;
     `}
     ${customMedia.lessThan('mobile')`
     height : 1100px;

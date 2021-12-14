@@ -1,11 +1,9 @@
 import React from 'react';
-import StyledDiv1 from '../styled/StyledDiv1';
 import StyledButtonMenu from '../styled/StyledButtonMenu';
 import StyledDiv2 from '../styled/StyledDiv2';
 import StyledH1 from '../styled/StyledH1';
 import { Link } from 'react-router-dom';
 import StyledBodyDiv from '../styled/StyledBodyDiv';
-import FooterDiv from '../FooterDiv'
 
 // 로그인 후, 할 작업을 선택하는 컴포넌트이다.
 // [입장] 버튼을 누르면 사용할 좌석과 시간을 선택하는 화면으로 이동한다. 사용자(계정)의 상태가
