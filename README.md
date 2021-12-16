@@ -63,7 +63,8 @@ http://study-room-service.s3-website.ap-northeast-2.amazonaws.com/
     로그아웃은 즉, 퇴실과 같은 기능이다.
 
 <앞으로 구현할 기능><br/>
-- 독서실 이용자 랭킹 순위를 구현하려고 한다. (누가 얼마나 많은 시간을 이용하였는지 순위를 보여줄 예정)
+- 독서실 이용자 랭킹 순위를 구현하려고 한다. (누가 얼마나 많은 시간을 이용하였는지 순위를 보여줄 예정)<br/>
+
 ### this project is for my skill improve
 
 ## information about project
