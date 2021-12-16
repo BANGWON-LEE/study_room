@@ -65,6 +65,14 @@ http://study-room-service.s3-website.ap-northeast-2.amazonaws.com/
 <앞으로 구현할 기능><br/>
 - 독서실 이용자 랭킹 순위를 구현하려고 한다. (누가 얼마나 많은 시간을 이용하였는지 순위를 보여줄 예정)<br/>
 
+
+### 프로젝트 구조도 (흐름도)
+<br/>
+
+![study_room_구조도](https://user-images.githubusercontent.com/74960408/146313214-811f3f46-5901-4dac-872f-34e024690316.jpg)
+
+<br/>
+
 ### this project is for my skill improve
 
 ## information about project
