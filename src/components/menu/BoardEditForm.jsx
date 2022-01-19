@@ -30,13 +30,13 @@ function BoardEditForm({form, onChange, onSubmit}) {
                         <p style={{textAlign : 'left'}}>
                             내용 : 
                         </p>
-                        <StyledTextarea value={form.bd_textarea} onChange={onChange} name="bd_textarea"/>
+                        <StyledTextarea value={form.bd_textarea} onChange={onChange} wrap="hard" name="bd_textarea"/>
                     </StyledDiv2>
                     <StyledButton1 onClick={onSubmit}>
                             글수정
                     </StyledButton1>
                     <div>
-                        <Link to='/boardList'>
+                        <Link to='/boardList/0'>
                             <StyledButton1 style={{marginTop:"20px"}}>
                                 메뉴
                             </StyledButton1>    

@@ -31,7 +31,7 @@ function BoardWriteForm({form, onChange, onSubmit}) {
                         <p style={{width:'70%', textAlign:'left', margin:'0 auto', marginBottom:'20px', fontWeight: 'bold', color:'#212529'}}>
                                 내용 : 
                             </p>
-                            <StyledTextarea value={form.bd_textarea} onChange={onChange} name="bd_textarea"/>
+                            <StyledTextarea value={form.bd_textarea} onChange={onChange} wrap="hard" name="bd_textarea"/>
                         </StyledDiv2>
                         <div style={{textAlign:'center'}}>
                             <StyledButton1 onClick={onSubmit}>

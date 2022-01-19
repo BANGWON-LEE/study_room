@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import StyledBackImg from '../styled/StyledBackImg';
 import StyledButton1 from '../styled/StyledButton1';
 import StyledDiv2 from '../styled/StyledDiv2';
 import StyledDiv5 from '../styled/StyledDiv5';

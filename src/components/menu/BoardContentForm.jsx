@@ -4,7 +4,6 @@ import BoardCommentDetail from '../../containers/menu/BoardCommentDetail';
 import StyledButton1 from '../styled/StyledButton1';
 import StyledDiv2 from '../styled/StyledDiv2';
 import StyledDiv3 from '../styled/StyledDiv3';
-
 import StyledDiv5 from '../styled/StyledDiv5';
 import StyledH1 from '../styled/StyledH1';
 
@@ -12,7 +11,6 @@ import StyledH1 from '../styled/StyledH1';
 function BoardContent({boardContents, onBack, cm_mem_idx}) {
 
     const bd_idx = boardContents.bd_idx;
-  
 
     return(
         <div className="body">
@@ -53,7 +51,9 @@ function BoardContent({boardContents, onBack, cm_mem_idx}) {
                         내용 : 
                     </p>
                     <div style={{width :'100%', wordBreak:'break-all', textAlign:'left'}}>
-                        {boardContents.bd_cotents}
+                        <pre>
+                            {boardContents.bd_cotents}
+                        </pre>    
                     </div>
                 </StyledDiv2>
                 <StyledDiv2>
